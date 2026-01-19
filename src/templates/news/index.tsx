@@ -1,0 +1,295 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  Clock,
+  ClockIcon,
+  Filter,
+  Newspaper,
+  TagIcon,
+} from "lucide-react";
+import { motion } from "motion/react";
+import Link from "next/link";
+import { useState } from "react";
+
+export function NewsPage() {
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const news = [
+    {
+      id: "1",
+      title: "Celebração do Dia da Unificação Italiana",
+      excerpt:
+        "Nossa associação celebrou o 17 de março com uma programação especial em homenagem à unificação italiana.",
+      created_date: "2023-01-01",
+      featured: true,
+      category: "",
+      image_url: "/photo-01.jpg",
+    },
+    {
+      id: "2",
+      title: "Novas turmas de italiano abertas",
+      excerpt:
+        "Estão abertas as inscrições para os cursos de italiano do segundo semestre. Vagas limitadas.",
+      category: "educacao",
+      featured: false,
+      created_date: "2023-01-02",
+      image_url: "/photo-02.jpg",
+    },
+    {
+      id: "3",
+      title: "Festa de São José - Tradição Italiana",
+      excerpt:
+        "Dia 19 de março celebramos São José com uma festa típica que reuniu toda a comunidade.",
+      created_date: "2023-01-03",
+      featured: false,
+      category: "comunidade",
+      image_url: "/photo-01.jpg",
+    },
+    {
+      id: "4",
+      title: "Parceria com Consulado Italiano em SP",
+      excerpt:
+        "Nossa associação firmou parceria oficial com o Consulado Italiano para facilitar orientações à comunidade.",
+      created_date: "2023-01-04",
+      featured: false,
+
+      category: "institucional",
+      image_url: "/photo-02.jpg",
+    },
+  ];
+  //   const getLocale = () => {
+  //     switch (language) {
+  //       case "it":
+  //         return it;
+  //       case "es":
+  //         return es;
+  //       default:
+  //         return ptBR;
+  //     }
+  //   };
+
+  const categories = [
+    { value: "all", label: "Todas" },
+    { value: "cultura", label: "Cultura" },
+    { value: "eventos", label: "Eventos" },
+    { value: "institucional", label: "Institucional" },
+    { value: "educacao", label: "Educação" },
+    { value: "comunidade", label: "Comunidade" },
+  ];
+
+  const categoryColors = {
+    cultura: "bg-purple-100 text-purple-700",
+    eventos: "bg-blue-100 text-blue-700",
+    institucional: "bg-emerald-100 text-emerald-700",
+    educacao: "bg-amber-100 text-amber-700",
+    comunidade: "bg-pink-100 text-pink-700",
+  };
+
+  const filteredNews =
+    selectedCategory === "all"
+      ? news
+      : news.filter((item) => item.category === selectedCategory);
+
+  const featuredNews =
+    filteredNews.find((item) => item.featured) || filteredNews[0];
+  const regularNews = filteredNews.filter(
+    (item) => item.id !== featuredNews?.id,
+  );
+
+  const isLoading = false;
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Hero */}
+      <section className="relative py-24 bg-linear-to-br from-gray-900 to-gray-800 overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1920&q=80')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+        </div>
+        <div className="absolute top-0 left-0 w-2 h-full bg-linear-to-b from-green-500 via-white to-red-500 opacity-80" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <Newspaper className="w-16 h-16 text-gray-400 mx-auto mb-6" />
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+              Notícias
+            </h1>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Acompanhe as últimas novidades da nossa associação e da comunidade
+              ítalo-brasileira
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Filter */}
+      <section className="py-8 border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-4 overflow-x-auto pb-2">
+            <Filter className="w-5 h-5 text-gray-400 shrink-0" />
+            {categories.map((cat) => (
+              <Button
+                key={cat.value}
+                variant={selectedCategory === cat.value ? "default" : "ghost"}
+                size="sm"
+                onClick={() => setSelectedCategory(cat.value)}
+                className={
+                  selectedCategory === cat.value
+                    ? "bg-emerald-600 hover:bg-emerald-700"
+                    : ""
+                }
+              >
+                {cat.label}
+              </Button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* News Grid */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {isLoading ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[1, 2, 3, 4, 5, 6].map((i) => (
+                <Skeleton key={i} className="h-80 rounded-2xl" />
+              ))}
+            </div>
+          ) : filteredNews.length > 0 ? (
+            <>
+              {/* Featured Article */}
+              {featuredNews && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-12"
+                >
+                  <Link href={`/news/${featuredNews.id}`}>
+                    <div className="group grid md:grid-cols-2 gap-8 bg-gray-50 rounded-3xl overflow-hidden hover:shadow-xl transition-shadow">
+                      {featuredNews.image_url && (
+                        <div className="h-64 md:h-96 overflow-hidden">
+                          <img
+                            src={featuredNews.image_url}
+                            alt={featuredNews.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                        </div>
+                      )}
+                      <div className="p-8 flex flex-col justify-center">
+                        <div className="flex items-center gap-3 mb-4">
+                          {featuredNews.category && (
+                            <span
+                              className={`px-3 py-1 rounded-full text-xs font-semibold ${categoryColors[featuredNews.category as keyof typeof categoryColors] || "bg-gray-100 text-gray-700"}`}
+                            >
+                              {featuredNews.category}
+                            </span>
+                          )}
+                          <span className="text-sm text-gray-500 flex items-center gap-1">
+                            <Clock className="w-4 h-4" />
+                            {/* {format(
+                              new Date(featuredNews.created_date),
+                              "d 'de' MMMM, yyyy",
+                              { locale: getLocale() },
+                            )} */}
+                            14 de janeiro, 2023
+                          </span>
+                        </div>
+                        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 group-hover:text-emerald-700 transition-colors">
+                          {featuredNews.title}
+                        </h2>
+                        {featuredNews.excerpt && (
+                          <p className="text-gray-600 mb-6 line-clamp-3">
+                            {featuredNews.excerpt}
+                          </p>
+                        )}
+                        <div className="flex items-center text-emerald-600 font-semibold group-hover:text-emerald-700">
+                          Leia mais
+                          <ArrowRightIcon className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              )}
+
+              {/* Regular Articles */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {regularNews.map((item, index) => (
+                  <motion.div
+                    key={item.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05 }}
+                  >
+                    <Link href={`/news/${item.id}`}>
+                      <div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-full border border-gray-100">
+                        {item.image_url && (
+                          <div className="h-48 overflow-hidden">
+                            <img
+                              src={item.image_url}
+                              alt={item.title}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                          </div>
+                        )}
+                        <div className="p-6">
+                          <div className="flex items-center gap-2 mb-3">
+                            {item.category && (
+                              <span
+                                className={`px-2 py-0.5 rounded-full text-xs font-medium ${categoryColors[item.category as keyof typeof categoryColors] || "bg-gray-100 text-gray-700"}`}
+                              >
+                                {item.category}
+                              </span>
+                            )}
+                          </div>
+                          <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-emerald-700 transition-colors">
+                            {item.title}
+                          </h3>
+                          {item.excerpt && (
+                            <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+                              {item.excerpt}
+                            </p>
+                          )}
+                          <div className="flex items-center gap-1 text-xs text-gray-500">
+                            <ClockIcon className="w-3 h-3" />
+                            {/* {
+                              (new Date(item.created_date),
+                              "d MMM yyyy",
+                              { locale: getLocale() })
+                            } */}
+                            14 de janeiro, 2023
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </>
+          ) : (
+            <div className="text-center py-20">
+              <Newspaper className="w-20 h-20 text-gray-300 mx-auto mb-6" />
+              <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+                Nenhuma notícia encontrada
+              </h3>
+              <p className="text-gray-600">Em breve publicaremos novidades</p>
+            </div>
+          )}
+        </div>
+      </section>
+    </div>
+  );
+}
