@@ -39,12 +39,16 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
+
+          <Link href="/" className="flex items-center gap-2">
             <img
               src={LOGO_URL}
               alt="Associação Anita e Giuseppe Garibaldi"
               className="size-10 rounded-full w-auto object-contain"
             />
+            <span className="sm:hidden font-semibold text-sm">
+              AICIB Anita e Giuseppe Garibaldi-SP
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -61,7 +65,7 @@ export function Header() {
           </nav>
 
           {/* Right side actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1">
             {/* Language Selector */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
