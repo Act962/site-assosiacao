@@ -2,15 +2,8 @@ import { CollectionConfig } from "payload";
 import { generateSlugHook } from "./hooks/generate-slug.hook";
 import { STATUS_OPTIONS } from "./constants";
 import {
-  AlignFeature,
-  BoldFeature,
   FixedToolbarFeature,
-  HeadingFeature,
-  ItalicFeature,
   lexicalEditor,
-  OrderedListFeature,
-  UnorderedListFeature,
-  HorizontalRuleFeature,
 } from "@payloadcms/richtext-lexical";
 
 export const News: CollectionConfig = {
@@ -20,35 +13,46 @@ export const News: CollectionConfig = {
       name: "title",
       type: "text",
       required: true,
+      localized: true,
     },
     {
       name: "slug",
       type: "text",
       unique: true,
-      hooks: { beforeValidate: [generateSlugHook] },
+      required: true,
+      hooks: {
+        beforeValidate: [generateSlugHook],
+        beforeChange: [generateSlugHook],
+      },
+      localized: true,
     },
     {
       name: "content",
       type: "richText",
       editor: lexicalEditor({
-        features: () => [
-          BoldFeature(),
-          ItalicFeature(),
-          AlignFeature(),
-          HeadingFeature(),
-          OrderedListFeature(),
-          UnorderedListFeature(),
-          HorizontalRuleFeature(),
+        features: ({ defaultFeatures }) => [
+          ...defaultFeatures,
           FixedToolbarFeature(),
         ],
       }),
       required: true,
+      localized: true,
     },
     {
       name: "coverImage",
       type: "upload",
       relationTo: "media",
       required: true,
+    },
+    {
+      name: "categories",
+      type: "relationship",
+      relationTo: "categories",
+      hasMany: false,
+    },
+    {
+      name: "publishedAt",
+      type: "date",
     },
     {
       name: "status",
