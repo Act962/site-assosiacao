@@ -46,7 +46,7 @@ export function Header() {
               alt="Associação Anita e Giuseppe Garibaldi"
               className="size-10 rounded-full w-auto object-contain"
             />
-            <span className="sm:hidden font-semibold text-sm">
+            <span className="sm:hidden font-semibold text-[0.7rem]">
               AICIB Anita e Giuseppe Garibaldi-SP
             </span>
           </Link>
@@ -65,7 +65,7 @@ export function Header() {
           </nav>
 
           {/* Right side actions */}
-          <div className="flex items-center gap-1">
+          <div className="flex items-center">
             {/* Language Selector */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
