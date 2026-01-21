@@ -1,5 +1,7 @@
 "use client";
 
+import { useQueryNews } from "@/modules/news/hooks/use-news";
+import { format } from "date-fns";
 import { ArrowRightIcon, ClockIcon } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
@@ -13,40 +15,41 @@ interface News {
 }
 
 export function NewsPreview() {
-  const news: News[] = [
-    {
-      id: "1",
-      title: "Celebração do Dia da Unificação Italiana",
-      excerpt:
-        "Nossa associação celebrou o 17 de março com uma programação especial em homenagem à unificação italiana.",
-      created_date: "2023-01-01",
-      image_url: "/photo-01.jpg",
-    },
-    {
-      id: "2",
-      title: "Novas turmas de italiano abertas",
-      excerpt:
-        "Estão abertas as inscrições para os cursos de italiano do segundo semestre. Vagas limitadas.",
-      created_date: "2023-01-02",
-      image_url: "/photo-02.jpg",
-    },
-    {
-      id: "3",
-      title: "Festa de São José - Tradição Italiana",
-      excerpt:
-        "Dia 19 de março celebramos São José com uma festa típica que reuniu toda a comunidade.",
-      created_date: "2023-01-03",
-      image_url: "/photo-01.jpg",
-    },
-    {
-      id: "4",
-      title: "Parceria com Consulado Italiano em SP",
-      excerpt:
-        "Nossa associação firmou parceria oficial com o Consulado Italiano para facilitar orientações à comunidade.",
-      created_date: "2023-01-04",
-      image_url: "/photo-02.jpg",
-    },
-  ];
+  const { news, isLoading } = useQueryNews();
+  // const news: News[] = [
+  //   {
+  //     id: "1",
+  //     title: "Celebração do Dia da Unificação Italiana",
+  //     excerpt:
+  //       "Nossa associação celebrou o 17 de março com uma programação especial em homenagem à unificação italiana.",
+  //     created_date: "2023-01-01",
+  //     image_url: "/photo-01.jpg",
+  //   },
+  //   {
+  //     id: "2",
+  //     title: "Novas turmas de italiano abertas",
+  //     excerpt:
+  //       "Estão abertas as inscrições para os cursos de italiano do segundo semestre. Vagas limitadas.",
+  //     created_date: "2023-01-02",
+  //     image_url: "/photo-02.jpg",
+  //   },
+  //   {
+  //     id: "3",
+  //     title: "Festa de São José - Tradição Italiana",
+  //     excerpt:
+  //       "Dia 19 de março celebramos São José com uma festa típica que reuniu toda a comunidade.",
+  //     created_date: "2023-01-03",
+  //     image_url: "/photo-01.jpg",
+  //   },
+  //   {
+  //     id: "4",
+  //     title: "Parceria com Consulado Italiano em SP",
+  //     excerpt:
+  //       "Nossa associação firmou parceria oficial com o Consulado Italiano para facilitar orientações à comunidade.",
+  //     created_date: "2023-01-04",
+  //     image_url: "/photo-02.jpg",
+  //   },
+  // ];
 
   //   const getLocale = () => {
   //     switch (language) {
@@ -59,8 +62,8 @@ export function NewsPreview() {
   //     }
   //   };
 
-  const featuredNews = news[0];
-  const regularNews = news.slice(1);
+  const featuredNews = news.filter((item) => item.featured)[0];
+  const regularNews = news.filter((item) => !item.featured);
   return (
     <section className="py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,7 +85,7 @@ export function NewsPreview() {
             </p>
           </div>
           <Link
-            href={"/"}
+            href={"/news"}
             className="flex items-center text-emerald-600 font-semibold hover:text-emerald-700 text-lg"
           >
             Todas as notícias
@@ -100,10 +103,10 @@ export function NewsPreview() {
           >
             <Link href={`/`}>
               <div className="group grid md:grid-cols-2 gap-8 bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
-                {featuredNews.image_url && (
+                {featuredNews.coverImage && (
                   <div className="h-80 md:h-[500px] overflow-hidden">
                     <img
-                      src={featuredNews.image_url}
+                      src={featuredNews.coverImage.url || ""}
                       alt={featuredNews.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
@@ -118,7 +121,10 @@ export function NewsPreview() {
                         "d 'de' MMMM, yyyy",
                         { locale: getLocale() },
                       )} */}
-                      14 de janeiro, 2026
+                      {format(
+                        new Date(featuredNews.publishedAt?.toString() || ""),
+                        "dd/MM/yyyy",
+                      )}
                     </span>
                   </div>
                   <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 group-hover:text-emerald-700 transition-colors leading-tight">
@@ -150,10 +156,10 @@ export function NewsPreview() {
             >
               <Link href={`/`}>
                 <div className="group bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 h-full border border-gray-100">
-                  {item.image_url && (
+                  {item.coverImage && (
                     <div className="relative h-48 overflow-hidden">
                       <img
-                        src={item.image_url}
+                        src={item.coverImage.url || ""}
                         alt={item.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
@@ -163,10 +169,10 @@ export function NewsPreview() {
                     <div className="flex items-center gap-2 text-xs text-gray-500 mb-3">
                       <ClockIcon className="w-3 h-3" />
                       <span>
-                        {/* {format(new Date(item.created_date), "d MMM yyyy", {
-                          locale: getLocale(),
-                        })} */}
-                        14 jan 2026
+                        {format(
+                          new Date(item.publishedAt?.toString() || ""),
+                          "dd/MM/yyyy",
+                        )}
                       </span>
                     </div>
                     <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-emerald-700 transition-colors">

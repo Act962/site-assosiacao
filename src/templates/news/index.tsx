@@ -141,6 +141,18 @@ export function NewsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-4 overflow-x-auto pb-2">
             <Filter className="w-5 h-5 text-gray-400 shrink-0" />
+            <Button
+              variant={selectedCategory === "all" ? "default" : "ghost"}
+              size="sm"
+              onClick={() => setSelectedCategory("all")}
+              className={
+                selectedCategory === "all"
+                  ? "bg-emerald-600 hover:bg-emerald-700"
+                  : ""
+              }
+            >
+              Todas
+            </Button>
             {categories.map((cat) => (
               <Button
                 key={cat.id}
