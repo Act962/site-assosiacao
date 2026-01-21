@@ -159,6 +159,7 @@ export interface Media {
   alt: string;
   updatedAt: string;
   createdAt: string;
+  deletedAt?: string | null;
   url?: string | null;
   thumbnailURL?: string | null;
   filename?: string | null;
@@ -215,6 +216,7 @@ export interface News {
   status: 'Rascunho' | 'Publicado';
   updatedAt: string;
   createdAt: string;
+  deletedAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -252,28 +254,25 @@ export interface Category {
 export interface Event {
   id: string;
   name: string;
+  /**
+   * O slug é o endereço do evento
+   */
   slug: string;
-  content: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
+  description?: string | null;
+  /**
+   * Local do evento
+   */
+  location: string;
+  /**
+   * Selecione uma categoria de evento
+   */
   categories?: (string | null) | Category;
   coverImage: string | Media;
-  publishedAt?: string | null;
-  type: 'Evento' | 'Notícia';
+  eventDate?: string | null;
+  eventEndDate?: string | null;
   updatedAt: string;
   createdAt: string;
+  deletedAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -392,6 +391,7 @@ export interface MediaSelect<T extends boolean = true> {
   alt?: T;
   updatedAt?: T;
   createdAt?: T;
+  deletedAt?: T;
   url?: T;
   thumbnailURL?: T;
   filename?: T;
@@ -418,6 +418,7 @@ export interface NewsSelect<T extends boolean = true> {
   status?: T;
   updatedAt?: T;
   createdAt?: T;
+  deletedAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -439,13 +440,15 @@ export interface CategoriesSelect<T extends boolean = true> {
 export interface EventsSelect<T extends boolean = true> {
   name?: T;
   slug?: T;
-  content?: T;
+  description?: T;
+  location?: T;
   categories?: T;
   coverImage?: T;
-  publishedAt?: T;
-  type?: T;
+  eventDate?: T;
+  eventEndDate?: T;
   updatedAt?: T;
   createdAt?: T;
+  deletedAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

@@ -1,12 +1,10 @@
 import { CollectionConfig } from "payload";
 import { TYPE_CATEGORY } from "../Categories/constants";
-import {
-  FixedToolbarFeature,
-  lexicalEditor,
-} from "@payloadcms/richtext-lexical";
+import { generateSlugHook } from "./hooks/generate-slug.hook";
 
 export const Events: CollectionConfig = {
   slug: "events",
+  trash: true,
   admin: {
     useAsTitle: "name",
   },
@@ -20,6 +18,7 @@ export const Events: CollectionConfig = {
       label: "Nome",
       type: "text",
       required: true,
+      unique: true,
       localized: true,
       admin: {
         placeholder: "Digite o nome do evento",
@@ -30,26 +29,37 @@ export const Events: CollectionConfig = {
       label: "Slug",
       type: "text",
       required: true,
-      localized: true,
+      unique: true,
+      index: true,
       admin: {
         placeholder: "Ex.: titulo-do-evento",
+        description: "O slug é o endereço do evento",
+        // readOnly: true,
+      },
+      hooks: {
+        beforeChange: [generateSlugHook],
+        beforeValidate: [generateSlugHook],
       },
     },
     {
-      name: "content",
-      label: "Conteúdo",
-      type: "richText",
-      editor: lexicalEditor({
-        features: ({ defaultFeatures }) => [
-          ...defaultFeatures,
-          FixedToolbarFeature(),
-        ],
-        admin: {
-          placeholder: "Digite o conteúdo da notícia",
-        },
-      }),
+      name: "description",
+      label: "Descrição",
+      type: "textarea",
+      localized: true,
+      admin: {
+        placeholder: "Digite a descrição do evento",
+      },
+    },
+    {
+      name: "location",
+      label: "Local",
+      type: "text",
       required: true,
       localized: true,
+      admin: {
+        placeholder: "Ex.: Sede da Associação - Centro SP",
+        description: "Local do evento",
+      },
     },
     {
       name: "categories",
@@ -57,6 +67,14 @@ export const Events: CollectionConfig = {
       type: "relationship",
       relationTo: "categories",
       hasMany: false,
+      filterOptions: {
+        type: {
+          equals: TYPE_CATEGORY.EVENT,
+        },
+      },
+      admin: {
+        description: "Selecione uma categoria de evento",
+      },
     },
     {
       name: "coverImage",
@@ -66,21 +84,28 @@ export const Events: CollectionConfig = {
       required: true,
     },
     {
-      name: "publishedAt",
-      label: "Data de publicação",
+      name: "eventDate",
+      label: "Data do evento",
       type: "date",
       defaultValue: new Date().toISOString(),
       admin: {
-        placeholder: "Selecione a data de publicação",
+        placeholder: "Selecione a data do evento",
+        date: {
+          pickerAppearance: "dayAndTime",
+        },
       },
     },
     {
-      name: "type",
-      label: "Tipo",
-      type: "select",
-      required: true,
-      options: Object.values(TYPE_CATEGORY),
-      defaultValue: TYPE_CATEGORY.NEWS,
+      name: "eventEndDate",
+      label: "Data final do evento",
+      type: "date",
+      defaultValue: new Date().toISOString(),
+      admin: {
+        placeholder: "Selecione a data final do evento",
+        date: {
+          pickerAppearance: "dayAndTime",
+        },
+      },
     },
   ],
 };

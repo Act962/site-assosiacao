@@ -11,9 +11,9 @@ export const generateSlugHook: FieldHook = ({ data, operation, value }) => {
   }
 
   // Se não tem slug, gerar do título em PT
-  if (!value && data?.title) {
+  if (!value && data?.name) {
     // Pegar título em português (idioma padrão)
-    const titlePt = typeof data.title === "object" ? data.title.pt : data.title;
+    const titlePt = typeof data.name === "object" ? data.name.pt : data.name;
 
     if (titlePt) {
       return titlePt

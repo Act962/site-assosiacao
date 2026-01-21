@@ -1,5 +1,6 @@
 import { CollectionConfig } from "payload";
 import { TYPE_CATEGORY } from "./constants";
+import { generateSlugHook } from "./hooks/generate-slug.hook";
 
 export const Categories: CollectionConfig = {
   slug: "categories",
@@ -30,10 +31,14 @@ export const Categories: CollectionConfig = {
       required: true,
       unique: true,
       index: true,
-      localized: true,
+      hooks: {
+        beforeValidate: [generateSlugHook],
+        beforeChange: [generateSlugHook],
+      },
       admin: {
         placeholder: "Exemplo: cultura",
         description: "URL amigável da categoria",
+        readOnly: true,
       },
     },
     {

@@ -10,6 +10,7 @@ import { ensureSingleFeatured } from "./hooks/featured.hook";
 
 export const News: CollectionConfig = {
   slug: "news",
+  trash: true,
   labels: {
     singular: "Notícia",
     plural: "Notícias",
@@ -44,14 +45,15 @@ export const News: CollectionConfig = {
       type: "text",
       unique: true,
       required: true,
+      index: true,
       hooks: {
         beforeValidate: [generateSlugHook],
         beforeChange: [generateSlugHook],
       },
-      localized: true,
       admin: {
         placeholder: "Ex.: titulo-da-noticia",
         description: "O slug é o endereço da notícia",
+        // readOnly: true,
       },
     },
     {
