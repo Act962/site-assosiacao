@@ -5,11 +5,27 @@ import {
   FixedToolbarFeature,
   lexicalEditor,
 } from "@payloadcms/richtext-lexical";
+import { TYPE_CATEGORY } from "../Categories/constants";
+import { ensureSingleFeatured } from "./hooks/featured.hook";
 
 export const News: CollectionConfig = {
   slug: "news",
+  labels: {
+    singular: "Notícia",
+    plural: "Notícias",
+  },
   admin: {
     useAsTitle: "title",
+    defaultColumns: [
+      "coverImage",
+      "title",
+      "categories",
+      "status",
+      "publishedAt",
+    ],
+  },
+  hooks: {
+    beforeChange: [ensureSingleFeatured],
   },
   fields: [
     {
@@ -35,6 +51,7 @@ export const News: CollectionConfig = {
       localized: true,
       admin: {
         placeholder: "Ex.: titulo-da-noticia",
+        description: "O slug é o endereço da notícia",
       },
     },
     {
@@ -46,9 +63,6 @@ export const News: CollectionConfig = {
           ...defaultFeatures,
           FixedToolbarFeature(),
         ],
-        admin: {
-          placeholder: "Digite o conteúdo da notícia",
-        },
       }),
       required: true,
       localized: true,
@@ -59,6 +73,20 @@ export const News: CollectionConfig = {
       type: "upload",
       relationTo: "media",
       required: true,
+      admin: {
+        description: "Imagem que será exibida na lista de notícias",
+      },
+    },
+    {
+      name: "featured",
+      label: "Destacar esta notícia",
+      type: "checkbox",
+      defaultValue: false,
+      admin: {
+        position: "sidebar",
+        description:
+          "Apenas uma notícia pode estar em destaque por vez. Ao marcar esta, a anterior será desmarcada automaticamente.",
+      },
     },
     {
       name: "categories",
@@ -66,14 +94,26 @@ export const News: CollectionConfig = {
       type: "relationship",
       relationTo: "categories",
       hasMany: false,
+      // 🎯 AQUI ESTÁ O FILTRO!
+      filterOptions: {
+        type: {
+          equals: TYPE_CATEGORY.NEWS,
+        },
+      },
+      admin: {
+        description: "Selecione uma categoria de notícia",
+      },
     },
     {
       name: "publishedAt",
       label: "Data de publicação",
       type: "date",
-      defaultValue: new Date().toISOString(),
+      defaultValue: () => new Date().toISOString(),
       admin: {
         placeholder: "Selecione a data de publicação",
+        // date: {
+        //   pickerAppearance: "dayAndTime",
+        // },
       },
     },
     {
@@ -81,8 +121,20 @@ export const News: CollectionConfig = {
       label: "Status",
       type: "select",
       required: true,
-      options: Object.values(STATUS_OPTIONS),
+      options: [
+        {
+          label: "Rascunho",
+          value: STATUS_OPTIONS.DRAFT,
+        },
+        {
+          label: "Publicado",
+          value: STATUS_OPTIONS.PUBLISHED,
+        },
+      ],
       defaultValue: STATUS_OPTIONS.DRAFT,
+      admin: {
+        position: "sidebar",
+      },
     },
   ],
 };

@@ -71,6 +71,7 @@ export interface Config {
     media: Media;
     news: News;
     categories: Category;
+    events: Event;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -82,6 +83,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     news: NewsSelect<false> | NewsSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
+    events: EventsSelect<false> | EventsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -90,15 +92,10 @@ export interface Config {
   db: {
     defaultIDType: string;
   };
-  fallbackLocale:
-    | ('false' | 'none' | 'null')
-    | false
-    | null
-    | ('pt' | 'it' | 'en' | 'es')
-    | ('pt' | 'it' | 'en' | 'es')[];
+  fallbackLocale: ('false' | 'none' | 'null') | false | null | ('pt' | 'it' | 'es') | ('pt' | 'it' | 'es')[];
   globals: {};
   globalsSelect: {};
-  locale: 'pt' | 'it' | 'en' | 'es';
+  locale: 'pt' | 'it' | 'es';
   user: User & {
     collection: 'users';
   };
@@ -131,6 +128,10 @@ export interface UserAuthOperations {
  */
 export interface User {
   id: string;
+  /**
+   * Nome do usuário
+   */
+  name: string;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -175,6 +176,9 @@ export interface Media {
 export interface News {
   id: string;
   title: string;
+  /**
+   * O slug é o endereço da notícia
+   */
   slug: string;
   content: {
     root: {
@@ -191,7 +195,17 @@ export interface News {
     };
     [k: string]: unknown;
   };
+  /**
+   * Imagem que será exibida na lista de notícias
+   */
   coverImage: string | Media;
+  /**
+   * Apenas uma notícia pode estar em destaque por vez. Ao marcar esta, a anterior será desmarcada automaticamente.
+   */
+  featured?: boolean | null;
+  /**
+   * Selecione uma categoria de notícia
+   */
   categories?: (string | null) | Category;
   publishedAt?: string | null;
   status: 'Rascunho' | 'Publicado';
@@ -205,8 +219,52 @@ export interface News {
 export interface Category {
   id: string;
   name: string;
+  /**
+   * URL amigável da categoria
+   */
   slug: string;
+  /**
+   * Defina se esta categoria é para Notícias ou Eventos
+   */
+  type: 'Notícia' | 'Evento';
+  /**
+   * Código hexadecimal da cor (ex: #FF5733)
+   */
   color?: string | null;
+  /**
+   * Descrição opcional da categoria
+   */
+  description?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "events".
+ */
+export interface Event {
+  id: string;
+  name: string;
+  slug: string;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  categories?: (string | null) | Category;
+  coverImage: string | Media;
+  publishedAt?: string | null;
+  type: 'Evento' | 'Notícia';
   updatedAt: string;
   createdAt: string;
 }
@@ -249,6 +307,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'categories';
         value: string | Category;
+      } | null)
+    | ({
+        relationTo: 'events';
+        value: string | Event;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -297,6 +359,7 @@ export interface PayloadMigration {
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
+  name?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;
@@ -341,6 +404,7 @@ export interface NewsSelect<T extends boolean = true> {
   slug?: T;
   content?: T;
   coverImage?: T;
+  featured?: T;
   categories?: T;
   publishedAt?: T;
   status?: T;
@@ -354,7 +418,24 @@ export interface NewsSelect<T extends boolean = true> {
 export interface CategoriesSelect<T extends boolean = true> {
   name?: T;
   slug?: T;
+  type?: T;
   color?: T;
+  description?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "events_select".
+ */
+export interface EventsSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  content?: T;
+  categories?: T;
+  coverImage?: T;
+  publishedAt?: T;
+  type?: T;
   updatedAt?: T;
   createdAt?: T;
 }
