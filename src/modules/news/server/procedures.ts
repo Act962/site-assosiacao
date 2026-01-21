@@ -1,3 +1,4 @@
+import { Category, Media } from "@/payload-types";
 import { baseProcedure, createTRPCRouter } from "@/trpc/init";
 
 export const newsRouter = createTRPCRouter({
@@ -8,6 +9,13 @@ export const newsRouter = createTRPCRouter({
       pagination: false,
     });
 
-    return data;
+    return {
+      ...data,
+      docs: data.docs.map((doc) => ({
+        ...doc,
+        coverImage: doc.coverImage as Media | null,
+        categories: doc.categories as Category | null,
+      })),
+    };
   }),
 });

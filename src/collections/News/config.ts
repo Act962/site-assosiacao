@@ -55,6 +55,16 @@ export const News: CollectionConfig = {
       },
     },
     {
+      name: "excerpt",
+      label: "Resumo",
+      type: "text",
+      localized: true,
+      admin: {
+        placeholder: "Digite o resumo da notícia",
+        description: "Resumo que será exibido na lista de notícias",
+      },
+    },
+    {
       name: "content",
       label: "Conteúdo",
       type: "richText",

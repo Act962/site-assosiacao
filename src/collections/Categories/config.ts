@@ -18,6 +18,10 @@ export const Categories: CollectionConfig = {
       type: "text",
       required: true,
       localized: true,
+      admin: {
+        placeholder: "Exemplo: Cultura",
+        description: "Nome da categoria",
+      },
     },
     {
       name: "slug",
@@ -28,6 +32,7 @@ export const Categories: CollectionConfig = {
       index: true,
       localized: true,
       admin: {
+        placeholder: "Exemplo: cultura",
         description: "URL amigável da categoria",
       },
     },
@@ -48,6 +53,7 @@ export const Categories: CollectionConfig = {
       ],
       defaultValue: TYPE_CATEGORY.NEWS,
       admin: {
+        placeholder: "Exemplo: Notícia",
         description: "Defina se esta categoria é para Notícias ou Eventos",
       },
     },
@@ -67,6 +73,7 @@ export const Categories: CollectionConfig = {
       type: "textarea",
       localized: true,
       admin: {
+        placeholder: "Exemplo: Descrição opcional da categoria",
         description: "Descrição opcional da categoria",
       },
     },

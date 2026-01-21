@@ -180,6 +180,10 @@ export interface News {
    * O slug é o endereço da notícia
    */
   slug: string;
+  /**
+   * Resumo que será exibido na lista de notícias
+   */
+  excerpt?: string | null;
   content: {
     root: {
       type: string;
@@ -218,6 +222,9 @@ export interface News {
  */
 export interface Category {
   id: string;
+  /**
+   * Nome da categoria
+   */
   name: string;
   /**
    * URL amigável da categoria
@@ -402,6 +409,7 @@ export interface MediaSelect<T extends boolean = true> {
 export interface NewsSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
+  excerpt?: T;
   content?: T;
   coverImage?: T;
   featured?: T;

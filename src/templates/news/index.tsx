@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useQueryNews } from "@/modules/news/hooks/use-news";
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
@@ -14,52 +15,56 @@ import {
 import { motion } from "motion/react";
 import Link from "next/link";
 import { useState } from "react";
+import { format } from "date-fns";
+import { useQueryCategory } from "@/modules/categories/hooks/use-category";
 
 export function NewsPage() {
+  const { news, isLoading } = useQueryNews();
+  const { categories, isLoadingCategory } = useQueryCategory();
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const news = [
-    {
-      id: "1",
-      title: "Celebração do Dia da Unificação Italiana",
-      excerpt:
-        "Nossa associação celebrou o 17 de março com uma programação especial em homenagem à unificação italiana.",
-      created_date: "2023-01-01",
-      featured: true,
-      category: "",
-      image_url: "/photo-01.jpg",
-    },
-    {
-      id: "2",
-      title: "Novas turmas de italiano abertas",
-      excerpt:
-        "Estão abertas as inscrições para os cursos de italiano do segundo semestre. Vagas limitadas.",
-      category: "educacao",
-      featured: false,
-      created_date: "2023-01-02",
-      image_url: "/photo-02.jpg",
-    },
-    {
-      id: "3",
-      title: "Festa de São José - Tradição Italiana",
-      excerpt:
-        "Dia 19 de março celebramos São José com uma festa típica que reuniu toda a comunidade.",
-      created_date: "2023-01-03",
-      featured: false,
-      category: "comunidade",
-      image_url: "/photo-01.jpg",
-    },
-    {
-      id: "4",
-      title: "Parceria com Consulado Italiano em SP",
-      excerpt:
-        "Nossa associação firmou parceria oficial com o Consulado Italiano para facilitar orientações à comunidade.",
-      created_date: "2023-01-04",
-      featured: false,
+  // const news = [
+  //   {
+  //     id: "1",
+  //     title: "Celebração do Dia da Unificação Italiana",
+  //     excerpt:
+  //       "Nossa associação celebrou o 17 de março com uma programação especial em homenagem à unificação italiana.",
+  //     created_date: "2023-01-01",
+  //     featured: true,
+  //     category: "",
+  //     image_url: "/photo-01.jpg",
+  //   },
+  //   {
+  //     id: "2",
+  //     title: "Novas turmas de italiano abertas",
+  //     excerpt:
+  //       "Estão abertas as inscrições para os cursos de italiano do segundo semestre. Vagas limitadas.",
+  //     category: "educacao",
+  //     featured: false,
+  //     created_date: "2023-01-02",
+  //     image_url: "/photo-02.jpg",
+  //   },
+  //   {
+  //     id: "3",
+  //     title: "Festa de São José - Tradição Italiana",
+  //     excerpt:
+  //       "Dia 19 de março celebramos São José com uma festa típica que reuniu toda a comunidade.",
+  //     created_date: "2023-01-03",
+  //     featured: false,
+  //     category: "comunidade",
+  //     image_url: "/photo-01.jpg",
+  //   },
+  //   {
+  //     id: "4",
+  //     title: "Parceria com Consulado Italiano em SP",
+  //     excerpt:
+  //       "Nossa associação firmou parceria oficial com o Consulado Italiano para facilitar orientações à comunidade.",
+  //     created_date: "2023-01-04",
+  //     featured: false,
 
-      category: "institucional",
-      image_url: "/photo-02.jpg",
-    },
-  ];
+  //     category: "institucional",
+  //     image_url: "/photo-02.jpg",
+  //   },
+  // ];
   //   const getLocale = () => {
   //     switch (language) {
   //       case "it":
@@ -71,14 +76,14 @@ export function NewsPage() {
   //     }
   //   };
 
-  const categories = [
-    { value: "all", label: "Todas" },
-    { value: "cultura", label: "Cultura" },
-    { value: "eventos", label: "Eventos" },
-    { value: "institucional", label: "Institucional" },
-    { value: "educacao", label: "Educação" },
-    { value: "comunidade", label: "Comunidade" },
-  ];
+  // const categories = [
+  //   { value: "all", label: "Todas" },
+  //   { value: "cultura", label: "Cultura" },
+  //   { value: "eventos", label: "Eventos" },
+  //   { value: "institucional", label: "Institucional" },
+  //   { value: "educacao", label: "Educação" },
+  //   { value: "comunidade", label: "Comunidade" },
+  // ];
 
   const categoryColors = {
     cultura: "bg-purple-100 text-purple-700",
@@ -91,15 +96,13 @@ export function NewsPage() {
   const filteredNews =
     selectedCategory === "all"
       ? news
-      : news.filter((item) => item.category === selectedCategory);
+      : news.filter((item) => item.categories?.slug === selectedCategory);
 
   const featuredNews =
     filteredNews.find((item) => item.featured) || filteredNews[0];
   const regularNews = filteredNews.filter(
     (item) => item.id !== featuredNews?.id,
   );
-
-  const isLoading = false;
 
   return (
     <div className="min-h-screen bg-white">
@@ -115,7 +118,6 @@ export function NewsPage() {
             }}
           />
         </div>
-        {/* <div className="absolute top-0 left-0 w-2 h-full bg-linear-to-b from-green-500 via-white to-red-500 opacity-80" /> */}
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
@@ -141,17 +143,17 @@ export function NewsPage() {
             <Filter className="w-5 h-5 text-gray-400 shrink-0" />
             {categories.map((cat) => (
               <Button
-                key={cat.value}
-                variant={selectedCategory === cat.value ? "default" : "ghost"}
+                key={cat.id}
+                variant={selectedCategory === cat.slug ? "default" : "ghost"}
                 size="sm"
-                onClick={() => setSelectedCategory(cat.value)}
+                onClick={() => setSelectedCategory(cat.slug)}
                 className={
-                  selectedCategory === cat.value
+                  selectedCategory === cat.slug
                     ? "bg-emerald-600 hover:bg-emerald-700"
                     : ""
                 }
               >
-                {cat.label}
+                {cat.name}
               </Button>
             ))}
           </div>
@@ -178,10 +180,10 @@ export function NewsPage() {
                 >
                   <Link href={`/news/${featuredNews.id}`}>
                     <div className="group grid md:grid-cols-2 gap-8 bg-gray-50 rounded-3xl overflow-hidden hover:shadow-xl transition-shadow">
-                      {featuredNews.image_url && (
+                      {featuredNews.coverImage && (
                         <div className="h-64 md:h-96 overflow-hidden">
                           <img
-                            src={featuredNews.image_url}
+                            src={featuredNews.coverImage?.url || ""}
                             alt={featuredNews.title}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           />
@@ -189,11 +191,11 @@ export function NewsPage() {
                       )}
                       <div className="p-8 flex flex-col justify-center">
                         <div className="flex items-center gap-3 mb-4">
-                          {featuredNews.category && (
+                          {featuredNews.categories && (
                             <span
-                              className={`px-3 py-1 rounded-full text-xs font-semibold ${categoryColors[featuredNews.category as keyof typeof categoryColors] || "bg-gray-100 text-gray-700"}`}
+                              className={`px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700`}
                             >
-                              {featuredNews.category}
+                              {featuredNews.categories.name}
                             </span>
                           )}
                           <span className="text-sm text-gray-500 flex items-center gap-1">
@@ -203,7 +205,12 @@ export function NewsPage() {
                               "d 'de' MMMM, yyyy",
                               { locale: getLocale() },
                             )} */}
-                            14 de janeiro, 2023
+                            {format(
+                              new Date(
+                                featuredNews.publishedAt?.toString() || "",
+                              ),
+                              "d 'de' MMMM, yyyy",
+                            )}
                           </span>
                         </div>
                         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 group-hover:text-emerald-700 transition-colors">
@@ -236,10 +243,10 @@ export function NewsPage() {
                   >
                     <Link href={`/news/${item.id}`}>
                       <div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-full border border-gray-100">
-                        {item.image_url && (
+                        {item.coverImage && (
                           <div className="h-48 overflow-hidden">
                             <img
-                              src={item.image_url}
+                              src={item.coverImage?.url || ""}
                               alt={item.title}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                             />
@@ -247,11 +254,11 @@ export function NewsPage() {
                         )}
                         <div className="p-6">
                           <div className="flex items-center gap-2 mb-3">
-                            {item.category && (
+                            {item.categories && (
                               <span
-                                className={`px-2 py-0.5 rounded-full text-xs font-medium ${categoryColors[item.category as keyof typeof categoryColors] || "bg-gray-100 text-gray-700"}`}
+                                className={`px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-700`}
                               >
-                                {item.category}
+                                {item.categories.name}
                               </span>
                             )}
                           </div>
@@ -265,12 +272,10 @@ export function NewsPage() {
                           )}
                           <div className="flex items-center gap-1 text-xs text-gray-500">
                             <ClockIcon className="w-3 h-3" />
-                            {/* {
-                              (new Date(item.created_date),
+                            {format(
+                              new Date(item.publishedAt?.toString() || ""),
                               "d MMM yyyy",
-                              { locale: getLocale() })
-                            } */}
-                            14 de janeiro, 2023
+                            )}
                           </div>
                         </div>
                       </div>
