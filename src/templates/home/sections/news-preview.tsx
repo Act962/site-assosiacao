@@ -6,17 +6,8 @@ import { ArrowRightIcon, ClockIcon } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
 
-interface News {
-  id: string;
-  title: string;
-  excerpt: string;
-  created_date: string;
-  image_url: string;
-}
-
 export function NewsPreview() {
   const { news, isLoading } = useQueryNews();
-  // const news: News[] = [
   //   {
   //     id: "1",
   //     title: "Celebração do Dia da Unificação Italiana",
@@ -63,7 +54,7 @@ export function NewsPreview() {
   //   };
 
   const featuredNews = news.filter((item) => item.featured)[0];
-  const regularNews = news.filter((item) => !item.featured);
+  const regularNews = news.filter((item) => !item.featured).slice(0, 3);
   return (
     <section className="py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

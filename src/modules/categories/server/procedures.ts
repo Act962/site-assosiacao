@@ -10,7 +10,7 @@ export const categoryRouter = createTRPCRouter({
           equals: "Notícia",
         },
       },
-      sort: ["name:asc"],
+      sort: ["name"],
     });
 
     return data;
