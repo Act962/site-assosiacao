@@ -3,8 +3,8 @@ import React from "react";
 import { MapPin, Mail, Phone, Facebook, Instagram } from "lucide-react";
 import Link from "next/link";
 
-const LOGO_URL =
-  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68e0322715c4b09646bb5f4e/59dc25d0e_LogomarcaAssociacaojpg.jpg";
+// const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68e0322715c4b09646bb5f4e/59dc25d0e_LogomarcaAssociacaojpg.jpg";
+const LOGO_URL = "/favicon.png";
 
 export default function Footer() {
   const quickLinks = [
@@ -25,7 +25,7 @@ export default function Footer() {
             <img
               src={LOGO_URL}
               alt="Associação Anita e Giuseppe Garibaldi"
-              className="h-16 w-auto mb-6 brightness-0 invert"
+              className="h-16 w-auto mb-6"
             />
             <p className="text-gray-400 leading-relaxed max-w-md">
               Promovendo o desenvolvimento humano, social e institucional de

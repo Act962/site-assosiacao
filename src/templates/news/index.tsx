@@ -22,76 +22,14 @@ export function NewsPage() {
   const { news, isLoading } = useQueryNews();
   const { categories, isLoadingCategory } = useQueryCategory();
   const [selectedCategory, setSelectedCategory] = useState("all");
-  // const news = [
-  //   {
-  //     id: "1",
-  //     title: "Celebração do Dia da Unificação Italiana",
-  //     excerpt:
-  //       "Nossa associação celebrou o 17 de março com uma programação especial em homenagem à unificação italiana.",
-  //     created_date: "2023-01-01",
-  //     featured: true,
-  //     category: "",
-  //     image_url: "/photo-01.jpg",
-  //   },
-  //   {
-  //     id: "2",
-  //     title: "Novas turmas de italiano abertas",
-  //     excerpt:
-  //       "Estão abertas as inscrições para os cursos de italiano do segundo semestre. Vagas limitadas.",
-  //     category: "educacao",
-  //     featured: false,
-  //     created_date: "2023-01-02",
-  //     image_url: "/photo-02.jpg",
-  //   },
-  //   {
-  //     id: "3",
-  //     title: "Festa de São José - Tradição Italiana",
-  //     excerpt:
-  //       "Dia 19 de março celebramos São José com uma festa típica que reuniu toda a comunidade.",
-  //     created_date: "2023-01-03",
-  //     featured: false,
-  //     category: "comunidade",
-  //     image_url: "/photo-01.jpg",
-  //   },
-  //   {
-  //     id: "4",
-  //     title: "Parceria com Consulado Italiano em SP",
-  //     excerpt:
-  //       "Nossa associação firmou parceria oficial com o Consulado Italiano para facilitar orientações à comunidade.",
-  //     created_date: "2023-01-04",
-  //     featured: false,
 
-  //     category: "institucional",
-  //     image_url: "/photo-02.jpg",
-  //   },
-  // ];
-  //   const getLocale = () => {
-  //     switch (language) {
-  //       case "it":
-  //         return it;
-  //       case "es":
-  //         return es;
-  //       default:
-  //         return ptBR;
-  //     }
-  //   };
-
-  // const categories = [
-  //   { value: "all", label: "Todas" },
-  //   { value: "cultura", label: "Cultura" },
-  //   { value: "eventos", label: "Eventos" },
-  //   { value: "institucional", label: "Institucional" },
-  //   { value: "educacao", label: "Educação" },
-  //   { value: "comunidade", label: "Comunidade" },
-  // ];
-
-  const categoryColors = {
-    cultura: "bg-purple-100 text-purple-700",
-    eventos: "bg-blue-100 text-blue-700",
-    institucional: "bg-emerald-100 text-emerald-700",
-    educacao: "bg-amber-100 text-amber-700",
-    comunidade: "bg-pink-100 text-pink-700",
-  };
+  // const categoryColors = {
+  //   cultura: "bg-purple-100 text-purple-700",
+  //   eventos: "bg-blue-100 text-blue-700",
+  //   institucional: "bg-emerald-100 text-emerald-700",
+  //   educacao: "bg-amber-100 text-amber-700",
+  //   comunidade: "bg-pink-100 text-pink-700",
+  // };
 
   const filteredNews =
     selectedCategory === "all"
@@ -190,7 +128,7 @@ export function NewsPage() {
                   animate={{ opacity: 1, y: 0 }}
                   className="mb-12"
                 >
-                  <Link href={`/news/${featuredNews.id}`}>
+                  <Link href={`/news/${featuredNews.slug}`}>
                     <div className="group grid md:grid-cols-2 gap-8 bg-gray-50 rounded-3xl overflow-hidden hover:shadow-xl transition-shadow">
                       {featuredNews.coverImage && (
                         <div className="h-64 md:h-96 overflow-hidden">
@@ -253,7 +191,7 @@ export function NewsPage() {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.05 }}
                   >
-                    <Link href={`/news/${item.id}`}>
+                    <Link href={`/news/${item.slug}`}>
                       <div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-full border border-gray-100">
                         {item.coverImage && (
                           <div className="h-48 overflow-hidden">

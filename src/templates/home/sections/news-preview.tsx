@@ -8,55 +8,11 @@ import Link from "next/link";
 
 export function NewsPreview() {
   const { news, isLoading } = useQueryNews();
-  //   {
-  //     id: "1",
-  //     title: "Celebração do Dia da Unificação Italiana",
-  //     excerpt:
-  //       "Nossa associação celebrou o 17 de março com uma programação especial em homenagem à unificação italiana.",
-  //     created_date: "2023-01-01",
-  //     image_url: "/photo-01.jpg",
-  //   },
-  //   {
-  //     id: "2",
-  //     title: "Novas turmas de italiano abertas",
-  //     excerpt:
-  //       "Estão abertas as inscrições para os cursos de italiano do segundo semestre. Vagas limitadas.",
-  //     created_date: "2023-01-02",
-  //     image_url: "/photo-02.jpg",
-  //   },
-  //   {
-  //     id: "3",
-  //     title: "Festa de São José - Tradição Italiana",
-  //     excerpt:
-  //       "Dia 19 de março celebramos São José com uma festa típica que reuniu toda a comunidade.",
-  //     created_date: "2023-01-03",
-  //     image_url: "/photo-01.jpg",
-  //   },
-  //   {
-  //     id: "4",
-  //     title: "Parceria com Consulado Italiano em SP",
-  //     excerpt:
-  //       "Nossa associação firmou parceria oficial com o Consulado Italiano para facilitar orientações à comunidade.",
-  //     created_date: "2023-01-04",
-  //     image_url: "/photo-02.jpg",
-  //   },
-  // ];
-
-  //   const getLocale = () => {
-  //     switch (language) {
-  //       case "it":
-  //         return it;
-  //       case "es":
-  //         return es;
-  //       default:
-  //         return ptBR;
-  //     }
-  //   };
 
   const featuredNews = news.filter((item) => item.featured)[0];
   const regularNews = news.filter((item) => !item.featured).slice(0, 3);
   return (
-    <section className="py-32">
+    <section className="py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -92,7 +48,7 @@ export function NewsPreview() {
             viewport={{ once: true }}
             className="mb-12"
           >
-            <Link href={`/`}>
+            <Link href={`/news/${featuredNews.slug}`}>
               <div className="group grid md:grid-cols-2 gap-8 bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
                 {featuredNews.coverImage && (
                   <div className="h-80 md:h-[500px] overflow-hidden">
@@ -145,7 +101,7 @@ export function NewsPreview() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Link href={`/`}>
+              <Link href={`/news/${item.slug}`}>
                 <div className="group bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 h-full border border-gray-100">
                   {item.coverImage && (
                     <div className="relative h-48 overflow-hidden">

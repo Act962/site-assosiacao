@@ -72,6 +72,7 @@ export interface Config {
     news: News;
     categories: Category;
     events: Event;
+    classes: Class;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -84,6 +85,7 @@ export interface Config {
     news: NewsSelect<false> | NewsSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     events: EventsSelect<false> | EventsSelect<true>;
+    classes: ClassesSelect<false> | ClassesSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -276,6 +278,48 @@ export interface Event {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "classes".
+ */
+export interface Class {
+  id: string;
+  /**
+   * Nome do curso
+   */
+  name: string;
+  /**
+   * Descrição do curso
+   */
+  description: string;
+  /**
+   * Nível do curso
+   */
+  level: 'basico' | 'intermediario' | 'avancado';
+  /**
+   * Imagem do curso
+   */
+  image: string | Media;
+  /**
+   * Duração do curso
+   */
+  duration: string;
+  /**
+   * Selecione os dias em que o curso acontece
+   */
+  weekDays: ('monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday')[];
+  /**
+   * Formato: HH:MM
+   */
+  startTime: string;
+  /**
+   * Formato: HH:MM
+   */
+  endTime: string;
+  updatedAt: string;
+  createdAt: string;
+  deletedAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -317,6 +361,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'events';
         value: string | Event;
+      } | null)
+    | ({
+        relationTo: 'classes';
+        value: string | Class;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -446,6 +494,23 @@ export interface EventsSelect<T extends boolean = true> {
   coverImage?: T;
   eventDate?: T;
   eventEndDate?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  deletedAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "classes_select".
+ */
+export interface ClassesSelect<T extends boolean = true> {
+  name?: T;
+  description?: T;
+  level?: T;
+  image?: T;
+  duration?: T;
+  weekDays?: T;
+  startTime?: T;
+  endTime?: T;
   updatedAt?: T;
   createdAt?: T;
   deletedAt?: T;

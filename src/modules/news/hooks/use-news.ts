@@ -10,3 +10,13 @@ export const useQueryNews = () => {
     isLoading,
   };
 };
+
+export const useQueryNew = (slug: string) => {
+  const trpc = useTRPC();
+  const { data, isLoading } = useQuery(trpc.news.getOne.queryOptions({ slug }));
+
+  return {
+    news: data?.docs[0] || null,
+    isLoading,
+  };
+};

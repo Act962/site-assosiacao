@@ -12,7 +12,7 @@ import Link from "next/link";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[60vh] flex items-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-linear-to-br from-emerald-900 via-emerald-800 to-gray-900" />
@@ -32,7 +32,7 @@ export function HeroSection() {
       <div className="absolute top-1/4 right-10 w-72 h-72 bg-emerald-400/10 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 left-10 w-96 h-96 bg-red-400/10 rounded-full blur-3xl" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-30 pt-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <motion.div
