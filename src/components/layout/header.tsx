@@ -12,8 +12,10 @@ import { Button } from "../ui/button";
 import { ChevronDownIcon, GlobeIcon, MenuIcon, XIcon } from "lucide-react";
 import { useState } from "react";
 
+// const LOGO_URL =
+//   "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68e0322715c4b09646bb5f4e/59dc25d0e_LogomarcaAssociacaojpg.jpg";
 const LOGO_URL =
-  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68e0322715c4b09646bb5f4e/59dc25d0e_LogomarcaAssociacaojpg.jpg";
+  "/favicon.png";
 
 const navItems = [
   { label: "Início", path: "/" },
