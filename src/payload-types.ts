@@ -194,7 +194,7 @@ export interface News {
   coverImage: string | Media;
   categories?: (string | null) | Category;
   publishedAt?: string | null;
-  status: 'Draft' | 'Published';
+  status: 'Rascunho' | 'Publicado';
   updatedAt: string;
   createdAt: string;
 }

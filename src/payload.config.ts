@@ -7,6 +7,7 @@ import { es } from "@payloadcms/translations/languages/es";
 import path from "path";
 import { buildConfig } from "payload";
 import { fileURLToPath } from "url";
+import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
 import sharp from "sharp";
 
 import { Users } from "./collections/Users.ts";
@@ -34,7 +35,15 @@ export default buildConfig({
     url: process.env.DATABASE_URL || "",
   }),
   sharp,
-  plugins: [],
+  plugins: [
+    vercelBlobStorage({
+      enabled: true,
+      collections: {
+        media: true,
+      },
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+    }),
+  ],
   i18n: {
     supportedLanguages: { pt, it, en, es },
     fallbackLanguage: "pt",

@@ -5,6 +5,7 @@ export const Categories: CollectionConfig = {
   fields: [
     {
       name: "name",
+      label: "Nome",
       type: "text",
       required: true,
       localized: true,
@@ -19,6 +20,7 @@ export const Categories: CollectionConfig = {
     },
     {
       name: "color",
+      label: "Cor",
       type: "text",
     },
   ],
