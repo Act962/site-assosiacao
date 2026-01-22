@@ -120,9 +120,7 @@ export function HeroSection() {
             </div>
             <div className="bg-linear-to-br from-emerald-600 to-emerald-700 rounded-2xl p-6 mt-8">
               <GlobeIcon className="w-10 h-10 text-red-400 mb-4" />
-              <h3 className="text-3xl font-bold text-white mb-1">
-                Networkiing
-              </h3>
+              <h3 className="text-3xl font-bold text-white mb-1">Networking</h3>
               <p className="text-emerald-100 text-sm mt-2">
                 Conectando empreendedores e profissionais
               </p>
