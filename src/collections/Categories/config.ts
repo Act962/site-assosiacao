@@ -38,7 +38,6 @@ export const Categories: CollectionConfig = {
       admin: {
         placeholder: "Exemplo: cultura",
         description: "URL amigável da categoria",
-        readOnly: true,
       },
     },
     {

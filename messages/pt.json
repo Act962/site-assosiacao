@@ -1,5 +1,30 @@
 {
   "HomePage": {
-    "title": "Hello world!"
+    "nav": {
+      "home": "Início",
+      "about": "Sobre",
+      "culture": "Cultura e Tradição",
+      "courses": "Formação",
+      "support": "Suporte",
+      "networking": "Networking",
+      "legal": "Área Legal",
+      "news": "Notícias",
+      "button": "Associe-se"
+    },
+    "hero": {
+      "localtion": "São Paulo - SP",
+      "title": "Associação de Intercâmbio Cultural Ítalo-Brasileira",
+      "subtitle": "Anita e Giuseppe Garibaldi",
+      "description": "Promovendo o desenvolvimento humano, social e institucional através da cultura ítalo-brasileira",
+      "button": "Associe-se",
+      "readMore": "Saiba mais"
+    }
+  },
+  "SelectLang": {
+    "pt": "Português",
+    "en": "Inglês",
+    "fr": "Francês",
+    "es": "Espanhol",
+    "it": "Italiano"
   }
 }

@@ -19,14 +19,14 @@ import { setCurrentLocale } from "@/i18n/get-locale";
 const LOGO_URL = "/favicon.png";
 
 const navItems = [
-  { label: "Início", path: "/" },
-  { label: "Sobre", path: "/about" },
-  { label: "Cultura e Tradição", path: "/culture" },
-  { label: "Cursos", path: "/courses" },
-  { label: "Apoio", path: "/support" },
-  { label: "Networking", path: "/networking" },
-  { label: "Área Jurídica", path: "/legal" },
-  { label: "Notícias", path: "/news" },
+  { label: "Início", path: "/", flag: "home" },
+  { label: "Sobre", path: "/about", flag: "about" },
+  { label: "Cultura e Tradição", path: "/culture", flag: "culture" },
+  { label: "Cursos", path: "/courses", flag: "courses" },
+  { label: "Apoio", path: "/support", flag: "support" },
+  { label: "Networking", path: "/networking", flag: "networking" },
+  { label: "Área Jurídica", path: "/legal", flag: "legal" },
+  { label: "Notícias", path: "/news", flag: "news" },
 ];
 
 const languages = [
@@ -37,6 +37,7 @@ const languages = [
 
 export function Header() {
   const local = useLocale();
+  const t = useTranslations("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const currentLang = languages.find((lang) => lang.code === local);
@@ -71,7 +72,7 @@ export function Header() {
                 href={item.path}
                 className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-emerald-700 transition-colors rounded-lg hover:bg-gray-50"
               >
-                {item.label}
+                {t(`HomePage.nav.${item.flag}`)}
               </Link>
             ))}
           </nav>
@@ -95,7 +96,7 @@ export function Header() {
                     // className={language === lang.code ? "bg-gray-100" : ""}
                   >
                     <span className="mr-2">{lang.flag}</span>
-                    {lang.label}
+                    {t(`SelectLang.${lang.code}`)}
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
@@ -104,7 +105,7 @@ export function Header() {
             {/* CTA Button */}
             <Link href={"/join"}>
               <Button className="hidden sm:flex bg-linear-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-semibold shadow-lg shadow-emerald-500/25">
-                Associe-se
+                {t("HomePage.nav.button")}
               </Button>
             </Link>
 
@@ -142,13 +143,13 @@ export function Header() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="block px-4 py-3 text-base font-medium text-gray-700 hover:text-emerald-700 hover:bg-gray-50 rounded-lg transition-colors"
                 >
-                  {item.label}
+                  {t(`HomePage.nav.${item.flag}`)}
                 </Link>
               ))}
               <div className="pt-4 px-4">
                 <Link href={"/join"} onClick={() => setMobileMenuOpen(false)}>
                   <Button className="w-full bg-linear-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-semibold">
-                    Join Us
+                    {t("HomePage.nav.button")}
                   </Button>
                 </Link>
               </div>

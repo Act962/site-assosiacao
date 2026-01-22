@@ -1,5 +1,30 @@
 {
   "HomePage": {
-    "title": "Hello world!"
+    "nav": {
+      "home": "Home",
+      "about": "Chi siamo",
+      "culture": "Cultura e Tradizione",
+      "courses": "Formazione",
+      "support": "Supporto Sociale",
+      "networking": "Networking",
+      "legal": "Area Legale",
+      "news": "Notizie",
+      "button": "Diventa socio"
+    },
+    "hero": {
+      "localtion": "San Paolo – SP",
+      "title": "Associazione di Scambio Culturale Italo-Brasiliana",
+      "subtitle": "Anita e Giuseppe Garibaldi",
+      "description": "Promuovendo Promuove lo sviluppo umano, sociale e istituzionale attraverso la valorizzazione della cultura italo-brasiliana",
+      "button": "Diventa socio",
+      "readMore": "Scopri di più"
+    }
+  },
+  "SelectLang": {
+    "pt": "Portoghese",
+    "en": "Inglese",
+    "fr": "Francese",
+    "es": "Spagnolo",
+    "it": "Italiano"
   }
 }

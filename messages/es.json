@@ -1,5 +1,30 @@
 {
   "HomePage": {
-    "title": "Hello world!"
+    "nav": {
+      "home": "Inicio",
+      "about": "Quiénes somos",
+      "culture": "Cultura y Tradición",
+      "courses": "Formación",
+      "support": "Apoyo Social",
+      "networking": "Networking",
+      "legal": "Área Legal",
+      "news": "Noticias",
+      "button": "Hazte socio"
+    },
+    "hero": {
+      "localtion": "São Paulo – SP",
+      "title": "Asociación de Intercambio Cultural Ítalo-Brasileña",
+      "subtitle": "Anita y Giuseppe Garibaldi",
+      "description": "Promueve el desarrollo humano, social e institucional a través de la valorización de la cultura ítalo-brasileña",
+      "button": "Hazte socio",
+      "readMore": "Descubre más"
+    }
+  },
+  "SelectLang": {
+    "pt": "Portugués",
+    "en": "Inglés",
+    "fr": "Francés",
+    "es": "Español",
+    "it": "Italiano"
   }
 }

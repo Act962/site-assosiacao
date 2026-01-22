@@ -18,6 +18,7 @@ export async function generateMetadata({
 
   const newDetail = await caller.news.getOne({
     slug,
+    locale: "pt",
   });
 
   const article = newDetail.docs[0];
