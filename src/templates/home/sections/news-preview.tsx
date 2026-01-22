@@ -2,12 +2,27 @@
 
 import { useQueryNews } from "@/modules/news/hooks/use-news";
 import { format } from "date-fns";
+import { ptBR, it, es } from "date-fns/locale";
 import { ArrowRightIcon, ClockIcon } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 import { motion } from "motion/react";
 import Link from "next/link";
 
 export function NewsPreview() {
+  const locale = useLocale();
   const { news, isLoading } = useQueryNews();
+  const t = useTranslations("HomePage.newsPreview");
+
+  const getLocale = () => {
+    switch (locale) {
+      case "it":
+        return it;
+      case "es":
+        return es;
+      default:
+        return ptBR;
+    }
+  };
 
   const featuredNews = news.filter((item) => item.featured)[0];
   const regularNews = news.filter((item) => !item.featured).slice(0, 3);
@@ -22,20 +37,18 @@ export function NewsPreview() {
         >
           <div>
             <span className="inline-block bg-red-100 text-red-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
-              Notícias
+              {t("badge")}
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-              Últimas Notícias
+              {t("title")}
             </h2>
-            <p className="text-lg text-gray-600 mt-3">
-              Acompanhe o que está acontecendo na nossa associação
-            </p>
+            <p className="text-lg text-gray-600 mt-3">{t("description")}</p>
           </div>
           <Link
             href={"/news"}
             className="flex items-center text-emerald-600 font-semibold hover:text-emerald-700 text-lg"
           >
-            Todas as notícias
+            {t("seeAll")}
             <ArrowRightIcon className="ml-2 size-5" />
           </Link>
         </motion.div>
@@ -63,14 +76,10 @@ export function NewsPreview() {
                   <div className="flex items-center gap-2 text-sm text-gray-500 mb-6">
                     <ClockIcon className="w-4 h-4" />
                     <span>
-                      {/* {format(
-                        new Date(featuredNews.created_date),
-                        "d 'de' MMMM, yyyy",
-                        { locale: getLocale() },
-                      )} */}
                       {format(
                         new Date(featuredNews.publishedAt?.toString() || ""),
-                        "dd/MM/yyyy",
+                        "d 'de' MMMM, yyyy",
+                        { locale: getLocale() },
                       )}
                     </span>
                   </div>
@@ -83,7 +92,7 @@ export function NewsPreview() {
                     </p>
                   )}
                   <div className="flex items-center text-emerald-600 font-semibold text-lg">
-                    Leia mais
+                    {t("readMore")}
                     <ArrowRightIcon className="ml-2 w-6 h-6 group-hover:translate-x-2 transition-transform" />
                   </div>
                 </div>
@@ -119,6 +128,7 @@ export function NewsPreview() {
                         {format(
                           new Date(item.publishedAt?.toString() || ""),
                           "dd/MM/yyyy",
+                          { locale: getLocale() },
                         )}
                       </span>
                     </div>

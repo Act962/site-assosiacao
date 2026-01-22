@@ -32,6 +32,36 @@
           "description": "Apoio social e integração"
         }
       }
+    },
+    "newsPreview": {
+      "badge": "Notícias",
+      "title": "Últimas Notícias",
+      "description": "Acompanhe o que está acontecendo na nossa associação",
+      "seeAll": "Todas as notícias",
+      "readMore": "Leia mais"
+    },
+    "eventsPreview": {
+      "badge": "Agenda",
+      "title": "Próximos Eventos",
+      "seeAll": "Ver todos"
+    },
+    "mission": {
+      "title": "Nosso Propósito",
+      "subtitle": "Unidos pela cultura e tradição ítalo-brasileira, trabalhamos para fortalecer laços e construir pontes entre comunidades.",
+      "items": {
+        "mission": {
+          "title": "Missão",
+          "description": "Promover o desenvolvimento humano, social e institucional de seus associados e da comunidade, por meio de ações organizadas, participativas e comprometidas com o bem coletivo."
+        },
+        "vision": {
+          "title": "Visão",
+          "description": "Ser uma instituição de referência em sua área de atuação, reconhecida pela credibilidade, eficiência, impacto social e compromisso com o desenvolvimento sustentável."
+        },
+        "values": {
+          "title": "Valores",
+          "description": "Ética e integridade, responsabilidade social, respeito à diversidade, participação e cooperação, transparência e compromisso com a qualidade."
+        }
+      }
     }
   },
   "SelectLang": {

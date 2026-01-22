@@ -2,28 +2,28 @@
 
 import { EyeIcon, HeartIcon, TargetIcon } from "lucide-react";
 import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
 
 export function MissionSection() {
+  const t = useTranslations("HomePage.mission");
+
   const items = [
     {
       icon: TargetIcon,
-      title: "Missão",
-      description:
-        "Promover o desenvolvimento humano, social e institucional de seus associados e da comunidade, por meio de ações organizadas, participativas e comprometidas com o bem coletivo.",
+      title: t("items.mission.title"),
+      description: t("items.mission.description"),
       color: "emerald",
     },
     {
       icon: EyeIcon,
-      title: "Visão",
-      description:
-        "Ser uma instituição de referência em sua área de atuação, reconhecida pela credibilidade, eficiência, impacto social e compromisso com o desenvolvimento sustentável.",
+      title: t("items.vision.title"),
+      description: t("items.vision.description"),
       color: "blue",
     },
     {
       icon: HeartIcon,
-      title: "Valores",
-      description:
-        "Ética e integridade, responsabilidade social, respeito à diversidade, participação e cooperação, transparência e compromisso com a qualidade.",
+      title: t("items.values.title"),
+      description: t("items.values.description"),
       color: "red",
     },
   ];
@@ -59,7 +59,7 @@ export function MissionSection() {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
           >
-            Nosso Propósito
+            {t("title")}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -68,8 +68,7 @@ export function MissionSection() {
             transition={{ delay: 0.1 }}
             className="text-lg text-gray-600 max-w-2xl mx-auto"
           >
-            Unidos pela cultura e tradição ítalo-brasileira, trabalhamos para
-            fortalecer laços e construir pontes entre comunidades.
+            {t("subtitle")}
           </motion.p>
         </div>
 

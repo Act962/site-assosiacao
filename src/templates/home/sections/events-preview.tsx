@@ -3,6 +3,7 @@
 import { ArrowRightIcon, CalendarIcon, MapPinIcon } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 interface Event {
   id: number;
@@ -14,6 +15,7 @@ interface Event {
 }
 
 export function EventsPreview() {
+  const t = useTranslations("HomePage.eventsPreview");
   const events: Event[] = [
     {
       id: 1,
@@ -61,17 +63,17 @@ export function EventsPreview() {
         >
           <div>
             <span className="inline-block bg-red-100 text-red-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
-              Agenda
+              {t("badge")}
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-              Próximos Eventos
+              {t("title")}
             </h2>
           </div>
           <Link
             href={"/events"}
             className="flex items-center text-emerald-600 font-semibold hover:text-emerald-700"
           >
-            Ver todos
+            {t("seeAll")}
             <ArrowRightIcon className="ml-2 size-5" />
           </Link>
         </motion.div>

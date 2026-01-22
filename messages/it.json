@@ -32,6 +32,36 @@
           "description": "Supporto sociale, inclusione e integrazione"
         }
       }
+    },
+    "newsPreview": {
+      "badge": "Notizie",
+      "title": "Ultime Notizie",
+      "description": "Scopri cosa sta succedendo nella nostra associazione",
+      "seeAll": "Tutte le notizie",
+      "readMore": "Leggi di più"
+    },
+    "eventsPreview": {
+      "badge": "Agenda",
+      "title": "Prossimi Eventi",
+      "seeAll": "Vedi tutti"
+    },
+    "mission": {
+      "title": "Il Nostro Scopo",
+      "subtitle": "Uniti dalla cultura e dalla tradizione italo-brasiliana, lavoriamo per rafforzare i legami e costruire ponti tra le comunità.",
+      "items": {
+        "mission": {
+          "title": "Missione",
+          "description": "Promuovere lo sviluppo umano, sociale e istituzionale dei propri associati e della comunità attraverso azioni organizzate, partecipative e orientate al bene collettivo."
+        },
+        "vision": {
+          "title": "Visione",
+          "description": "Essere un'istituzione di riferimento nel proprio ambito di attività, riconosciuta per credibilità, efficienza, impatto sociale e impegno nello sviluppo sostenibile."
+        },
+        "values": {
+          "title": "Valori",
+          "description": "Etica e integrità, responsabilità sociale, rispetto della diversità, partecipazione e cooperazione, trasparenza e impegno per la qualità."
+        }
+      }
     }
   },
   "SelectLang": {
