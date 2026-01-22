@@ -17,7 +17,21 @@
       "subtitle": "Anita e Giuseppe Garibaldi",
       "description": "Promuovendo Promuove lo sviluppo umano, sociale e istituzionale attraverso la valorizzazione della cultura italo-brasiliana",
       "button": "Diventa socio",
-      "readMore": "Scopri di più"
+      "readMore": "Scopri di più",
+      "blocks": {
+        "culture": {
+          "label": "Cultura",
+          "description": "Eventi culturali, manifestazioni e tradizioni"
+        },
+        "courses": {
+          "label": "Formazione",
+          "description": "Corsi di lingua italiana e percorsi di storia e cultura"
+        },
+        "community": {
+          "label": "Comunità",
+          "description": "Supporto sociale, inclusione e integrazione"
+        }
+      }
     }
   },
   "SelectLang": {

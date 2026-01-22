@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import {
   ArrowRightIcon,
   BookOpenIcon,
+  GlobeIcon,
   HeartIcon,
   UsersIcon,
 } from "lucide-react";
@@ -108,13 +109,20 @@ export function HeroSection() {
               <p className="text-gray-400 text-sm">Apoio social e integração</p>
             </div>
             <div className="bg-linear-to-br from-emerald-600 to-emerald-700 rounded-2xl p-6 mt-8">
-              <p className="text-emerald-100 text-sm font-medium mb-2">
+              <GlobeIcon className="w-10 h-10 text-red-400 mb-4" />
+              <h3 className="text-3xl font-bold text-white mb-1">
+                Networkiing
+              </h3>
+              <p className="text-emerald-100 text-sm mt-2">
+                Conectando empreendedores e profissionais
+              </p>
+              {/* <p className="text-emerald-100 text-sm font-medium mb-2">
                 Networkiing
               </p>
               <h3 className="text-3xl font-bold text-white">1999</h3>
               <p className="text-emerald-100 text-sm mt-2">
                 Promovendo intercâmbio cultural
-              </p>
+              </p> */}
             </div>
           </motion.div>
         </div>
