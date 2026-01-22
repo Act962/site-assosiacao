@@ -11,11 +11,12 @@ import {
 import { Button } from "../ui/button";
 import { ChevronDownIcon, GlobeIcon, MenuIcon, XIcon } from "lucide-react";
 import { useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
+import { setCurrentLocale } from "@/i18n/get-locale";
 
 // const LOGO_URL =
 //   "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68e0322715c4b09646bb5f4e/59dc25d0e_LogomarcaAssociacaojpg.jpg";
-const LOGO_URL =
-  "/favicon.png";
+const LOGO_URL = "/favicon.png";
 
 const navItems = [
   { label: "Início", path: "/" },
@@ -35,7 +36,16 @@ const languages = [
 ];
 
 export function Header() {
+  const local = useLocale();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const currentLang = languages.find((lang) => lang.code === local);
+
+  const handleLanguageChange = (locale: string) => {
+    setCurrentLocale(locale);
+    setMobileMenuOpen(false);
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -67,13 +77,13 @@ export function Header() {
           </nav>
 
           {/* Right side actions */}
-          <div className="flex items-center">
+          <div className="flex items-center gap-2">
             {/* Language Selector */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="sm" className="gap-2">
                   <GlobeIcon className="w-4 h-4" />
-                  <span className="hidden sm:inline">BR</span>
+                  <span className="hidden sm:inline">{currentLang?.flag}</span>
                   <ChevronDownIcon className="w-3 h-3" />
                 </Button>
               </DropdownMenuTrigger>
@@ -81,7 +91,7 @@ export function Header() {
                 {languages.map((lang) => (
                   <DropdownMenuItem
                     key={lang.code}
-                    onClick={() => {}}
+                    onClick={() => handleLanguageChange(lang.code)}
                     // className={language === lang.code ? "bg-gray-100" : ""}
                   >
                     <span className="mr-2">{lang.flag}</span>

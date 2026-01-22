@@ -1,9 +1,14 @@
 import { withPayload } from "@payloadcms/next/withPayload";
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
   /* config options here */
   reactCompiler: true,
 };
 
-export default withPayload(nextConfig);
+const withNextIntl = createNextIntlPlugin();
+
+const configWithIntl = withNextIntl(nextConfig);
+
+export default withPayload(configWithIntl);
