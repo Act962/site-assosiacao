@@ -13,6 +13,7 @@ import { ChevronDownIcon, GlobeIcon, MenuIcon, XIcon } from "lucide-react";
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { setCurrentLocale } from "@/i18n/get-locale";
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
 // const LOGO_URL =
 //   "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68e0322715c4b09646bb5f4e/59dc25d0e_LogomarcaAssociacaojpg.jpg";
@@ -80,6 +81,27 @@ export function Header() {
           {/* Right side actions */}
           <div className="flex items-center gap-2">
             {/* Language Selector */}
+            {/* <Popover>
+              <PopoverTrigger asChild>
+                <Button variant="ghost" size="sm" className="gap-2">
+                  <GlobeIcon className="w-4 h-4" />
+                  <span className="hidden sm:inline">{currentLang?.flag}</span>
+                  <ChevronDownIcon className="w-3 h-3" />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-24">
+                {languages.map((lang) => (
+                  <div
+                    key={lang.code}
+                    onClick={() => handleLanguageChange(lang.code)}
+                    // className={language === lang.code ? "bg-gray-100" : ""}
+                  >
+                    <span className="mr-2">{lang.flag}</span>
+                    {t(`SelectLang.${lang.code}`)}
+                  </div>
+                ))}
+              </PopoverContent>
+            </Popover> */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="sm" className="gap-2">
