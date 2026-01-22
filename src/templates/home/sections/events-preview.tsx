@@ -3,7 +3,10 @@
 import { ArrowRightIcon, CalendarIcon, MapPinIcon } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { useQueryEvents } from "@/modules/events/hooks/use-event";
+import { it, es, ptBR } from "date-fns/locale";
+import { format } from "date-fns";
 
 interface Event {
   id: number;
@@ -15,33 +18,19 @@ interface Event {
 }
 
 export function EventsPreview() {
+  const language = useLocale();
   const t = useTranslations("HomePage.eventsPreview");
-  const events: Event[] = [
-    {
-      id: 1,
-      title: "Carnevale Italiano 2025",
-      image_url: "/photo-02.jpg",
-      category: "festa",
-      event_date: "2023-01-01",
-      location: "Sede da Associação - Centro SP",
-    },
-    {
-      id: 2,
-      title: "Festival Gastronômico Regional",
-      image_url: "/photo-03.jpg",
-      category: "gastronomia",
-      event_date: "2023-01-02",
-      location: "Sede da Associação - Centro SP",
-    },
-    {
-      id: 3,
-      title: "Cinema Italiano - 'La Dolce Vita'",
-      image_url: "/photo-03.jpg",
-      category: "gastronomia",
-      event_date: "2023-01-03",
-      location: "Sede da Associação - Centro SP",
-    },
-  ];
+  const { events, isLoading } = useQueryEvents(3);
+  const getLocale = () => {
+    switch (language) {
+      case "it":
+        return it;
+      case "es":
+        return es;
+      default:
+        return ptBR;
+    }
+  };
 
   // const categoryColors = {
   //   festa: "bg-purple-100 text-purple-700",
@@ -70,7 +59,7 @@ export function EventsPreview() {
             </h2>
           </div>
           <Link
-            href={"/events"}
+            href={"/culture"}
             className="flex items-center text-emerald-600 font-semibold hover:text-emerald-700"
           >
             {t("seeAll")}
@@ -88,32 +77,36 @@ export function EventsPreview() {
               transition={{ delay: index * 0.1 }}
               className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 group"
             >
-              {event.image_url && (
+              {event.coverImage && (
                 <div className="relative h-48 overflow-hidden">
                   <img
-                    src={event.image_url}
-                    alt={"Title"}
+                    src={event.coverImage.url || ""}
+                    alt={event.coverImage.alt}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  {event.category && (
+                  {event.categories && (
                     <span
                       className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700`}
                     >
-                      {event.category}
+                      {event.categories.name}
                     </span>
                   )}
                 </div>
               )}
               <div className="p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-3 line-clamp-2">
-                  {event.title}
+                  {event.name}
                 </h3>
                 <div className="space-y-2 text-sm text-gray-600">
                   <div className="flex items-center gap-2">
                     <CalendarIcon className="w-4 h-4 text-emerald-600" />
                     <span>
-                      {/* {event.event_date && format(new Date(event.event_date), "d 'de' MMMM, yyyy - HH:mm", { locale: getLocale() })} */}
-                      20 de janeiro, 2023 - 20:00
+                      {event.eventDate &&
+                        format(
+                          new Date(event.eventDate),
+                          "d 'de' MMMM, yyyy - HH:mm",
+                          { locale: getLocale() },
+                        )}
                     </span>
                   </div>
                   {event.location && (

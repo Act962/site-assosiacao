@@ -11,49 +11,57 @@ import {
   UsersIcon,
 } from "lucide-react";
 import { motion } from "motion/react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { useQueryEvents } from "@/modules/events/hooks/use-event";
+import { it, es, ptBR } from "date-fns/locale";
+import { format } from "date-fns";
 
 export function CulturePage() {
+  const language = useLocale();
   const t = useTranslations("culturePage");
-  const events = [
-    {
-      id: 1,
-      title: "Carnevale Italiano 2025",
-      description:
-        "Tradicional festa de carnaval à italiana com música, dança e muita alegria.",
-      image_url: "/photo-02.jpg",
-      category: "festa",
-      event_date: "2023-01-01",
-      location: "Sede da Associação - Centro SP",
-    },
-    {
-      id: 2,
-      title: "Festival Gastronômico Regional",
-      image_url: "/photo-03.jpg",
-      description:
-        "Degustação de pratos típicos das regiões Calábria, Sicília, Vêneto e Lombardia.",
-      category: "gastronomia",
-      event_date: "2023-01-02",
-      location: "Sede da Associação - Centro SP",
-    },
-    {
-      id: 3,
-      title: "Cinema Italiano - 'La Dolce Vita'",
-      image_url: "/photo-03.jpg",
-      description:
-        "Sessão especial do clássico de Federico Fellini com debate após a exibição.",
-      category: "gastronomia",
-      event_date: "2023-01-03",
-      location: "Sede da Associação - Centro SP",
-    },
-  ];
-  //     const getLocale = () => {
-  //     switch(language) {
-  //       case 'it': return it;
-  //       case 'es': return es;
-  //       default: return ptBR;
-  //     }
-  //   };
+  const { events, isLoading } = useQueryEvents(100);
+
+  //   {
+  //     id: 1,
+  //     title: "Carnevale Italiano 2025",
+  //     description:
+  //       "Tradicional festa de carnaval à italiana com música, dança e muita alegria.",
+  //     image_url: "/photo-02.jpg",
+  //     category: "festa",
+  //     event_date: "2023-01-01",
+  //     location: "Sede da Associação - Centro SP",
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Festival Gastronômico Regional",
+  //     image_url: "/photo-03.jpg",
+  //     description:
+  //       "Degustação de pratos típicos das regiões Calábria, Sicília, Vêneto e Lombardia.",
+  //     category: "gastronomia",
+  //     event_date: "2023-01-02",
+  //     location: "Sede da Associação - Centro SP",
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "Cinema Italiano - 'La Dolce Vita'",
+  //     image_url: "/photo-03.jpg",
+  //     description:
+  //       "Sessão especial do clássico de Federico Fellini com debate após a exibição.",
+  //     category: "gastronomia",
+  //     event_date: "2023-01-03",
+  //     location: "Sede da Associação - Centro SP",
+  //   },
+  // ];
+  const getLocale = () => {
+    switch (language) {
+      case "it":
+        return it;
+      case "es":
+        return es;
+      default:
+        return ptBR;
+    }
+  };
 
   const categories = [
     {
@@ -103,8 +111,6 @@ export function CulturePage() {
     networking: "bg-amber-100 text-amber-700",
     curso: "bg-cyan-100 text-cyan-700",
   };
-
-  const isLoading = false;
 
   return (
     <div className="min-h-screen bg-white">
@@ -211,25 +217,25 @@ export function CulturePage() {
                   transition={{ delay: index * 0.05 }}
                   className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300"
                 >
-                  {event.image_url && (
+                  {event.coverImage && (
                     <div className="relative h-48 overflow-hidden">
                       <img
-                        src={event.image_url}
-                        alt={event.title}
+                        src={event.coverImage.url || ""}
+                        alt={event.coverImage.alt}
                         className="w-full h-full object-cover"
                       />
-                      {event.category && (
+                      {event.categories && (
                         <span
-                          className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold ${categoryColors[event.category as keyof typeof categoryColors] || "bg-gray-100 text-gray-700"}`}
+                          className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700`}
                         >
-                          {event.category}
+                          {event.categories.name}
                         </span>
                       )}
                     </div>
                   )}
                   <div className="p-6">
                     <h3 className="text-lg font-bold text-gray-900 mb-3">
-                      {event.title}
+                      {event.name}
                     </h3>
                     {event.description && (
                       <p className="text-gray-600 text-sm mb-4 line-clamp-2">
@@ -240,13 +246,12 @@ export function CulturePage() {
                       <div className="flex items-center gap-2">
                         <CalendarIcon className="w-4 h-4 text-emerald-600" />
                         <span>
-                          {/* {event.event_date &&
+                          {event.eventDate &&
                             format(
-                              new Date(event.event_date),
+                              new Date(event.eventDate),
                               "d 'de' MMMM, yyyy - HH:mm",
                               { locale: getLocale() },
-                            )} */}
-                          15 de fevereiro, 2025 - 19:00
+                            )}
                         </span>
                       </div>
                       {event.location && (

@@ -15,7 +15,7 @@ export function CTASection() {
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-red-400/10 rounded-full blur-3xl" />
 
       {/* Italian flag accent */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-green-500 via-white to-red-500" />
+      {/* <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-green-500 via-white to-red-500" /> */}
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">

@@ -272,6 +272,7 @@ export interface Event {
   coverImage: string | Media;
   eventDate?: string | null;
   eventEndDate?: string | null;
+  status: 'Rascunho' | 'Publicado';
   updatedAt: string;
   createdAt: string;
   deletedAt?: string | null;
@@ -494,6 +495,7 @@ export interface EventsSelect<T extends boolean = true> {
   coverImage?: T;
   eventDate?: T;
   eventEndDate?: T;
+  status?: T;
   updatedAt?: T;
   createdAt?: T;
   deletedAt?: T;

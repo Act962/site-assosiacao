@@ -1,6 +1,7 @@
 import { CollectionConfig } from "payload";
 import { TYPE_CATEGORY } from "../Categories/constants";
 import { generateSlugHook } from "./hooks/generate-slug.hook";
+import { STATUS_OPTIONS } from "./constants";
 
 export const Events: CollectionConfig = {
   slug: "events",
@@ -18,7 +19,6 @@ export const Events: CollectionConfig = {
       label: "Nome",
       type: "text",
       required: true,
-      unique: true,
       localized: true,
       admin: {
         placeholder: "Digite o nome do evento",
@@ -31,14 +31,14 @@ export const Events: CollectionConfig = {
       required: true,
       unique: true,
       index: true,
+      hooks: {
+        beforeChange: [generateSlugHook],
+        beforeValidate: [generateSlugHook],
+      },
       admin: {
         placeholder: "Ex.: titulo-do-evento",
         description: "O slug é o endereço do evento",
         // readOnly: true,
-      },
-      hooks: {
-        beforeChange: [generateSlugHook],
-        beforeValidate: [generateSlugHook],
       },
     },
     {
@@ -105,6 +105,26 @@ export const Events: CollectionConfig = {
         date: {
           pickerAppearance: "dayAndTime",
         },
+      },
+    },
+    {
+      name: "status",
+      label: "Status",
+      type: "select",
+      required: true,
+      options: [
+        {
+          label: "Rascunho",
+          value: STATUS_OPTIONS.DRAFT,
+        },
+        {
+          label: "Publicado",
+          value: STATUS_OPTIONS.PUBLISHED,
+        },
+      ],
+      defaultValue: STATUS_OPTIONS.DRAFT,
+      admin: {
+        position: "sidebar",
       },
     },
   ],

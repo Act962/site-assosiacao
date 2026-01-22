@@ -11,6 +11,11 @@ export const newsRouter = createTRPCRouter({
         depth: 1, // Populate "category" & "coverImage"
         pagination: false,
         locale: (input.locale as "pt" | "it" | "es") || "pt",
+        where: {
+          status: {
+            equals: "Publicado",
+          },
+        },
       });
 
       return {
@@ -35,6 +40,9 @@ export const newsRouter = createTRPCRouter({
         where: {
           slug: {
             equals: input.slug,
+          },
+          status: {
+            equals: "Publicado",
           },
         },
         limit: 1,
