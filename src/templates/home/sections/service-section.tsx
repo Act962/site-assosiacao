@@ -12,9 +12,11 @@ import {
   ScaleIcon,
 } from "lucide-react";
 import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 export function ServiceSection() {
+  const t = useTranslations("HomePage.services");
   const services = [
     {
       icon: PaletteIcon,
@@ -73,13 +75,13 @@ export function ServiceSection() {
           className="text-center mb-16"
         >
           <span className="inline-block bg-emerald-100 text-emerald-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
-            Nossos Serviços
+            {t("badge")}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            O que oferecemos
+            {t("title")}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Diversas iniciativas para fortalecer a comunidade ítalo-brasileira
+            {t("description")}
           </p>
         </motion.div>
 
@@ -106,7 +108,7 @@ export function ServiceSection() {
                   </h3>
                   <p className="text-gray-600 mb-4">{service.description}</p>
                   <div className="flex items-center text-emerald-600 font-medium group-hover:text-emerald-700">
-                    Saiba Mais
+                    {t("readMore")}
                     <ArrowRightIcon className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>

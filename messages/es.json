@@ -62,6 +62,32 @@
           "description": "Ética e integridad, responsabilidad social, respeto a la diversidad, participación y cooperación, transparencia y compromiso con la calidad."
         }
       }
+    },
+    "services": {
+      "badge": "Nuestros Servicios",
+      "title": "Qué ofrecemos",
+      "description": "Diversas iniciativas para fortalecer la comunidad ítalo-brasileña",
+      "readMore": "Saber más"
+    },
+    "cta": {
+      "title": "Forma parte de nuestra comunidad",
+      "description": "Únete a nosotros y fortalece los lazos entre la cultura italiana y brasileña. Sé miembro de la Asociación Anita y Giuseppe Garibaldi y accede a eventos exclusivos, cursos de italiano y una red de apoyo comunitario.",
+      "primaryAction": "Asóciate ahora",
+      "secondaryAction": "Saber más",
+      "cards": {
+        "community": {
+          "title": "Comunidad",
+          "description": "Forma parte de una red de descendientes y admiradores de la cultura italiana"
+        },
+        "support": {
+          "title": "Apoyo",
+          "description": "Soporte para asuntos consulares, legales y de integración"
+        },
+        "connections": {
+          "title": "Conexiones",
+          "description": "Networking con emprendedores y profesionales"
+        }
+      }
     }
   },
   "SelectLang": {

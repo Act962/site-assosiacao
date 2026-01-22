@@ -3,9 +3,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon, GlobeIcon, HeartIcon, UsersIcon } from "lucide-react";
 import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 export function CTASection() {
+  const t = useTranslations("HomePage.cta");
   return (
     <section className="py-24 bg-linear-to-br from-emerald-700 via-emerald-800 to-gray-900 relative overflow-hidden">
       {/* Decorative elements */}
@@ -23,12 +25,10 @@ export function CTASection() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-              Faça parte da nossa comunidade
+              {t("title")}
             </h2>
             <p className="text-lg text-emerald-100 mb-8 leading-relaxed">
-              Junte-se a nós e fortaleça os laços entre a cultura italiana e
-              brasileira. Seja membro da Associação Anita e Giuseppe Garibaldi e
-              tenha acesso a eventos exclusivos, cursos de italiano e uma rede
+              {t("description")}
               de apoio comunitário.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -37,7 +37,7 @@ export function CTASection() {
                   size="lg"
                   className="bg-white text-emerald-700 hover:bg-gray-100 font-semibold text-lg px-8 py-6 shadow-xl group"
                 >
-                  Associe-se Agora
+                  {t("primaryAction")}
                   <ArrowRightIcon className="size-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
@@ -47,7 +47,7 @@ export function CTASection() {
                   variant="outline"
                   className="border-white/30  hover:bg-white/10 font-semibold text-lg px-8 py-6"
                 >
-                  Saiba Mais
+                  {t("secondaryAction")}
                 </Button>
               </Link>
             </div>
@@ -61,24 +61,29 @@ export function CTASection() {
           >
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
               <UsersIcon className="w-10 h-10 text-emerald-300 mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">Comunidade</h3>
+              <h3 className="text-xl font-bold text-white mb-2">
+                {t("cards.community.title")}
+              </h3>
               <p className="text-emerald-100 text-sm">
-                Faça parte de uma rede de descendentes e admiradores da cultura
-                italiana
+                {t("cards.community.description")}
               </p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 mt-8">
               <HeartIcon className="w-10 h-10 text-red-300 mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">Apoio</h3>
+              <h3 className="text-xl font-bold text-white mb-2">
+                {t("cards.support.title")}
+              </h3>
               <p className="text-emerald-100 text-sm">
-                Suporte para questões consulares, legais e integração
+                {t("cards.support.description")}
               </p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
               <GlobeIcon className="w-10 h-10 text-emerald-300 mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">Conexões</h3>
+              <h3 className="text-xl font-bold text-white mb-2">
+                {t("cards.connections.title")}
+              </h3>
               <p className="text-emerald-100 text-sm">
-                Networking com empreendedores e profissionais
+                {t("cards.connections.description")}
               </p>
             </div>
           </motion.div>

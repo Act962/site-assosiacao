@@ -43,15 +43,15 @@ export function EventsPreview() {
     },
   ];
 
-  const categoryColors = {
-    festa: "bg-purple-100 text-purple-700",
-    cinema: "bg-blue-100 text-blue-700",
-    gastronomia: "bg-orange-100 text-orange-700",
-    musica: "bg-pink-100 text-pink-700",
-    palestra: "bg-emerald-100 text-emerald-700",
-    networking: "bg-amber-100 text-amber-700",
-    curso: "bg-cyan-100 text-cyan-700",
-  };
+  // const categoryColors = {
+  //   festa: "bg-purple-100 text-purple-700",
+  //   cinema: "bg-blue-100 text-blue-700",
+  //   gastronomia: "bg-orange-100 text-orange-700",
+  //   musica: "bg-pink-100 text-pink-700",
+  //   palestra: "bg-emerald-100 text-emerald-700",
+  //   networking: "bg-amber-100 text-amber-700",
+  //   curso: "bg-cyan-100 text-cyan-700",
+  // };
   return (
     <section className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

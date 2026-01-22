@@ -2,6 +2,7 @@ import React from "react";
 
 import { MapPin, Mail, Phone, Facebook, Instagram } from "lucide-react";
 import Link from "next/link";
+import TikTokIcon from "../../assets/tiktok.svg";
 
 // const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68e0322715c4b09646bb5f4e/59dc25d0e_LogomarcaAssociacaojpg.jpg";
 const LOGO_URL = "/favicon.png";
@@ -49,6 +50,18 @@ export default function Footer() {
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-emerald-600 transition-colors"
               >
                 <Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.tiktok.com/@associacao.anita?_r=1&_t=ZS-93C6y9EJ0vB"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-emerald-600 transition-colors"
+              >
+                <img
+                  src="/tiktok.svg"
+                  alt="TikTok"
+                  className="w-5 h-5 invert stroke-2"
+                />
               </a>
             </div>
           </div>
