@@ -12,12 +12,26 @@
       "button": "Associe-se"
     },
     "hero": {
-      "localtion": "São Paulo - SP",
+      "location": "São Paulo - SP",
       "title": "Associação de Intercâmbio Cultural Ítalo-Brasileira",
       "subtitle": "Anita e Giuseppe Garibaldi",
       "description": "Promovendo o desenvolvimento humano, social e institucional através da cultura ítalo-brasileira",
-      "button": "Associe-se",
-      "readMore": "Saiba mais"
+      "button": "Associe-se Agora",
+      "readMore": "Saiba mais",
+      "blocks": {
+        "culture": {
+          "label": "Cultura",
+          "description": "Eventos, festas e tradições"
+        },
+        "courses": {
+          "label": "Educação",
+          "description": "Cursos de italiano e história"
+        },
+        "community": {
+          "label": "Comunidade",
+          "description": "Apoio social e integração"
+        }
+      }
     }
   },
   "SelectLang": {

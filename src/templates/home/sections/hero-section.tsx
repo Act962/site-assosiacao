@@ -10,8 +10,11 @@ import {
 } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export function HeroSection() {
+  const t = useTranslations("HomePage.hero");
+
   return (
     <section className="relative min-h-[60vh] flex items-center overflow-hidden">
       {/* Background */}
@@ -43,21 +46,20 @@ export function HeroSection() {
           >
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
               <span className="text-emerald-300 text-sm font-medium">
-                São Paulo - SP
+                {t("location")}
               </span>
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
-              Associação de Intercâmbio Cultural Ítalo-Brasileira
+              {t("title")}
             </h1>
 
             <p className="text-2xl md:text-3xl font-serif text-emerald-300 mb-6 italic">
-              Anita e Giuseppe Garibaldi
+              {t("subtitle")}
             </p>
 
             <p className="text-lg text-gray-300 mb-8 max-w-xl leading-relaxed">
-              Promovendo o desenvolvimento humano, social e institucional
-              através da cultura ítalo-brasileira
+              {t("description")}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -66,7 +68,7 @@ export function HeroSection() {
                   size="lg"
                   className="bg-linear-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-semibold text-lg px-8 py-6 shadow-xl shadow-red-500/25 group"
                 >
-                  Associe-se Agora
+                  {t("button")}
                   <ArrowRightIcon className="size-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
@@ -76,7 +78,7 @@ export function HeroSection() {
                   variant="outline"
                   className="border-white/30 hover:bg-white/10 font-semibold text-lg px-8 py-6"
                 >
-                  Saiba mais
+                  {t("readMore")}
                 </Button>
               </Link>
             </div>
@@ -91,22 +93,30 @@ export function HeroSection() {
           >
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10">
               <UsersIcon className="w-10 h-10 text-emerald-400 mb-4" />
-              <h3 className="text-3xl font-bold text-white mb-1">Cultura</h3>
+              <h3 className="text-3xl font-bold text-white mb-1">
+                {t("blocks.culture.label")}
+              </h3>
               <p className="text-gray-400 text-sm">
-                Eventos, festas e tradições
+                {t("blocks.culture.description")}
               </p>
             </div>
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10 mt-8">
               <BookOpenIcon className="w-10 h-10 text-emerald-400 mb-4" />
-              <h3 className="text-3xl font-bold text-white mb-1">Educação</h3>
+              <h3 className="text-3xl font-bold text-white mb-1">
+                {t("blocks.courses.label")}
+              </h3>
               <p className="text-gray-400 text-sm">
-                Cursos de italiano e história
+                {t("blocks.courses.description")}
               </p>
             </div>
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10">
               <HeartIcon className="w-10 h-10 text-red-400 mb-4" />
-              <h3 className="text-3xl font-bold text-white mb-1">Comunidade</h3>
-              <p className="text-gray-400 text-sm">Apoio social e integração</p>
+              <h3 className="text-3xl font-bold text-white mb-1">
+                {t("blocks.community.label")}
+              </h3>
+              <p className="text-gray-400 text-sm">
+                {t("blocks.community.description")}
+              </p>
             </div>
             <div className="bg-linear-to-br from-emerald-600 to-emerald-700 rounded-2xl p-6 mt-8">
               <GlobeIcon className="w-10 h-10 text-red-400 mb-4" />
