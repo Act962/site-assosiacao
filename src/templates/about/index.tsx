@@ -11,52 +11,53 @@ import {
   UsersIcon,
 } from "lucide-react";
 import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
 
 const LOGO_URL =
   "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68e0322715c4b09646bb5f4e/59dc25d0e_LogomarcaAssociacaojpg.jpg";
 
 export function AboutPage() {
+  const t = useTranslations("AboutPage");
   const values = [
     {
       icon: ShieldIcon,
-      title: "Ética e Integridade",
-      description:
-        "Atuação pautada pela honestidade, transparência e respeito às normas.",
+      title: t("values.items.0.title"),
+      description: t("values.items.0.description"),
     },
     {
       icon: HeartIcon,
-      title: "Responsabilidade Social",
-      description: "Compromisso com o impacto positivo de nossas ações.",
+      title: t("values.items.1.title"),
+      description: t("values.items.1.description"),
     },
     {
       icon: UsersIcon,
-      title: "Respeito à Diversidade",
-      description: "Valorização das diferenças e promoção da inclusão.",
+      title: t("values.items.2.title"),
+      description: t("values.items.2.description"),
     },
     {
       icon: SparklesIcon,
-      title: "Participação e Cooperação",
-      description: "Incentivo ao engajamento e trabalho coletivo.",
+      title: t("values.items.3.title"),
+      description: t("values.items.3.description"),
     },
     {
       icon: EyeIcon,
-      title: "Transparência",
-      description: "Clareza na comunicação e prestação de contas.",
+      title: t("values.items.4.title"),
+      description: t("values.items.4.description"),
     },
     {
       icon: TargetIcon,
-      title: "Compromisso com a Qualidade",
-      description: "Busca contínua pela melhoria de processos.",
+      title: t("values.items.5.title"),
+      description: t("values.items.5.description"),
     },
     {
       icon: ScaleIcon,
-      title: "Sustentabilidade",
-      description: "Práticas que asseguram a continuidade da Associação.",
+      title: t("values.items.6.title"),
+      description: t("values.items.6.description"),
     },
     {
       icon: LeafIcon,
-      title: "Desenvolvimento Sustentável",
-      description: "Uso responsável dos recursos disponíveis.",
+      title: t("values.items.7.title"),
+      description: t("values.items.7.description"),
     },
   ];
 
@@ -83,11 +84,10 @@ export function AboutPage() {
             className="text-center"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Sobre a Associação
+              {t("hero.title")}
             </h1>
             <p className="text-xl text-emerald-100 max-w-3xl mx-auto">
-              Conheca nossa história, missão e valores que guiam nosso
-              compromisso com a comunidade ítalo-brasileira.
+              {t("hero.subtitle")}
             </p>
           </motion.div>
         </div>
@@ -114,29 +114,16 @@ export function AboutPage() {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Nossa Associação
+                {t("institution.title")}
               </h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  A{" "}
-                  <strong>
-                    Associação de Intercâmbio Cultural Ítalo-Brasileira Anita e
-                    Giuseppe Garibaldi – SP
-                  </strong>{" "}
-                  é uma entidade sem fins lucrativos que atua na promoção da
-                  cultura, língua, história e integração ítalo-brasileira.
+                  {t("institution.paragraphs.0")}{" "}
+                  <strong>{t("institution.paragraphs.1")}</strong>{" "}
+                  {t("institution.paragraphs.2")}
                 </p>
-                <p>
-                  Localizada no coração de São Paulo, na Avenida São João, nossa
-                  sede é um ponto de encontro para descendentes italianos,
-                  estudantes da língua e todos os interessados na rica cultura
-                  italiana.
-                </p>
-                <p>
-                  Atuamos de forma responsável e transparente, incentivando a
-                  cooperação, o fortalecimento de vínculos e a valorização do
-                  conhecimento, da cidadania e da inclusão social.
-                </p>
+                <p>{t("institution.paragraphs.3")}</p>
+                <p>{t("institution.paragraphs.4")}</p>
               </div>
               <div className="mt-8 p-6 bg-gray-50 rounded-xl">
                 <p className="text-sm text-gray-500 mb-2">CNPJ</p>
@@ -162,15 +149,11 @@ export function AboutPage() {
               <div className="bg-emerald-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
                 <TargetIcon className="w-8 h-8 text-emerald-600" />
               </div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Missão</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                {t("mission.title")}
+              </h2>
               <p className="text-gray-600 leading-relaxed">
-                A Associação tem como missão promover o desenvolvimento humano,
-                social e institucional de seus associados e da comunidade, por
-                meio de ações organizadas, participativas e comprometidas com o
-                bem coletivo. A entidade busca atuar de forma responsável e
-                transparente, incentivando a cooperação, o fortalecimento de
-                vínculos e a valorização do conhecimento, da cidadania e da
-                inclusão social.
+                {t("mission.text")}
               </p>
             </motion.div>
 
@@ -184,14 +167,11 @@ export function AboutPage() {
               <div className="bg-blue-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
                 <EyeIcon className="w-8 h-8 text-blue-600" />
               </div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Visão</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                {t("vision.title")}
+              </h2>
               <p className="text-gray-600 leading-relaxed">
-                A Associação almeja ser uma instituição de referência em sua
-                área de atuação, reconhecida pela credibilidade, eficiência,
-                impacto social e compromisso com o desenvolvimento sustentável.
-                No médio e longo prazo, busca ampliar sua atuação, fortalecer
-                sua estrutura organizacional e consolidar parcerias estratégicas
-                que potencializem seus resultados.
+                {t("vision.text")}
               </p>
             </motion.div>
           </div>
@@ -208,11 +188,10 @@ export function AboutPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Valores
+              {t("values.title")}
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Princípios que orientam nossa conduta institucional e nossa forma
-              de atuar
+              {t("values.subtitle")}
             </p>
           </motion.div>
 
@@ -245,9 +224,11 @@ export function AboutPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Anita e Giuseppe Garibaldi
+              {t("garibaldi.title")}
             </h2>
-            <p className="text-emerald-300 text-lg">Heróis da Liberdade</p>
+            <p className="text-emerald-300 text-lg">
+              {t("garibaldi.subtitle")}
+            </p>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12">
@@ -259,17 +240,10 @@ export function AboutPage() {
             >
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
                 <h3 className="text-xl font-bold mb-4">
-                  Giuseppe Garibaldi (1807-1882)
+                  {t("garibaldi.giuseppe.title")}
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
-                  Nascido em Nice, Giuseppe envolveu-se desde jovem em
-                  movimentos revolucionários que defendiam a unificação italiana
-                  e a instauração de regimes republicanos. Perseguido
-                  politicamente, encontrou refúgio na América do Sul, onde
-                  participou das lutas republicanas no Brasil e Uruguai. Seu
-                  nome ficou definitivamente associado à causa da liberdade e da
-                  unidade nacional italiana, como um dos principais líderes do
-                  Risorgimento.
+                  {t("garibaldi.giuseppe.text")}
                 </p>
               </div>
             </motion.div>
@@ -282,17 +256,10 @@ export function AboutPage() {
             >
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
                 <h3 className="text-xl font-bold mb-4">
-                  Anita Garibaldi (1821-1849)
+                  {t("garibaldi.anita.title")}
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
-                  Nascida Ana Maria de Jesus Ribeiro em Laguna, Santa Catarina,
-                  destacou-se por sua personalidade forte e espírito
-                  independente. O encontro com Giuseppe ocorreu em 1839, durante
-                  a Revolução Farroupilha. Anita não foi apenas companheira, mas
-                  também uma combatente ativa, participando de confrontos
-                  armados e demonstrando bravura incomum. É considerada uma
-                  heroína tanto no Brasil quanto na Itália, símbolo de coragem
-                  feminina e luta pela liberdade.
+                  {t("garibaldi.anita.text")}
                 </p>
               </div>
             </motion.div>
@@ -305,11 +272,7 @@ export function AboutPage() {
             className="mt-12 text-center"
           >
             <p className="text-lg text-emerald-200 italic max-w-3xl mx-auto">
-              "A história de Anita e Giuseppe Garibaldi permanece viva como
-              exemplo de amor aliado ao ideal revolucionário. Juntos,
-              representam a união entre compromisso político e coragem pessoal,
-              inspirando gerações pela defesa da liberdade, da justiça e da
-              dignidade humana."
+              "{t("garibaldi.quote")}"
             </p>
           </motion.div>
         </div>

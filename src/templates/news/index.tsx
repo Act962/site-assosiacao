@@ -17,19 +17,26 @@ import Link from "next/link";
 import { useState } from "react";
 import { format } from "date-fns";
 import { useQueryCategory } from "@/modules/categories/hooks/use-category";
+import { useLocale, useTranslations } from "next-intl";
+import { es, it, ptBR } from "date-fns/locale";
 
 export function NewsPage() {
+  const locale = useLocale();
+  const t = useTranslations("NewsPage");
   const { news, isLoading } = useQueryNews();
   const { categories, isLoadingCategory } = useQueryCategory();
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  // const categoryColors = {
-  //   cultura: "bg-purple-100 text-purple-700",
-  //   eventos: "bg-blue-100 text-blue-700",
-  //   institucional: "bg-emerald-100 text-emerald-700",
-  //   educacao: "bg-amber-100 text-amber-700",
-  //   comunidade: "bg-pink-100 text-pink-700",
-  // };
+  const getLocale = () => {
+    switch (locale) {
+      case "it":
+        return it;
+      case "es":
+        return es;
+      default:
+        return ptBR;
+    }
+  };
 
   const filteredNews =
     selectedCategory === "all"
@@ -64,11 +71,10 @@ export function NewsPage() {
           >
             <Newspaper className="w-16 h-16 text-gray-400 mx-auto mb-6" />
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Notícias
+              {t("hero.title")}
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Acompanhe as últimas novidades da nossa associação e da comunidade
-              ítalo-brasileira
+              {t("hero.description")}
             </p>
           </motion.div>
         </div>
@@ -89,7 +95,7 @@ export function NewsPage() {
                   : ""
               }
             >
-              Todas
+              {t("filters.all")}
             </Button>
             {categories.map((cat) => (
               <Button
@@ -150,16 +156,12 @@ export function NewsPage() {
                           )}
                           <span className="text-sm text-gray-500 flex items-center gap-1">
                             <Clock className="w-4 h-4" />
-                            {/* {format(
-                              new Date(featuredNews.created_date),
-                              "d 'de' MMMM, yyyy",
-                              { locale: getLocale() },
-                            )} */}
                             {format(
                               new Date(
                                 featuredNews.publishedAt?.toString() || "",
                               ),
                               "d 'de' MMMM, yyyy",
+                              { locale: getLocale() },
                             )}
                           </span>
                         </div>
@@ -172,7 +174,7 @@ export function NewsPage() {
                           </p>
                         )}
                         <div className="flex items-center text-emerald-600 font-semibold group-hover:text-emerald-700">
-                          Leia mais
+                          {t("article.readMore")}
                           <ArrowRightIcon className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </div>
                       </div>
@@ -224,7 +226,8 @@ export function NewsPage() {
                             <ClockIcon className="w-3 h-3" />
                             {format(
                               new Date(item.publishedAt?.toString() || ""),
-                              "d MMM yyyy",
+                              "d 'de' MMMM, yyyy",
+                              { locale: getLocale() },
                             )}
                           </div>
                         </div>
@@ -238,9 +241,9 @@ export function NewsPage() {
             <div className="text-center py-20">
               <Newspaper className="w-20 h-20 text-gray-300 mx-auto mb-6" />
               <h3 className="text-2xl font-semibold text-gray-900 mb-2">
-                Nenhuma notícia encontrada
+                {t("empty.title")}
               </h3>
-              <p className="text-gray-600">Em breve publicaremos novidades</p>
+              <p className="text-gray-600">{t("empty.description")}</p>
             </div>
           )}
         </div>

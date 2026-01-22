@@ -11,8 +11,10 @@ import {
   UsersIcon,
 } from "lucide-react";
 import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
 
 export function CulturePage() {
+  const t = useTranslations("culturePage");
   const events = [
     {
       id: 1,
@@ -56,44 +58,38 @@ export function CulturePage() {
   const categories = [
     {
       icon: PartyPopperIcon,
-      title: "Festas Típicas",
-      description:
-        "Celebrações tradicionais italianas que mantêm vivas as memórias e costumes dos antepassados.",
+      title: t("activities.categories.festas.title"),
+      description: t("activities.categories.festas.description"),
       color: "bg-purple-500",
     },
     {
       icon: FilmIcon,
-      title: "Cinema Italiano",
-      description:
-        "Sessões de filmes clássicos e contemporâneos que retratam a riqueza cultural italiana.",
+      title: t("activities.categories.cinema.title"),
+      description: t("activities.categories.cinema.description"),
       color: "bg-blue-500",
     },
     {
       icon: ChefHatIcon,
-      title: "Gastronomia",
-      description:
-        "Workshops, degustações e eventos que celebram a culinária italiana tradicional.",
+      title: t("activities.categories.gastronomia.title"),
+      description: t("activities.categories.gastronomia.description"),
       color: "bg-orange-500",
     },
     {
       icon: MusicIcon,
-      title: "Música e Canto",
-      description:
-        "Apresentações musicais, corais e eventos que preservam a tradição musical italiana.",
+      title: t("activities.categories.musica.title"),
+      description: t("activities.categories.musica.description"),
       color: "bg-pink-500",
     },
     {
       icon: UsersIcon,
-      title: "Tradições Regionais",
-      description:
-        "Grupos de convivência das regiões: Calábria, Sicília, Vêneto, Lombardia e outras.",
+      title: t("activities.categories.tradicoes.title"),
+      description: t("activities.categories.tradicoes.description"),
       color: "bg-emerald-500",
     },
     {
       icon: HistoryIcon,
-      title: "Resgate Histórico",
-      description:
-        "Preservação da história das famílias italianas no Brasil e suas contribuições.",
+      title: t("activities.categories.historia.title"),
+      description: t("activities.categories.historia.description"),
       color: "bg-amber-500",
     },
   ];
@@ -132,11 +128,10 @@ export function CulturePage() {
             animate={{ opacity: 1, y: 0 }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Cultura, Tradição e Identidade
+              {t("hero.title")}
             </h1>
             <p className="text-xl text-purple-100 max-w-3xl mx-auto">
-              Preservando e celebrando as tradições ítalo-brasileiras através de
-              eventos, festas e iniciativas culturais
+              {t("hero.subtitle")}
             </p>
           </motion.div>
         </div>
@@ -152,10 +147,10 @@ export function CulturePage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Nossas Atividades Culturais
+              {t("activities.title")}
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Diversas iniciativas para manter viva a cultura italiana
+              {t("activities.subtitle")}
             </p>
           </motion.div>
 
@@ -194,11 +189,9 @@ export function CulturePage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Agenda de Eventos
+              {t("events.title")}
             </h2>
-            <p className="text-lg text-gray-600">
-              Confira nossos próximos eventos e participe
-            </p>
+            <p className="text-lg text-gray-600">{t("events.subtitle")}</p>
           </motion.div>
 
           {isLoading ? (
@@ -271,11 +264,9 @@ export function CulturePage() {
             <div className="text-center py-16 bg-white rounded-2xl">
               <CalendarIcon className="w-16 h-16 text-gray-300 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Nenhum evento programado
+                {t("events.empty.title")}
               </h3>
-              <p className="text-gray-600">
-                Em breve divulgaremos nossa agenda de eventos
-              </p>
+              <p className="text-gray-600">{t("events.empty.description")}</p>
             </div>
           )}
         </div>

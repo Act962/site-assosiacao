@@ -10,62 +10,61 @@ import {
   UsersIcon,
 } from "lucide-react";
 import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
 
 export function LegalPage() {
+  const t = useTranslations("LegalPage");
+
   const topics = [
     {
       icon: FileCheckIcon,
-      title: "Cidadania Italiana",
-      description:
-        "Orientações gerais sobre o processo de reconhecimento da cidadania italiana para descendentes.",
+      title: t("topics.categories.citizenship.title"),
+      description: t("topics.categories.citizenship.description"),
       items: [
-        "Requisitos básicos",
-        "Documentação necessária",
-        "Processo via consulado",
-        "Processo via comune na Itália",
-        "Prazos e etapas",
+        t("topics.categories.citizenship.items.0"),
+        t("topics.categories.citizenship.items.1"),
+        t("topics.categories.citizenship.items.2"),
+        t("topics.categories.citizenship.items.3"),
+        t("topics.categories.citizenship.items.4"),
       ],
       color: "bg-blue-500",
       bgColor: "bg-blue-50",
     },
     {
       icon: PlaneIcon,
-      title: "Imigração",
-      description:
-        "Informações sobre processos imigratórios entre Brasil e Itália.",
+      title: t("topics.categories.immigration.title"),
+      description: t("topics.categories.immigration.description"),
       items: [
-        "Tipos de visto",
-        "Permesso di soggiorno",
-        "Trabalho na Itália",
-        "Residência no exterior",
+        t("topics.categories.immigration.items.0"),
+        t("topics.categories.immigration.items.1"),
+        t("topics.categories.immigration.items.2"),
+        t("topics.categories.immigration.items.3"),
       ],
       color: "bg-emerald-500",
       bgColor: "bg-emerald-50",
     },
     {
       icon: ScaleIcon,
-      title: "Direito Italiano",
-      description:
-        "Noções gerais sobre o sistema jurídico italiano e suas particularidades.",
+      title: t("topics.categories.law.title"),
+      description: t("topics.categories.law.description"),
       items: [
-        "Sistema legal italiano",
-        "Direitos do cidadão",
-        "Acordos bilaterais",
-        "Tratados internacionais",
+        t("topics.categories.law.items.0"),
+        t("topics.categories.law.items.1"),
+        t("topics.categories.law.items.2"),
+        t("topics.categories.law.items.3"),
       ],
       color: "bg-purple-500",
       bgColor: "bg-purple-50",
     },
     {
       icon: UsersIcon,
-      title: "Direito de Família",
-      description:
-        "Orientações sobre questões familiares envolvendo cidadãos italianos.",
+      title: t("topics.categories.family.title"),
+      description: t("topics.categories.family.description"),
       items: [
-        "Casamento com italiano(a)",
-        "Divórcio internacional",
-        "Guarda de filhos",
-        "Sucessão e herança",
+        t("topics.categories.family.items.0"),
+        t("topics.categories.family.items.1"),
+        t("topics.categories.family.items.2"),
+        t("topics.categories.family.items.3"),
       ],
       color: "bg-pink-500",
       bgColor: "bg-pink-50",
@@ -86,7 +85,6 @@ export function LegalPage() {
             }}
           />
         </div>
-        {/* <div className="absolute top-0 left-0 w-2 h-full bg-linear-to-b from-green-500 via-white to-red-500 opacity-80" /> */}
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
@@ -95,11 +93,10 @@ export function LegalPage() {
           >
             <ScaleIcon className="w-16 h-16 text-red-300 mx-auto mb-6" />
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Área Jurídica e Informativa
+              {t("hero.title")}
             </h1>
             <p className="text-xl text-red-100 max-w-3xl mx-auto">
-              Informações e orientações sobre direitos de ítalo-brasileiros,
-              cidadania, imigração e direito de família
+              {t("hero.description")}
             </p>
           </motion.div>
         </div>
@@ -112,14 +109,9 @@ export function LegalPage() {
             <AlertCircleIcon className="w-6 h-6 text-amber-600 shrink-0 mt-0.5" />
             <div>
               <h3 className="font-semibold text-amber-800 mb-1">
-                Aviso Importante
+                {t("disclaimer.title")}
               </h3>
-              <p className="text-amber-700 text-sm">
-                Esta página tem caráter meramente informativo e educativo. As
-                informações aqui apresentadas não constituem assessoria
-                jurídica. Para casos específicos, recomendamos a consulta com
-                advogados especializados.
-              </p>
+              <p className="text-amber-700 text-sm">{t("disclaimer.text")}</p>
             </div>
           </div>
         </div>
@@ -135,11 +127,10 @@ export function LegalPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Temas Informativos
+              {t("topics.title")}
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Conheça os principais temas relacionados aos direitos de
-              ítalo-brasileiros
+              {t("topics.subtitle")}
             </p>
           </motion.div>
 
@@ -189,12 +180,10 @@ export function LegalPage() {
           >
             <BookOpenIcon className="w-16 h-16 text-red-600 mx-auto mb-6" />
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Palestras com Especialistas
+              {t("lectures.title")}
             </h2>
             <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              Periodicamente, realizamos palestras com advogados especializados
-              em cidadania italiana, imigração e direito de família. Acompanhe
-              nossa agenda de eventos para participar.
+              {t("lectures.description")}
             </p>
           </motion.div>
         </div>

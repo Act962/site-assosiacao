@@ -3,17 +3,19 @@ import React from "react";
 import { MapPin, Mail, Phone, Facebook, Instagram } from "lucide-react";
 import Link from "next/link";
 import TikTokIcon from "../../assets/tiktok.svg";
+import { useTranslations } from "next-intl";
 
 // const LOGO_URL = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68e0322715c4b09646bb5f4e/59dc25d0e_LogomarcaAssociacaojpg.jpg";
 const LOGO_URL = "/favicon.png";
 
 export default function Footer() {
+  const t = useTranslations("Footer");
   const quickLinks = [
-    { label: "Início", path: "/" },
-    { label: "Sobre", path: "/about" },
-    { label: "Cultura e Tradição", path: "/culture" },
-    { label: "Notícias", path: "/news" },
-    { label: "Seja Associado", path: "/join" },
+    { label: t("quickLinks.items.home"), path: "/" },
+    { label: t("quickLinks.items.about"), path: "/about" },
+    { label: t("quickLinks.items.culture"), path: "/culture" },
+    { label: t("quickLinks.items.news"), path: "/news" },
+    { label: t("quickLinks.items.join"), path: "/join" },
   ];
 
   return (
@@ -29,9 +31,7 @@ export default function Footer() {
               className="h-16 w-auto mb-6"
             />
             <p className="text-gray-400 leading-relaxed max-w-md">
-              Promovendo o desenvolvimento humano, social e institucional de
-              seus associados e da comunidade, por meio de ações organizadas,
-              participativas e comprometidas com o bem coletivo.
+              {t("description")}
             </p>
             {/* Social Media */}
             <div className="flex gap-4 mt-6">
@@ -69,7 +69,7 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h3 className="text-lg font-semibold mb-6 text-white">
-              Links Rápidos
+              {t("quickLinks.title")}
             </h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
@@ -87,14 +87,14 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-white">Contato</h3>
+            <h3 className="text-lg font-semibold mb-6 text-white">
+              {t("contact.title")}
+            </h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
                 <span className="text-gray-400 text-sm">
-                  Av. São João, 313 - Ed. Seguradoras
-                  <br />
-                  Centro - São Paulo/SP
+                  {t("contact.address")}
                 </span>
               </li>
             </ul>
@@ -107,10 +107,9 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-500 text-sm">
-              © {new Date().getFullYear()} Associação Anita e Giuseppe Garibaldi
-              - SP. Todos os direitos reservados.
+              © {new Date().getFullYear()} {t("bottom.rights")}
             </p>
-            <p className="text-gray-600 text-sm">CNPJ: 03.161.879/0001-41</p>
+            <p className="text-gray-600 text-sm">{t("bottom.cnpj")}</p>
           </div>
         </div>
       </div>

@@ -11,8 +11,10 @@ import {
   MicIcon,
   UsersIcon,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function CoursesPage() {
+  const t = useTranslations("coursesPage");
   const courses = [
     {
       id: 1,
@@ -55,19 +57,25 @@ export function CoursesPage() {
   const courseTypes = [
     {
       icon: BookOpenIcon,
-      title: "Cursos de Italiano",
-      description:
-        "Do básico ao avançado, aprenda a língua italiana com professores qualificados.",
-      levels: ["Básico", "Intermediário", "Avançado"],
+      title: t("courseTypes.items.italiano.title"),
+      description: t("courseTypes.items.italiano.description"),
+      levels: [
+        t("courseTypes.items.italiano.levels.0"),
+        t("courseTypes.items.italiano.levels.1"),
+        t("courseTypes.items.italiano.levels.2"),
+      ],
       color: "bg-blue-500",
       bgColor: "bg-blue-50",
     },
     {
       icon: GlobeIcon,
-      title: "Italiano para Viagem",
-      description:
-        "Curso prático para quem deseja viajar pela Itália com confiança.",
-      features: ["Conversação", "Situações do dia a dia", "Cultura local"],
+      title: t("courseTypes.items.viagem.title"),
+      description: t("courseTypes.items.viagem.description"),
+      features: [
+        t("courseTypes.items.viagem.features.0"),
+        t("courseTypes.items.viagem.features.1"),
+        t("courseTypes.items.viagem.features.2"),
+      ],
       color: "bg-emerald-500",
       bgColor: "bg-emerald-50",
       duration: "4 meses",
@@ -75,32 +83,37 @@ export function CoursesPage() {
     },
     {
       icon: AwardIcon,
-      title: "Preparação CELI/CILS",
-      description:
-        "Preparação completa para os exames de proficiência reconhecidos internacionalmente.",
+      title: t("courseTypes.items.certificacao.title"),
+      description: t("courseTypes.items.certificacao.description"),
       features: [
-        "Simulados",
-        "Material específico",
-        "Acompanhamento individual",
+        t("courseTypes.items.certificacao.features.0"),
+        t("courseTypes.items.certificacao.features.1"),
+        t("courseTypes.items.certificacao.features.2"),
       ],
       color: "bg-amber-500",
       bgColor: "bg-amber-50",
     },
     {
       icon: HistoryIcon,
-      title: "História e Cultura",
-      description:
-        "Aulas sobre a história da Itália e sua rica herança cultural.",
-      features: ["Arte", "Literatura", "Civilização"],
+      title: t("courseTypes.items.historia.title"),
+      description: t("courseTypes.items.historia.description"),
+      features: [
+        t("courseTypes.items.historia.features.0"),
+        t("courseTypes.items.historia.features.1"),
+        t("courseTypes.items.historia.features.2"),
+      ],
       color: "bg-purple-500",
       bgColor: "bg-purple-50",
     },
     {
       icon: MicIcon,
-      title: "Palestras Educativas",
-      description:
-        "Palestras temáticas para jovens e adultos ítalo-brasileiros.",
-      features: ["Identidade cultural", "Genealogia", "Cidadania"],
+      title: t("courseTypes.items.palestras.title"),
+      description: t("courseTypes.items.palestras.description"),
+      features: [
+        t("courseTypes.items.palestras.features.0"),
+        t("courseTypes.items.palestras.features.1"),
+        t("courseTypes.items.palestras.features.2"),
+      ],
       color: "bg-pink-500",
       bgColor: "bg-pink-50",
     },
@@ -138,11 +151,10 @@ export function CoursesPage() {
           >
             <GraduationCapIcon className="w-16 h-16 text-blue-300 mx-auto mb-6" />
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Cursos e Educação
+              {t("hero.title")}
             </h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Aprenda italiano e conheça a fundo a cultura e história da Itália
-              com nossos cursos especializados
+              {t("hero.subtitle")}
             </p>
           </motion.div>
         </div>
@@ -158,10 +170,10 @@ export function CoursesPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Nossos Cursos
+              {t("courseTypes.title")}
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Opções para todos os níveis e interesses
+              {t("courseTypes.subtitle")}
             </p>
           </motion.div>
 
@@ -226,10 +238,10 @@ export function CoursesPage() {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Turmas Abertas
+                {t("availableCourses.title")}
               </h2>
               <p className="text-lg text-gray-600">
-                Confira as próximas turmas disponíveis
+                {t("availableCourses.subtitle")}
               </p>
             </motion.div>
 
@@ -301,12 +313,9 @@ export function CoursesPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Interessado em nossos cursos?
+              {t("cta.title")}
             </h2>
-            <p className="text-xl text-blue-100 mb-8">
-              Entre em contato para mais informações sobre matrículas e horários
-              disponíveis.
-            </p>
+            <p className="text-xl text-blue-100 mb-8">{t("cta.description")}</p>
           </motion.div>
         </div>
       </section>

@@ -30,6 +30,10 @@
         "community": {
           "label": "Comunidad",
           "description": "Apoyo social e integración"
+        },
+        "networking": {
+          "label": "Networking",
+          "description": "Conectando emprendedores y profesionales"
         }
       }
     },
@@ -90,11 +94,404 @@
       }
     }
   },
+  "AboutPage": {
+    "hero": {
+      "title": "Sobre la Asociación",
+      "subtitle": "Conozca nuestra historia, misión y valores que guían nuestro compromiso con la comunidad ítalo-brasileña."
+    },
+
+    "institution": {
+      "title": "Nuestra Asociación",
+      "paragraphs": [
+        "La",
+        "Asociación de Intercambio Cultural Ítalo-Brasileña Anita y Giuseppe Garibaldi – SP",
+        "es una entidad sin fines de lucro que actúa en la promoción de la cultura, la lengua, la historia y la integración ítalo-brasileña.",
+        "Ubicada en el corazón de São Paulo, en la Avenida São João, nuestra sede es un punto de encuentro para descendientes italianos, estudiantes del idioma y todos los interesados en la rica cultura italiana.",
+        "Actuamos de manera responsable y transparente, fomentando la cooperación, el fortalecimiento de vínculos y la valorización del conocimiento, la ciudadanía y la inclusión social."
+      ],
+      "cnpjLabel": "CNPJ"
+    },
+
+    "mission": {
+      "title": "Misión",
+      "text": "La Asociación tiene como misión promover el desarrollo humano, social e institucional de sus asociados y de la comunidad, mediante acciones organizadas, participativas y comprometidas con el bien colectivo. La entidad busca actuar de forma responsable y transparente, incentivando la cooperación, el fortalecimiento de vínculos y la valorización del conocimiento, la ciudadanía y la inclusión social."
+    },
+
+    "vision": {
+      "title": "Visión",
+      "text": "La Asociación aspira a ser una institución de referencia en su área de actuación, reconocida por su credibilidad, eficiencia, impacto social y compromiso con el desarrollo sostenible. A mediano y largo plazo, busca ampliar su actuación, fortalecer su estructura organizacional y consolidar alianzas estratégicas."
+    },
+
+    "values": {
+      "title": "Valores",
+      "subtitle": "Principios que orientan nuestra conducta institucional y nuestra forma de actuar",
+      "items": [
+        {
+          "title": "Ética e Integridad",
+          "description": "Actuación basada en la honestidad, la transparencia y el respeto a las normas."
+        },
+        {
+          "title": "Responsabilidad Social",
+          "description": "Compromiso con el impacto positivo de nuestras acciones."
+        },
+        {
+          "title": "Respeto a la Diversidad",
+          "description": "Valoración de las diferencias y promoción de la inclusión."
+        },
+        {
+          "title": "Participación y Cooperación",
+          "description": "Fomento del compromiso y del trabajo colectivo."
+        },
+        {
+          "title": "Transparencia",
+          "description": "Claridad en la comunicación y rendición de cuentas."
+        },
+        {
+          "title": "Compromiso con la Calidad",
+          "description": "Búsqueda continua de la mejora de procesos."
+        },
+        {
+          "title": "Sostenibilidad",
+          "description": "Prácticas que aseguran la continuidad de la Asociación."
+        },
+        {
+          "title": "Desarrollo Sostenible",
+          "description": "Uso responsable de los recursos disponibles."
+        }
+      ]
+    },
+
+    "garibaldi": {
+      "title": "Anita y Giuseppe Garibaldi",
+      "subtitle": "Héroes de la Libertad",
+
+      "giuseppe": {
+        "title": "Giuseppe Garibaldi (1807–1882)",
+        "text": "Nacido en Niza, Giuseppe se involucró desde joven en movimientos revolucionarios que defendían la unificación italiana y la instauración de regímenes republicanos. Perseguido políticamente, encontró refugio en América del Sur, donde participó en las luchas republicanas en Brasil y Uruguay. Su nombre quedó definitivamente asociado a la causa de la libertad y de la unidad nacional italiana, como uno de los principales líderes del Risorgimento."
+      },
+
+      "anita": {
+        "title": "Anita Garibaldi (1821–1849)",
+        "text": "Nacida Ana Maria de Jesus Ribeiro en Laguna, Santa Catarina, se destacó por su fuerte personalidad y espíritu independiente. El encuentro con Giuseppe ocurrió en 1839, durante la Revolución Farroupilha. Anita no fue solo compañera, sino también una combatiente activa, participando en enfrentamientos armados y demostrando una valentía poco común. Es considerada una heroína tanto en Brasil como en Italia, símbolo de la valentía femenina y de la lucha por la libertad."
+      },
+
+      "quote": "La historia de Anita y Giuseppe Garibaldi permanece viva como ejemplo de amor unido al ideal revolucionario. Juntos, representan la unión entre compromiso político y valentía personal, inspirando generaciones en la defensa de la libertad, la justicia y la dignidad humana."
+    }
+  },
+  "culturePage": {
+    "hero": {
+      "title": "Cultura, Tradición e Identidad",
+      "subtitle": "Preservando y celebrando las tradiciones ítalo-brasileñas a través de eventos, fiestas e iniciativas culturales"
+    },
+    "activities": {
+      "title": "Nuestras Actividades Culturales",
+      "subtitle": "Diversas iniciativas para mantener viva la cultura italiana",
+      "categories": {
+        "festas": {
+          "title": "Fiestas Típicas",
+          "description": "Celebraciones tradicionales italianas que mantienen vivas las memorias y costumbres de los antepasados."
+        },
+        "cinema": {
+          "title": "Cine Italiano",
+          "description": "Proyecciones de películas clásicas y contemporáneas que retratan la riqueza cultural italiana."
+        },
+        "gastronomia": {
+          "title": "Gastronomía",
+          "description": "Talleres, degustaciones y eventos que celebran la cocina tradicional italiana."
+        },
+        "musica": {
+          "title": "Música y Canto",
+          "description": "Presentaciones musicales, coros y eventos que preservan la tradición musical italiana."
+        },
+        "tradicoes": {
+          "title": "Tradiciones Regionales",
+          "description": "Grupos de convivencia de las regiones: Calabria, Sicilia, Véneto, Lombardía y otras."
+        },
+        "historia": {
+          "title": "Rescate Histórico",
+          "description": "Preservación de la historia de las familias italianas en Brasil y sus contribuciones."
+        }
+      }
+    },
+    "events": {
+      "title": "Agenda de Eventos",
+      "subtitle": "Consulta nuestros próximos eventos y participa",
+      "empty": {
+        "title": "Ningún evento programado",
+        "description": "Próximamente publicaremos nuestra agenda de eventos"
+      }
+    }
+  },
+  "coursesPage": {
+    "hero": {
+      "title": "Cursos y Educación",
+      "subtitle": "Aprende italiano y conoce a fondo la cultura y la historia de Italia con nuestros cursos especializados"
+    },
+    "courseTypes": {
+      "title": "Nuestros Cursos",
+      "subtitle": "Opciones para todos los niveles e intereses",
+      "items": {
+        "italiano": {
+          "title": "Cursos de Italiano",
+          "description": "Desde nivel básico hasta avanzado, aprende el idioma italiano con profesores calificados.",
+          "levels": ["Básico", "Intermedio", "Avanzado"]
+        },
+        "viagem": {
+          "title": "Italiano para Viajes",
+          "description": "Curso práctico para quienes desean viajar por Italia con confianza.",
+          "features": [
+            "Conversación",
+            "Situaciones cotidianas",
+            "Cultura local"
+          ]
+        },
+        "certificacao": {
+          "title": "Preparación CELI/CILS",
+          "description": "Preparación completa para los exámenes de certificación reconocidos internacionalmente.",
+          "features": [
+            "Simulacros",
+            "Material específico",
+            "Acompañamiento individual"
+          ]
+        },
+        "historia": {
+          "title": "Historia y Cultura",
+          "description": "Clases sobre la historia de Italia y su rica herencia cultural.",
+          "features": ["Arte", "Literatura", "Civilización"]
+        },
+        "palestras": {
+          "title": "Charlas Educativas",
+          "description": "Charlas temáticas para jóvenes y adultos ítalo-brasileños.",
+          "features": ["Identidad cultural", "Genealogía", "Ciudadanía"]
+        }
+      }
+    },
+    "availableCourses": {
+      "title": "Clases Abiertas",
+      "subtitle": "Consulta las próximas clases disponibles"
+    },
+    "cta": {
+      "title": "¿Interesado en nuestros cursos?",
+      "description": "Ponte en contacto para más información sobre inscripciones y horarios disponibles."
+    }
+  },
   "SelectLang": {
     "pt": "Portugués",
     "en": "Inglés",
     "fr": "Francés",
     "es": "Español",
     "it": "Italiano"
+  },
+  "Footer": {
+    "description": "Promoviendo el desarrollo humano, social e institucional de sus asociados y de la comunidad, mediante acciones organizadas, participativas y comprometidas con el bien común.",
+    "quickLinks": {
+      "title": "Enlaces Rápidos",
+      "items": {
+        "home": "Inicio",
+        "about": "Quiénes somos",
+        "culture": "Cultura y Tradición",
+        "news": "Noticias",
+        "join": "Hazte socio"
+      }
+    },
+    "contact": {
+      "title": "Contacto",
+      "address": "Av. São João, 313 - Ed. Seguradoras\nCentro - São Paulo/SP"
+    },
+    "bottom": {
+      "rights": "Asociación Anita y Giuseppe Garibaldi - SP. Todos los derechos reservados.",
+      "cnpj": "CNPJ: 03.161.879/0001-41"
+    }
+  },
+  "SupportPage": {
+    "hero": {
+      "title": "Apoyo a los Recién Llegados",
+      "description": "Ofrecemos soporte y orientación a la comunidad ítalo-brasileña, ayudando en la integración y fortalecendo los lazos comunitarios"
+    },
+    "services": {
+      "newcomers": {
+        "title": "Apoyo a los Recién Llegados",
+        "description": "Soporte completo para italianos recién llegados a Brasil e ítalo-brasileños que necesitan orientación.",
+        "items": [
+          "Orientación inicial",
+          "Adaptación cultural",
+          "Información práctica sobre Brasil"
+        ]
+      },
+      "consular": {
+        "title": "Orientación Consular",
+        "description": "Información sobre servicios consulares italianos.",
+        "items": [
+          "Visados y pasaportes",
+          "Legalizaciones de documentos",
+          "Procedimientos consulares",
+          "Citas"
+        ]
+      },
+      "integration": {
+        "title": "Integración Comunitaria",
+        "description": "Ayudamos en la integración de ítalo-brasileños con comunidades italianas locales.",
+        "items": [
+          "Conexión con grupos regionales",
+          "Eventos de integración",
+          "Actividades comunitarias"
+        ]
+      },
+      "networking": {
+        "title": "Red de Contactos",
+        "description": "Red de apoyo para trabajo, vivienda y soporte familiar.",
+        "items": [
+          "Oportunidades de trabajo",
+          "Indicaciones de vivienda",
+          "Apoyo familiar",
+          "Networking profesional"
+        ]
+      }
+    },
+    "contact": {
+      "title": "Cómo Podemos Ayudar",
+      "subtitle": "Nuestro equipo está listo para orientarte en tus necesidades",
+      "headquarters": "Nuestra Sede",
+      "address": "Av. São João, 313 - Ed. Seguradoras\nCentro - São Paulo/SP",
+      "social": "Redes Sociales"
+    }
+  },
+  "NetworkingPage": {
+    "hero": {
+      "title": "Networking y Negocios",
+      "description": "Conectando emprendedores y profesionales ítalo-brasileños, fortaleciendo las relaciones comerciales entre Brasil e Italia"
+    },
+    "business": {
+      "title": "Oportunidades de Negocio",
+      "subtitle": "Facilitamos conexiones comerciales y apoyamos a emprendedores",
+      "services": {
+        "networking": {
+          "title": "Rondas de Networking",
+          "description": "Eventos regulares para que emprendedores ítalo-brasileños se conecten e intercambien experiencias."
+        },
+        "import": {
+          "title": "Importación de Productos",
+          "description": "Apoyo para quienes desean importar productos italianos o iniciar negocios con Italia."
+        },
+        "corporate": {
+          "title": "Eventos Empresariales",
+          "description": "Eventos para conectar empresarios de Brasil e Italia, fomentando alianzas comerciales."
+        },
+        "partnerships": {
+          "title": "Alianzas Estratégicas",
+          "description": "Facilitamos conexiones entre empresas brasileñas e italianas para negocios bilaterales."
+        }
+      }
+    },
+    "academic": {
+      "title": "Alianzas con Universidades",
+      "subtitle": "Apoyo académico para estudiantes ítalo-brasileños",
+      "services": {
+        "study": {
+          "title": "Estudiar en Italia",
+          "description": "Asistencia para estudiantes ítalo-brasileños que deseen estudiar en Italia.",
+          "items": [
+            "Orientación sobre procesos",
+            "Documentación necesaria",
+            "Elección de instituciones"
+          ]
+        },
+        "diploma": {
+          "title": "Equivalencia de Diplomas",
+          "description": "Orientación sobre equivalencia de diplomas y oportunidades de becas.",
+          "items": [
+            "Proceso de reconocimiento",
+            "Becas de estudio",
+            "Programas de intercambio"
+          ]
+        },
+        "partnerships": {
+          "title": "Alianzas Universitarias",
+          "description": "Alianzas con universidades italianas para facilitar el intercambio académico.",
+          "items": [
+            "Convenios activos",
+            "Programas conjuntos",
+            "Movilidad académica"
+          ]
+        }
+      }
+    }
+  },
+  "LegalPage": {
+    "hero": {
+      "title": "Área Jurídica e Informativa",
+      "description": "Información y orientación sobre los derechos de los ítalo-brasileños, ciudadanía, inmigración y derecho de familia"
+    },
+    "disclaimer": {
+      "title": "Aviso Importante",
+      "text": "Esta página tiene un carácter puramente informativo y educativo. La información aquí presentada no constituye asesoramiento jurídico. Para casos específicos, recomendamos consultar con abogados especializados."
+    },
+    "topics": {
+      "title": "Temas Informativos",
+      "subtitle": "Conozca los principales temas relacionados con los derechos de los ítalo-brasileños",
+      "categories": {
+        "citizenship": {
+          "title": "Ciudadanía Italiana",
+          "description": "Orientación general sobre el proceso de reconocimiento de la ciudadanía italiana para descendientes.",
+          "items": [
+            "Requisitos básicos",
+            "Documentación necesaria",
+            "Proceso vía consulado",
+            "Proceso vía comune en Italia",
+            "Plazos y etapas"
+          ]
+        },
+        "immigration": {
+          "title": "Inmigración",
+          "description": "Información sobre los procesos migratorios entre Brasil e Italia.",
+          "items": [
+            "Tipos de visado",
+            "Permesso di soggiorno",
+            "Trabajo en Italia",
+            "Residencia en el extranjero"
+          ]
+        },
+        "law": {
+          "title": "Derecho Italiano",
+          "description": "Nociones generales sobre el sistema jurídico italiano y sus particularidades.",
+          "items": [
+            "Sistema legal italiano",
+            "Derechos del ciudadano",
+            "Acuerdos bilaterales",
+            "Tratados internacionales"
+          ]
+        },
+        "family": {
+          "title": "Derecho de Familia",
+          "description": "Orientación sobre cuestiones familiares que involucran a ciudadanos italianos.",
+          "items": [
+            "Matrimonio con italiano(a)",
+            "Divorcio internacional",
+            "Custodia de hijos",
+            "Sucesión y herencia"
+          ]
+        }
+      }
+    },
+    "lectures": {
+      "title": "Charlas con Especialistas",
+      "description": "Periódicamente realizamos charlas con abogados especializados en ciudadanía italiana, inmigración y derecho de familia. Siga nuestra agenda de eventos para participar."
+    }
+  },
+  "NewsPage": {
+    "hero": {
+      "title": "Noticias",
+      "description": "Siga las últimas novedades de nuestra asociación y de la comunidad ítalo-brasileña"
+    },
+    "filters": {
+      "all": "Todas"
+    },
+    "article": {
+      "readMore": "Leer más"
+    },
+    "empty": {
+      "title": "No se encontraron noticias",
+      "description": "Próximamente publicaremos novedades"
+    }
   }
 }

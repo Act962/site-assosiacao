@@ -11,35 +11,34 @@ import {
   UsersIcon,
 } from "lucide-react";
 import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
 
 export function NetworkingPage() {
+  const t = useTranslations("NetworkingPage");
+
   const services = [
     {
       icon: UsersIcon,
-      title: "Rodadas de Networking",
-      description:
-        "Eventos regulares para empreendedores ítalo-brasileiros se conectarem e trocarem experiências.",
+      title: t("business.services.networking.title"),
+      description: t("business.services.networking.description"),
       color: "bg-amber-500",
     },
     {
       icon: GlobeIcon,
-      title: "Importação de Produtos",
-      description:
-        "Apoio para quem deseja importar produtos italianos ou iniciar negócios com a Itália.",
+      title: t("business.services.import.title"),
+      description: t("business.services.import.description"),
       color: "bg-blue-500",
     },
     {
       icon: Building2Icon,
-      title: "Eventos Empresariais",
-      description:
-        "Eventos para conectar empresários do Brasil e da Itália, promovendo parcerias comerciais.",
+      title: t("business.services.corporate.title"),
+      description: t("business.services.corporate.description"),
       color: "bg-emerald-500",
     },
     {
       icon: HandshakeIcon,
-      title: "Parcerias Estratégicas",
-      description:
-        "Facilitamos conexões entre empresas brasileiras e italianas para negócios bilaterais.",
+      title: t("business.services.partnerships.title"),
+      description: t("business.services.partnerships.description"),
       color: "bg-purple-500",
     },
   ];
@@ -47,35 +46,32 @@ export function NetworkingPage() {
   const academicServices = [
     {
       icon: GraduationCapIcon,
-      title: "Estudar na Itália",
-      description:
-        "Auxílio para estudantes ítalo-brasileiros que desejam estudar na Itália.",
+      title: t("academic.services.study.title"),
+      description: t("academic.services.study.description"),
       items: [
-        "Orientação sobre processos",
-        "Documentação necessária",
-        "Escolha de instituições",
+        t("academic.services.study.items.0"),
+        t("academic.services.study.items.1"),
+        t("academic.services.study.items.2"),
       ],
     },
     {
       icon: TrendingUpIcon,
-      title: "Equivalência de Diplomas",
-      description:
-        "Orientações sobre equivalência de diplomas e oportunidades de bolsas.",
+      title: t("academic.services.diploma.title"),
+      description: t("academic.services.diploma.description"),
       items: [
-        "Processo de reconhecimento",
-        "Bolsas de estudo",
-        "Programas de intercâmbio",
+        t("academic.services.diploma.items.0"),
+        t("academic.services.diploma.items.1"),
+        t("academic.services.diploma.items.2"),
       ],
     },
     {
       icon: PlaneIcon,
-      title: "Parcerias Universitárias",
-      description:
-        "Parcerias com universidades italianas para facilitar o intercâmbio acadêmico.",
+      title: t("academic.services.partnerships.title"),
+      description: t("academic.services.partnerships.description"),
       items: [
-        "Convênios ativos",
-        "Programas conjuntos",
-        "Mobilidade acadêmica",
+        t("academic.services.partnerships.items.0"),
+        t("academic.services.partnerships.items.1"),
+        t("academic.services.partnerships.items.2"),
       ],
     },
   ];
@@ -94,7 +90,6 @@ export function NetworkingPage() {
             }}
           />
         </div>
-        {/* <div className="absolute top-0 left-0 w-2 h-full bg-linear-to-b from-green-500 via-white to-red-500 opacity-80" /> */}
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
@@ -103,11 +98,10 @@ export function NetworkingPage() {
           >
             <BriefcaseIcon className="w-16 h-16 text-amber-300 mx-auto mb-6" />
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Networking & Negócios
+              {t("hero.title")}
             </h1>
             <p className="text-xl text-amber-100 max-w-3xl mx-auto">
-              Conectando empreendedores e profissionais ítalo-brasileiros,
-              fortalecendo relações comerciais entre Brasil e Itália
+              {t("hero.description")}
             </p>
           </motion.div>
         </div>
@@ -123,10 +117,10 @@ export function NetworkingPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Oportunidades de Negócios
+              {t("business.title")}
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Facilitamos conexões comerciais e apoiamos empreendedores
+              {t("business.subtitle")}
             </p>
           </motion.div>
 
@@ -165,10 +159,10 @@ export function NetworkingPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Parcerias com Universidades
+              {t("academic.title")}
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Apoio acadêmico para estudantes ítalo-brasileiros
+              {t("academic.subtitle")}
             </p>
           </motion.div>
 

@@ -9,58 +9,60 @@ import {
   UsersIcon,
 } from "lucide-react";
 import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
 
 export function SupportPage() {
+  const t = useTranslations("SupportPage");
+
   const services = [
     {
       icon: HomeIcon,
-      title: "Apoio a Recém-Chegados",
-      description:
-        "Suporte completo para italianos recém-chegados ao Brasil e ítalo-brasileiros que precisam de orientação.",
+      title: t("services.newcomers.title"),
+      description: t("services.newcomers.description"),
       items: [
-        "Orientação inicial",
-        "Adaptação cultural",
-        "Informações práticas sobre o Brasil",
+        t("services.newcomers.items.0"),
+        t("services.newcomers.items.1"),
+        t("services.newcomers.items.2"),
       ],
       color: "bg-emerald-500",
     },
     {
       icon: FileTextIcon,
-      title: "Orientação Consular",
-      description: "Informações sobre serviços consulares italianos.",
+      title: t("services.consular.title"),
+      description: t("services.consular.description"),
       items: [
-        "Vistos e passaportes",
-        "Legalizações de documentos",
-        "Procedimentos consulares",
-        "Agendamentos",
+        t("services.consular.items.0"),
+        t("services.consular.items.1"),
+        t("services.consular.items.2"),
+        t("services.consular.items.3"),
       ],
       color: "bg-blue-500",
     },
     {
       icon: UsersIcon,
-      title: "Integração Comunitária",
-      description:
-        "Ajudamos na integração de ítalo-brasileiros com comunidades italianas locais.",
+      title: t("services.integration.title"),
+      description: t("services.integration.description"),
       items: [
-        "Conexão com grupos regionais",
-        "Eventos de integração",
-        "Atividades comunitárias",
+        t("services.integration.items.0"),
+        t("services.integration.items.1"),
+        t("services.integration.items.2"),
       ],
       color: "bg-purple-500",
     },
     {
       icon: BriefcaseIcon,
-      title: "Rede de Contatos",
-      description: "Rede de apoio para trabalho, moradia e suporte familiar.",
+      title: t("services.networking.title"),
+      description: t("services.networking.description"),
       items: [
-        "Oportunidades de trabalho",
-        "Indicações de moradia",
-        "Apoio familiar",
-        "Networking profissional",
+        t("services.networking.items.0"),
+        t("services.networking.items.1"),
+        t("services.networking.items.2"),
+        t("services.networking.items.3"),
       ],
       color: "bg-amber-500",
     },
   ];
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
@@ -75,7 +77,6 @@ export function SupportPage() {
             }}
           />
         </div>
-        {/* <div className="absolute top-0 left-0 w-2 h-full bg-linear-to-b from-green-500 via-white to-red-500 opacity-80" /> */}
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
@@ -84,12 +85,10 @@ export function SupportPage() {
           >
             <HeartHandshakeIcon className="w-16 h-16 text-emerald-300 mx-auto mb-6" />
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Apoio a Recém-Chegados
+              {t("hero.title")}
             </h1>
             <p className="text-xl text-emerald-100 max-w-3xl mx-auto">
-              Oferecemos suporte e orientação para a comunidade
-              ítalo-brasileira, ajudando na integração e fortalecendo laços
-              comunitários
+              {t("hero.description")}
             </p>
           </motion.div>
         </div>
@@ -144,11 +143,9 @@ export function SupportPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Como Podemos Ajudar
+              {t("contact.title")}
             </h2>
-            <p className="text-lg text-gray-600">
-              Nossa equipe está pronta para orientar você em suas necessidades
-            </p>
+            <p className="text-lg text-gray-600">{t("contact.subtitle")}</p>
           </motion.div>
 
           <motion.div
@@ -159,20 +156,29 @@ export function SupportPage() {
           >
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="font-bold text-gray-900 mb-4">Nossa Sede</h3>
+                <h3 className="font-bold text-gray-900 mb-4">
+                  {t("contact.headquarters")}
+                </h3>
                 <div className="space-y-4 text-gray-600">
                   <div className="flex items-start gap-3">
                     <MapPinIcon className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                     <span>
-                      Av. São João, 313 - Ed. Seguradoras
-                      <br />
-                      Centro - São Paulo/SP
+                      {t("contact.address")
+                        .split("\n")
+                        .map((line, i) => (
+                          <span key={i}>
+                            {line}
+                            {i === 0 && <br />}
+                          </span>
+                        ))}
                     </span>
                   </div>
                 </div>
               </div>
               <div>
-                <h3 className="font-bold text-gray-900 mb-4">Redes Sociais</h3>
+                <h3 className="font-bold text-gray-900 mb-4">
+                  {t("contact.social")}
+                </h3>
                 <div className="space-y-4 text-gray-600">
                   <div className="flex items-center gap-3">
                     <GlobeIcon className="w-5 h-5 text-emerald-600" />

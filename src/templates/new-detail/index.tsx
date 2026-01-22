@@ -11,6 +11,55 @@ import Link from "next/link";
 export function NewsDetailPage({ slug }: { slug: string }) {
   const { news, isLoading } = useQueryNew(slug);
 
+  // Loading State
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-white">
+        {/* Header Image Skeleton */}
+        <div className="relative h-[50vh] overflow-hidden bg-gray-200 animate-pulse" />
+
+        {/* Content Skeleton */}
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="space-y-6"
+          >
+            {/* Back Button Skeleton */}
+            <div className="h-10 bg-gray-200 rounded animate-pulse w-24" />
+
+            {/* Meta Skeleton */}
+            <div className="flex flex-wrap items-center gap-4">
+              <div className="h-8 bg-gray-200 rounded-full animate-pulse w-32" />
+              <div className="h-6 bg-gray-200 rounded animate-pulse w-40" />
+            </div>
+
+            {/* Title Skeleton */}
+            <div className="space-y-3">
+              <div className="h-10 bg-gray-200 rounded animate-pulse w-full" />
+              <div className="h-10 bg-gray-200 rounded animate-pulse w-3/4" />
+            </div>
+
+            {/* Excerpt Skeleton */}
+            <div className="space-y-2">
+              <div className="h-6 bg-gray-200 rounded animate-pulse w-full" />
+              <div className="h-6 bg-gray-200 rounded animate-pulse w-5/6" />
+            </div>
+
+            {/* Content Skeleton */}
+            <div className="space-y-3 pt-4">
+              <div className="h-4 bg-gray-200 rounded animate-pulse w-full" />
+              <div className="h-4 bg-gray-200 rounded animate-pulse w-full" />
+              <div className="h-4 bg-gray-200 rounded animate-pulse w-4/5" />
+              <div className="h-4 bg-gray-200 rounded animate-pulse w-full" />
+              <div className="h-4 bg-gray-200 rounded animate-pulse w-3/4" />
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header Image */}
