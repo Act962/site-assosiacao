@@ -55,11 +55,11 @@
       "items": {
         "mission": {
           "title": "Missione",
-          "description": "Promuovere lo sviluppo umano, sociale e istituzionale dei propri associati e della comunità attraverso azioni organizzate, partecipative e orientate al bene collettivo."
+          "description": "Promuovere lo sviluppo umano, sociale e istituzionale dei propri associati e della comunità, attraverso azioni organizzate, partecipative e orientate al bene comune."
         },
         "vision": {
           "title": "Visione",
-          "description": "Essere un'istituzione di riferimento nel proprio ambito di attività, riconosciuta per credibilità, efficienza, impatto sociale e impegno nello sviluppo sostenibile."
+          "description": "Essere un’istituzione di riferimento nel proprio ambito di attività, riconosciuta per credibilità, efficienza, impatto sociale e impegno per lo sviluppo sostenibile."
         },
         "values": {
           "title": "Valori",
@@ -69,14 +69,14 @@
     },
     "services": {
       "badge": "I Nostri Servizi",
-      "title": "Cosa Offriamo",
-      "description": "Diverse iniziative per rafforzare la comunità italo-brasiliana",
+      "title": "Cosa offriamo",
+      "description": "L’Associazione realizza iniziative culturali, formative e sociali finalizzate al rafforzamento della comunità italo-brasiliana, alla promozione dello scambio culturale e alla diffusione dei valori di cittadinanza attiva.",
       "readMore": "Scopri di più"
     },
     "cta": {
       "title": "Entra a far parte della nostra comunità",
-      "description": "Unisciti a noi e rafforza i legami tra la cultura italiana e quella brasiliana. Diventa membro dell’Associazione Anita e Giuseppe Garibaldi e accedi a eventi esclusivi, corsi di italiano e a una rete di supporto comunitario.",
-      "primaryAction": "Diventa socio",
+      "description": "Unisciti a noi per rafforzare i legami tra la cultura italiana e quella brasiliana. Diventa socio dell’AICIB Anita e Giuseppe Garibaldi e accedi a eventi esclusivi, corsi di lingua italiana e a una solida rete di supporto comunitario.",
+      "primaryAction": "Associati ora",
       "secondaryAction": "Scopri di più",
       "cards": {
         "community": {

@@ -283,6 +283,7 @@ export interface Event {
  */
 export interface Class {
   id: string;
+  _order?: string | null;
   /**
    * Nome do curso
    */
@@ -306,7 +307,7 @@ export interface Class {
   /**
    * Selecione os dias em que o curso acontece
    */
-  weekDays: ('monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday')[];
+  weekDays: ('2' | '3' | '4' | '5' | '6' | '7' | '1')[];
   /**
    * Formato: HH:MM
    */
@@ -315,6 +316,10 @@ export interface Class {
    * Formato: HH:MM
    */
   endTime: string;
+  /**
+   * Disponibilidade do curso
+   */
+  available: boolean;
   updatedAt: string;
   createdAt: string;
   deletedAt?: string | null;
@@ -505,6 +510,7 @@ export interface EventsSelect<T extends boolean = true> {
  * via the `definition` "classes_select".
  */
 export interface ClassesSelect<T extends boolean = true> {
+  _order?: T;
   name?: T;
   description?: T;
   level?: T;
@@ -513,6 +519,7 @@ export interface ClassesSelect<T extends boolean = true> {
   weekDays?: T;
   startTime?: T;
   endTime?: T;
+  available?: T;
   updatedAt?: T;
   createdAt?: T;
   deletedAt?: T;

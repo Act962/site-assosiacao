@@ -12,9 +12,12 @@ import {
   UsersIcon,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useQueryClasses } from "@/modules/classes/hooks/use-classes";
+import { format } from "date-fns";
 
 export function CoursesPage() {
   const t = useTranslations("coursesPage");
+  const { classes, isLoading } = useQueryClasses();
   const courses = [
     {
       id: 1,
@@ -126,7 +129,15 @@ export function CoursesPage() {
     preparatorio: "bg-purple-100 text-purple-700",
   };
 
-  const isLoading = false;
+  const days = {
+    1: "Domingo",
+    2: "Segunda",
+    3: "Terça",
+    4: "Quarta",
+    5: "Quinta",
+    6: "Sexta",
+    7: "Sábado",
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -228,7 +239,7 @@ export function CoursesPage() {
       </section>
 
       {/* Available Courses */}
-      {!isLoading && courses.length > 0 && (
+      {!isLoading && classes.length > 0 && (
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -246,59 +257,72 @@ export function CoursesPage() {
             </motion.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {courses.map((course, index) => (
-                <motion.div
-                  key={course.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300"
-                >
-                  {course.image_url && (
-                    <div className="h-48 overflow-hidden">
-                      <img
-                        src={course.image_url}
-                        alt={course.title}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  )}
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 mb-3">
-                      {course.level && (
-                        <span
-                          className={`px-3 py-1 rounded-full text-xs font-semibold ${levelColors[course.level as keyof typeof levelColors] || "bg-gray-100 text-gray-700"}`}
-                        >
-                          {course.level}
-                        </span>
-                      )}
-                    </div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">
-                      {course.title}
-                    </h3>
-                    {course.description && (
-                      <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                        {course.description}
-                      </p>
+              {classes.map((course, index) => {
+                const schecule = course.weekDays.sort(
+                  (a, b) => Number(a) - Number(b),
+                );
+                const initialDay = days[schecule[0]];
+                const finalDay = days[schecule[schecule.length - 1]];
+
+                const startTime = format(new Date(course.startTime), "HH:mm");
+                const endTime = format(new Date(course.endTime), "HH:mm");
+
+                return (
+                  <motion.div
+                    key={course.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05 }}
+                    className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300"
+                  >
+                    {course.image && (
+                      <div className="h-48 overflow-hidden">
+                        <img
+                          src={course.image.url || ""}
+                          alt={course.image.alt}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
                     )}
-                    <div className="space-y-2 text-sm text-gray-600">
-                      {course.duration && (
-                        <div className="flex items-center gap-2">
-                          <ClockIcon className="w-4 h-4 text-blue-600" />
-                          <span>{course.duration}</span>
-                        </div>
+                    <div className="p-6">
+                      <div className="flex items-center gap-2 mb-3">
+                        {course.level && (
+                          <span
+                            className={`px-3 py-1 rounded-full text-xs font-semibold ${levelColors[course.level as keyof typeof levelColors] || "bg-gray-100 text-gray-700"}`}
+                          >
+                            {course.level}
+                          </span>
+                        )}
+                      </div>
+                      <h3 className="text-lg font-bold text-gray-900 mb-2">
+                        {course.name}
+                      </h3>
+                      {course.description && (
+                        <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                          {course.description}
+                        </p>
                       )}
-                      {course.schedule && (
-                        <div className="flex items-center gap-2">
-                          <UsersIcon className="w-4 h-4 text-blue-600" />
-                          <span>{course.schedule}</span>
-                        </div>
-                      )}
+                      <div className="space-y-2 text-sm text-gray-600">
+                        {course.duration && (
+                          <div className="flex items-center gap-2">
+                            <ClockIcon className="w-4 h-4 text-blue-600" />
+                            <span>{course.duration}</span>
+                          </div>
+                        )}
+                        {initialDay && finalDay && (
+                          <div className="flex items-center gap-2">
+                            <UsersIcon className="w-4 h-4 text-blue-600" />
+                            <span>
+                              {initialDay} a {finalDay}, {startTime}-{endTime}
+                            </span>
+                          </div>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </section>

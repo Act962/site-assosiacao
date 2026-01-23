@@ -3,6 +3,7 @@ import { CollectionConfig } from "payload";
 export const Classes: CollectionConfig = {
   slug: "classes",
   trash: true,
+  orderable: true,
   labels: {
     singular: "Turma",
     plural: "Turmas",
@@ -104,13 +105,13 @@ export const Classes: CollectionConfig = {
       hasMany: true,
       required: true,
       options: [
-        { label: "Segunda-feira", value: "monday" },
-        { label: "Terça-feira", value: "tuesday" },
-        { label: "Quarta-feira", value: "wednesday" },
-        { label: "Quinta-feira", value: "thursday" },
-        { label: "Sexta-feira", value: "friday" },
-        { label: "Sábado", value: "saturday" },
-        { label: "Domingo", value: "sunday" },
+        { label: "Segunda-feira", value: "2" },
+        { label: "Terça-feira", value: "3" },
+        { label: "Quarta-feira", value: "4" },
+        { label: "Quinta-feira", value: "5" },
+        { label: "Sexta-feira", value: "6" },
+        { label: "Sábado", value: "7" },
+        { label: "Domingo", value: "1" },
       ],
       admin: {
         description: "Selecione os dias em que o curso acontece",
@@ -146,6 +147,16 @@ export const Classes: CollectionConfig = {
           },
         },
       ],
+    },
+    {
+      name: "available",
+      label: "Disponível",
+      type: "checkbox",
+      required: true,
+      admin: {
+        position: "sidebar",
+        description: "Disponibilidade do curso",
+      },
     },
   ],
 };
