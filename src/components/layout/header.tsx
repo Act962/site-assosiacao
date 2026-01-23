@@ -14,6 +14,7 @@ import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { setCurrentLocale } from "@/i18n/get-locale";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+import { cn } from "@/lib/utils";
 
 // const LOGO_URL =
 //   "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68e0322715c4b09646bb5f4e/59dc25d0e_LogomarcaAssociacaojpg.jpg";
@@ -40,12 +41,14 @@ export function Header() {
   const local = useLocale();
   const t = useTranslations("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [popoverOpen, setPopoverOpen] = useState(false);
 
   const currentLang = languages.find((lang) => lang.code === local);
 
   const handleLanguageChange = (locale: string) => {
     setCurrentLocale(locale);
     setMobileMenuOpen(false);
+    setPopoverOpen(false);
   };
 
   return (
@@ -80,8 +83,7 @@ export function Header() {
 
           {/* Right side actions */}
           <div className="flex items-center gap-2">
-            {/* Language Selector */}
-            {/* <Popover>
+            <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
               <PopoverTrigger asChild>
                 <Button variant="ghost" size="sm" className="gap-2">
                   <GlobeIcon className="w-4 h-4" />
@@ -89,20 +91,24 @@ export function Header() {
                   <ChevronDownIcon className="w-3 h-3" />
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-24">
+              <PopoverContent className="w-[140px] p-1">
                 {languages.map((lang) => (
-                  <div
+                  <button
+                    title="Change language"
                     key={lang.code}
                     onClick={() => handleLanguageChange(lang.code)}
-                    // className={language === lang.code ? "bg-gray-100" : ""}
+                    className={cn(
+                      "flex gap-1 w-full cursor-pointer rounded-sm py-1.5  pl-2 text-sm ",
+                      lang.code === local && "bg-accent text-accent-foreground",
+                    )}
                   >
                     <span className="mr-2">{lang.flag}</span>
                     {t(`SelectLang.${lang.code}`)}
-                  </div>
+                  </button>
                 ))}
               </PopoverContent>
-            </Popover> */}
-            <DropdownMenu>
+            </Popover>
+            {/* <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="sm" className="gap-2">
                   <GlobeIcon className="w-4 h-4" />
@@ -122,7 +128,7 @@ export function Header() {
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
-            </DropdownMenu>
+            </DropdownMenu> */}
 
             {/* CTA Button */}
             <Link href={"/join"}>

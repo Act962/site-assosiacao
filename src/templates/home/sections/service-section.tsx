@@ -23,7 +23,7 @@ export function ServiceSection() {
       title: "Cultura, Tradição e Identidade",
       description:
         "Festas típicas, cinema italiano, gastronomia, música e grupos regionais.",
-      path: "Culture",
+      path: "/culture",
       gradient: "from-purple-500 to-pink-500",
       bgGradient: "from-purple-50 to-pink-50",
     },
@@ -32,7 +32,7 @@ export function ServiceSection() {
       title: "Cursos e Educação",
       description:
         "Cursos de italiano do básico ao avançado, preparação para CELI e CILS.",
-      path: "Courses",
+      path: "/courses",
       gradient: "from-blue-500 to-cyan-500",
       bgGradient: "from-blue-50 to-cyan-50",
     },
@@ -41,7 +41,7 @@ export function ServiceSection() {
       title: "Apoio Social e Comunitário",
       description:
         "Apoio a italianos recém-chegados e orientação sobre serviços consulares.",
-      path: "Support",
+      path: "/support",
       gradient: "from-emerald-500 to-teal-500",
       bgGradient: "from-emerald-50 to-teal-50",
     },
@@ -50,7 +50,7 @@ export function ServiceSection() {
       title: "Networking & Negócios",
       description:
         "Networking para empreendedores e conexão entre Brasil e Itália.",
-      path: "Networking",
+      path: "/networking",
       gradient: "from-orange-500 to-amber-500",
       bgGradient: "from-orange-50 to-amber-50",
     },
@@ -59,7 +59,7 @@ export function ServiceSection() {
       title: "Área Jurídica e Informativa",
       description:
         "Orientações sobre cidadania italiana, imigração e direito de família.",
-      path: "Legal",
+      path: "/legal",
       gradient: "from-red-500 to-rose-500",
       bgGradient: "from-red-50 to-rose-50",
     },
