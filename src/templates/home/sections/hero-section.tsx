@@ -91,7 +91,10 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="hidden lg:grid grid-cols-2 gap-4"
           >
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10">
+            <Link
+              href={"/culture"}
+              className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10"
+            >
               <UsersIcon className="w-10 h-10 text-emerald-400 mb-4" />
               <h3 className="text-3xl font-bold text-white mb-1">
                 {t("blocks.culture.label")}
@@ -99,8 +102,11 @@ export function HeroSection() {
               <p className="text-gray-400 text-sm">
                 {t("blocks.culture.description")}
               </p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10 mt-8">
+            </Link>
+            <Link
+              href={"/courses"}
+              className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10 mt-8"
+            >
               <BookOpenIcon className="w-10 h-10 text-emerald-400 mb-4" />
               <h3 className="text-3xl font-bold text-white mb-1">
                 {t("blocks.courses.label")}
@@ -108,8 +114,11 @@ export function HeroSection() {
               <p className="text-gray-400 text-sm">
                 {t("blocks.courses.description")}
               </p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10">
+            </Link>
+            <Link
+              href={"/support"}
+              className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10"
+            >
               <HeartIcon className="w-10 h-10 text-red-400 mb-4" />
               <h3 className="text-3xl font-bold text-white mb-1">
                 {t("blocks.community.label")}
@@ -117,8 +126,11 @@ export function HeroSection() {
               <p className="text-gray-400 text-sm">
                 {t("blocks.community.description")}
               </p>
-            </div>
-            <div className="bg-linear-to-br from-emerald-600 to-emerald-700 rounded-2xl p-6 mt-8">
+            </Link>
+            <Link
+              href={"/legal"}
+              className="bg-linear-to-br from-emerald-600 to-emerald-700 rounded-2xl p-6 mt-8"
+            >
               <GlobeIcon className="w-10 h-10 text-red-400 mb-4" />
               <h3 className="text-3xl font-bold text-white mb-1">
                 {t("blocks.networking.label")}
@@ -133,7 +145,7 @@ export function HeroSection() {
               <p className="text-emerald-100 text-sm mt-2">
                 Promovendo intercâmbio cultural
               </p> */}
-            </div>
+            </Link>
           </motion.div>
         </div>
       </div>

@@ -125,12 +125,6 @@ export function AboutPage() {
                 <p>{t("institution.paragraphs.3")}</p>
                 <p>{t("institution.paragraphs.4")}</p>
               </div>
-              <div className="mt-8 p-6 bg-gray-50 rounded-xl">
-                <p className="text-sm text-gray-500 mb-2">CNPJ</p>
-                <p className="text-lg font-semibold text-gray-900">
-                  03.161.879/0001-41
-                </p>
-              </div>
             </motion.div>
           </div>
         </div>

@@ -9,15 +9,15 @@
       "networking": "Networking",
       "legal": "Área Legal",
       "news": "Noticias",
-      "button": "Hazte socio"
+      "button": "Asóciate ahora"
     },
     "hero": {
       "location": "São Paulo – SP",
       "title": "Asociación de Intercambio Cultural Ítalo-Brasileña",
       "subtitle": "Anita y Giuseppe Garibaldi",
       "description": "Promueve el desarrollo humano, social e institucional a través de la valorización de la cultura ítalo-brasileña",
-      "button": "Hazte socio",
-      "readMore": "Descubre más",
+      "button": "Asóciate ahora",
+      "readMore": "Más información",
       "blocks": {
         "culture": {
           "label": "Cultura",
@@ -40,7 +40,7 @@
     "newsPreview": {
       "badge": "Noticias",
       "title": "Últimas Noticias",
-      "description": "Sigue lo que está sucediendo en nuestra asociación",
+      "description": "Manténgase al tanto de las principales noticias de interesan a nuestra comunidad",
       "seeAll": "Todas las noticias",
       "readMore": "Leer más"
     },
@@ -55,7 +55,7 @@
       "items": {
         "mission": {
           "title": "Misión",
-          "description": "Promover el desarrollo humano, social e institucional de sus asociados y de la comunidad, mediante acciones organizadas, participativas y comprometidas con el bien común."
+          "description": "Promover el desarrollo humano, social e institucional de sus asociados y de la comunidad mediante acciones organizadas, participativas y comprometidas con el bien común."
         },
         "vision": {
           "title": "Visión",
@@ -70,7 +70,7 @@
     "services": {
       "badge": "Nuestros Servicios",
       "title": "Qué ofrecemos",
-      "description": "Diversas iniciativas para fortalecer la comunidad ítalo-brasileña",
+      "description": "La Asociación desarrolla iniciativas culturales, educativas y sociales destinadas a fortalecer la comunidad ítalo-brasileña, promover el intercambio cultural y difundir los valores de la ciudadanía activa.",
       "readMore": "Saber más"
     },
     "cta": {
@@ -291,7 +291,7 @@
         "about": "Quiénes somos",
         "culture": "Cultura y Tradición",
         "news": "Noticias",
-        "join": "Hazte socio"
+        "join": "Asóciate ahora"
       }
     },
     "contact": {

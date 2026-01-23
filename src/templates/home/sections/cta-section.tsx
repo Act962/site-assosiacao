@@ -60,7 +60,8 @@ export function CTASection() {
             className="grid grid-cols-2 gap-4"
           >
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-              <UsersIcon className="w-10 h-10 text-emerald-300 mb-4" />
+              <GlobeIcon className="w-10 h-10 text-emerald-300 mb-4" />
+
               <h3 className="text-xl font-bold text-white mb-2">
                 {t("cards.community.title")}
               </h3>
@@ -78,7 +79,8 @@ export function CTASection() {
               </p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-              <GlobeIcon className="w-10 h-10 text-emerald-300 mb-4" />
+              <UsersIcon className="w-10 h-10 text-emerald-300 mb-4" />
+
               <h3 className="text-xl font-bold text-white mb-2">
                 {t("cards.connections.title")}
               </h3>

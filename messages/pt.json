@@ -32,15 +32,15 @@
           "description": "Apoio social e integração"
         },
         "networking": {
-          "label": "Networking",
-          "description": "Conectando empreendedores e profissionais"
+          "label": "Assistência",
+          "description": "Suporte para questões consulares, legais e integração"
         }
       }
     },
     "newsPreview": {
       "badge": "Notícias",
       "title": "Últimas Notícias",
-      "description": "Acompanhe o que está acontecendo na nossa associação",
+      "description": "Fique por dentro das principais notícias que interessam a nossa comunidade",
       "seeAll": "Todas as notícias",
       "readMore": "Leia mais"
     },
@@ -80,16 +80,17 @@
       "secondaryAction": "Saiba Mais",
       "cards": {
         "community": {
-          "title": "Comunidade",
-          "description": "Faça parte de uma rede de descendentes e admiradores da cultura italiana"
+          "title": "Networking",
+          "description": "Networking com empreendedores e profissionais"
         },
+
         "support": {
-          "title": "Apoio",
+          "title": "Parceiros",
           "description": "Suporte para questões consulares, legais e integração"
         },
         "connections": {
-          "title": "Conexões",
-          "description": "Networking com empreendedores e profissionais"
+          "title": "Comunidade",
+          "description": "Faça parte de uma rede de descendentes e admiradores da cultura italiana"
         }
       }
     }
@@ -97,7 +98,7 @@
   "AboutPage": {
     "hero": {
       "title": "Sobre a Associação",
-      "subtitle": "Conheça nossa história, missão e valores que guiam nosso compromisso com a comunidade ítalo-brasileira."
+      "subtitle": "Conheça nossa história, missão e valores que guiam nosso compromisso com a comunidade ítalo-brasileira"
     },
 
     "institution": {
@@ -298,7 +299,7 @@
   },
   "SupportPage": {
     "hero": {
-      "title": "Apoio a Recém-Chegados",
+      "title": "Apoio",
       "description": "Oferecemos suporte e orientação para a comunidade ítalo-brasileira, ajudando na integração e fortalecendo laços comunitários"
     },
     "services": {
@@ -331,10 +332,10 @@
         ]
       },
       "networking": {
-        "title": "Rede de Contatos",
-        "description": "Rede de apoio para trabalho, moradia e suporte familiar.",
+        "title": "Logística",
+        "description": "Rede de apoio logística na Itália.",
         "items": [
-          "Oportunidades de trabalho",
+          "Documentação",
           "Indicações de moradia",
           "Apoio familiar",
           "Networking profissional"
