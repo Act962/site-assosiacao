@@ -54,6 +54,7 @@ export function PoliciesPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            id="privacy"
             className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100"
           >
             <div className="flex items-center gap-4 mb-8">
@@ -138,6 +139,7 @@ export function PoliciesPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            id="terms"
             className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100"
           >
             <div className="flex items-center gap-4 mb-8">

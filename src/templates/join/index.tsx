@@ -248,7 +248,7 @@ export function JoinPage() {
                 <FieldLabel htmlFor="terms">
                   Li e concordo com os
                   <Link
-                    href="/termos"
+                    href="/policies#terms"
                     target="_blank"
                     className="font-bold hover:underline"
                   >
@@ -256,7 +256,7 @@ export function JoinPage() {
                   </Link>
                   e
                   <Link
-                    href="/politica-de-privacidade"
+                    href="/policies"
                     target="_blank"
                     className="font-bold hover:underline"
                   >
