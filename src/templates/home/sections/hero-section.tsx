@@ -72,15 +72,15 @@ export function HeroSection() {
                   <ArrowRightIcon className="size-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
-              <Link href={"/about"}>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white/30 hover:bg-white/10 font-semibold text-lg px-8 py-6"
-                >
-                  {t("readMore")}
-                </Button>
-              </Link>
+
+              <Button
+                size="lg"
+                variant="outline"
+                className=" border-none  font-semibold text-lg px-8 py-6 cursor-pointer"
+                asChild
+              >
+                <Link href={"/about"}>{t("readMore")}</Link>
+              </Button>
             </div>
           </motion.div>
 
@@ -151,18 +151,19 @@ export function HeroSection() {
       </div>
 
       {/* Bottom wave */}
-      <div className="absolute -bottom-0.5 left-0 right-0">
+      {/* <div className="absolute bottom-0 left-0 right-0 bg-amber-700 h-12">
         <svg
           viewBox="0 0 1440 120"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          className=""
         >
           <path
             d="M0 120L60 110C120 100 240 80 360 75C480 70 600 80 720 85C840 90 960 90 1080 85C1200 80 1320 70 1380 65L1440 60V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
             fill="white"
           />
         </svg>
-      </div>
+      </div> */}
     </section>
   );
 }

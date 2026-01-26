@@ -16,6 +16,8 @@ import { useTranslations } from "next-intl";
 const LOGO_URL =
   "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_68e0322715c4b09646bb5f4e/59dc25d0e_LogomarcaAssociacaojpg.jpg";
 
+const PRESIDENT_IMAGE_URL = "/antonio_pedro_lovato.jpeg";
+
 export function AboutPage() {
   const t = useTranslations("AboutPage");
   const values = [
@@ -94,7 +96,7 @@ export function AboutPage() {
       </section>
 
       {/* Institutional Info */}
-      <section className="py-20">
+      <section className="py-15">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -130,8 +132,46 @@ export function AboutPage() {
         </div>
       </section>
 
+      {/* President Section */}
+      <section className="py-15">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                {t("president.title")}
+              </h2>
+              <div className="space-y-4 text-gray-600 leading-relaxed">
+                <p>
+                  <strong>{t("president.paragraphs.0")}</strong>
+                  {t("president.paragraphs.1")}
+                </p>
+                <p>{t("president.paragraphs.2")}</p>
+                <p>{t("president.paragraphs.3")}</p>
+                <p>{t("president.paragraphs.4")}</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <img
+                src={PRESIDENT_IMAGE_URL}
+                alt="Associação Anita e Giuseppe Garibaldi"
+                className="w-full max-w-md mx-auto"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Mission & Vision */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-15 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
             <motion.div
@@ -209,7 +249,7 @@ export function AboutPage() {
       </section>
 
       {/* History of Garibaldi */}
-      <section className="py-20 bg-linear-to-br from-gray-900 to-emerald-900 text-white">
+      <section className="py-15 bg-linear-to-br from-gray-900 to-emerald-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

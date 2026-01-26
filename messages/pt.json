@@ -113,6 +113,17 @@
       "cnpjLabel": "CNPJ"
     },
 
+    "president": {
+      "title": "Presidente",
+      "paragraphs": [
+        "Antonio Pedro Lovato",
+        ", autor do livro Esperanças de Menino - Emigrantes, caminhos e história (2025) é um ítalo-brasileiro nascido em Mauá, São Paulo.",
+        "Advogado com trajetória sólida e diversa no campo jurídico e na gestão pública, construiu sua carreira unindo técnica, sensibilidade social e compromisso com o bem comum.",
+        "Como presidente da AICIB Anita e Giuseppe Garibaldi – SP, dedica-se ao fortalecimento dos laços entre Brasil e Itália, atuando de forma ativa junto à comunidade italiana e ítalo-brasileira no território paulistano.",
+        "Sua atuação é marcada pelo diálogo intercultural, pela valorização da memória, da cidadania e pela crença de que a cultura transforma pessoas e territórios."
+      ]
+    },
+
     "mission": {
       "title": "Missão",
       "text": "A Associação tem como missão promover o desenvolvimento humano, social e institucional de seus associados e da comunidade, por meio de ações organizadas, participativas e comprometidas com o bem coletivo. A entidade busca atuar de forma responsável e transparente, incentivando a cooperação, o fortalecimento de vínculos e a valorização do conhecimento, da cidadania e da inclusão social."
