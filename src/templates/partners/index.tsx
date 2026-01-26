@@ -97,7 +97,7 @@ export default function PartnersPage() {
               Nenhum parceiro encontrado
             </div>
           ) : (
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mx-auto place-content-center gap-y-12">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mx-auto place-content-center gap-y-12">
               {partners.map((partner) => (
                 <Link
                   key={partner.id}
