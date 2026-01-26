@@ -73,6 +73,7 @@ export interface Config {
     categories: Category;
     events: Event;
     classes: Class;
+    partners: Partner;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -86,6 +87,7 @@ export interface Config {
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     events: EventsSelect<false> | EventsSelect<true>;
     classes: ClassesSelect<false> | ClassesSelect<true>;
+    partners: PartnersSelect<false> | PartnersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -326,6 +328,30 @@ export interface Class {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "partners".
+ */
+export interface Partner {
+  id: string;
+  _order?: string | null;
+  name: string;
+  /**
+   * Selecione a logo do parceiro
+   */
+  logo: string | Media;
+  /**
+   * Link para o site do parceiro
+   */
+  link?: string | null;
+  /**
+   * Mostrar este parceiro na página de parceiros
+   */
+  available: boolean;
+  updatedAt: string;
+  createdAt: string;
+  deletedAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -371,6 +397,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'classes';
         value: string | Class;
+      } | null)
+    | ({
+        relationTo: 'partners';
+        value: string | Partner;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -519,6 +549,20 @@ export interface ClassesSelect<T extends boolean = true> {
   weekDays?: T;
   startTime?: T;
   endTime?: T;
+  available?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  deletedAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "partners_select".
+ */
+export interface PartnersSelect<T extends boolean = true> {
+  _order?: T;
+  name?: T;
+  logo?: T;
+  link?: T;
   available?: T;
   updatedAt?: T;
   createdAt?: T;

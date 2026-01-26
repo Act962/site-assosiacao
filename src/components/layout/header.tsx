@@ -27,6 +27,7 @@ const navItems = [
   { label: "Cursos", path: "/courses", flag: "courses" },
   { label: "Apoio", path: "/support", flag: "support" },
   { label: "Networking", path: "/networking", flag: "networking" },
+  { label: "Parceiros", path: "/partners", flag: "partners" },
   { label: "Área Jurídica", path: "/legal", flag: "legal" },
   { label: "Notícias", path: "/news", flag: "news" },
 ];

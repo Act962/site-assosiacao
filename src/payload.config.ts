@@ -15,6 +15,7 @@ import { News } from "./collections/News/config.ts";
 import { Categories } from "./collections/Categories/config.ts";
 import { Events } from "./collections/Events/config.ts";
 import { Classes } from "./collections/Classes/config.ts";
+import { Partners } from "./collections/Partner/config.ts";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -26,7 +27,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, News, Categories, Events, Classes],
+  collections: [Users, Media, News, Categories, Events, Classes, Partners],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

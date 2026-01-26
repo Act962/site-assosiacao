@@ -45,7 +45,7 @@ export function CTASection() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white/30  hover:bg-white/10 font-semibold text-lg px-8 py-6"
+                  className="hover:bg-white/10 font-semibold text-lg px-8 py-6"
                 >
                   {t("secondaryAction")}
                 </Button>
@@ -59,7 +59,10 @@ export function CTASection() {
             viewport={{ once: true }}
             className="grid grid-cols-2 gap-4"
           >
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+            <Link
+              href={"/networking"}
+              className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
+            >
               <GlobeIcon className="w-10 h-10 text-emerald-300 mb-4" />
 
               <h3 className="text-xl font-bold text-white mb-2">
@@ -68,8 +71,11 @@ export function CTASection() {
               <p className="text-emerald-100 text-sm">
                 {t("cards.community.description")}
               </p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 mt-8">
+            </Link>
+            <Link
+              href={"/partners"}
+              className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 mt-8"
+            >
               <HeartIcon className="w-10 h-10 text-red-300 mb-4" />
               <h3 className="text-xl font-bold text-white mb-2">
                 {t("cards.support.title")}
@@ -77,8 +83,11 @@ export function CTASection() {
               <p className="text-emerald-100 text-sm">
                 {t("cards.support.description")}
               </p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+            </Link>
+            <Link
+              href={"/"}
+              className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
+            >
               <UsersIcon className="w-10 h-10 text-emerald-300 mb-4" />
 
               <h3 className="text-xl font-bold text-white mb-2">
@@ -87,7 +96,7 @@ export function CTASection() {
               <p className="text-emerald-100 text-sm">
                 {t("cards.connections.description")}
               </p>
-            </div>
+            </Link>
           </motion.div>
         </div>
       </div>
