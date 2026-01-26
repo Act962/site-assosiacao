@@ -303,7 +303,8 @@
         "about": "Quiénes somos",
         "culture": "Cultura y Tradición",
         "news": "Noticias",
-        "join": "Asóciate ahora"
+        "join": "Asóciate ahora",
+        "policies": "Políticas"
       }
     },
     "contact": {
@@ -504,6 +505,74 @@
     "empty": {
       "title": "No se encontraron noticias",
       "description": "Próximamente publicaremos novedades"
+    }
+  },
+  "PoliciesPage": {
+    "hero": {
+      "title": "Políticas y Términos",
+      "subtitle": "Información sobre privacidad, cookies y términos de uso de nuestro sitio web"
+    },
+    "privacy": {
+      "title": "Política de Privacidad",
+      "lastUpdate": "Última actualización: Enero de 2026",
+      "introduction": "Este documento establece las reglas, condiciones y directrices aplicables al uso del sitio web de la Asociación Anita e Giuseppe Garibaldi, y describe cómo se realiza el tratamiento de datos personales, de conformidad con la Ley General de Protección de Datos (LGPD - Brasil).",
+      "sections": [
+        {
+          "title": "1. Responsable del Tratamiento",
+          "content": "El responsable del tratamiento de los datos personales es la Asociación de Intercambio Cultural Ítalo-Brasileña Anita e Giuseppe Garibaldi – SP, con sede en Av. São João, 313 - Centro, São Paulo/SP. Correo electrónico: secretaria@garibaldidobrasil.org"
+        },
+        {
+          "title": "2. Definiciones Legales",
+          "content": "Se aplican las definiciones previstas en la LGPD: Datos personales, Titular, Tratamiento, Responsable y Encargado del tratamiento."
+        },
+        {
+          "title": "3. Datos Personales Recopilados",
+          "content": "Los datos recopilados pueden incluir: Nombre completo, correo electrónico, teléfono, dirección IP, datos de navegación e información proporcionada en formularios. No tratamos datos sensibles a menos que sea estrictamente necesario."
+        },
+        {
+          "title": "4. Finalidad del Tratamiento",
+          "content": "Los datos se utilizan para: operar el sitio web, atender solicitudes, enviar comunicaciones (si se autoriza), cumplir obligaciones legales y mejorar la experiencia del usuario."
+        },
+        {
+          "title": "5. Base Legal",
+          "content": "El tratamiento se fundamenta en el consentimiento del titular, ejecución de contrato, cumplimiento de obligaciones legales o interés legítimo del responsable."
+        },
+        {
+          "title": "6. Compartición de Datos",
+          "content": "Los datos podrán ser compartidos con proveedores de servicios, plataformas de análisis/marketing y autoridades públicas, bajo estándares de seguridad."
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Política de Cookies",
+      "whatAre": "Las cookies son pequeños archivos almacenados en su dispositivo para garantizar funcionalidades esenciales y mejorar la experiencia de navegación.",
+      "types": {
+        "title": "Tipos de cookies utilizadas",
+        "items": [
+          "Cookies necesarias: esenciales para el funcionamiento del sitio.",
+          "Cookies de rendimiento: recopilan información estadística de uso.",
+          "Cookies de funcionalidad: permiten la personalización de la navegación.",
+          "Cookies de marketing: utilizadas para publicidad, cuando corresponda."
+        ]
+      },
+      "management": "El usuario puede configurar su navegador para rechazar o eliminar cookies en cualquier momento."
+    },
+    "terms": {
+      "title": "Términos de Uso",
+      "sections": [
+        {
+          "title": "Uso Permitido",
+          "content": "El usuario se compromete a utilizar el sitio de forma lícita, ética y de acuerdo con la legislación vigente."
+        },
+        {
+          "title": "Propiedad Intelectual",
+          "content": "Todo el contenido (textos, imágenes, marcas) está protegido por derechos de propiedad intelectual. Se prohíbe su reproducción sin autorización."
+        },
+        {
+          "title": "Limitación de Responsabilidad",
+          "content": "No nos responsabilizamos por daños derivados de fallos técnicos o del uso indebido de la información por parte de terceros."
+        }
+      ]
     }
   }
 }

@@ -297,7 +297,8 @@
         "about": "Sobre",
         "culture": "Cultura e Tradição",
         "news": "Notícias",
-        "join": "Seja Associado"
+        "join": "Seja Associado",
+        "policies": "Políticas"
       }
     },
     "contact": {
@@ -498,6 +499,74 @@
     "empty": {
       "title": "Nenhuma notícia encontrada",
       "description": "Em breve publicaremos novidades"
+    }
+  },
+  "PoliciesPage": {
+    "hero": {
+      "title": "Políticas e Termos",
+      "subtitle": "Informações sobre privacidade, cookies e termos de uso do nosso site"
+    },
+    "privacy": {
+      "title": "Política de Privacidade",
+      "lastUpdate": "Última atualização: Janeiro de 2026",
+      "introduction": "Este documento estabelece as regras, condições e diretrizes aplicáveis à utilização do site da Associação Anita e Giuseppe Garibaldi, bem como descreve como ocorre o tratamento de dados pessoais, em conformidade com a Lei nº 13.709/2018 – Lei Geral de Proteção de Dados (LGPD).",
+      "sections": [
+        {
+          "title": "1. Identificação do Controlador",
+          "content": "O controlador dos dados pessoais tratados por meio deste site é a Associação de Intercâmbio Cultural Ítalo-Brasileira Anita e Giuseppe Garibaldi – SP, inscrita no CNPJ 03.161.879/0001-41, com sede em Av. São João, 313 - Centro, São Paulo/SP. Contato: secretaria@garibaldidobrasil.org"
+        },
+        {
+          "title": "2. Definições Legais",
+          "content": "Para fins deste documento, aplicam-se as definições previstas na LGPD: Dados pessoais (informações relacionadas a pessoa natural identificada ou identificável), Titular (pessoa natural a quem se referem os dados), Tratamento (toda operação realizada com dados pessoais), Controlador (quem decide sobre o tratamento) e Operador (quem realiza o tratamento em nome do controlador)."
+        },
+        {
+          "title": "3. Dados Pessoais Coletados",
+          "content": "Os dados coletados podem incluir: Nome completo, e-mail, telefone, endereço IP, dados de navegação e informações fornecidas em formulários. Não realizamos o tratamento de dados sensíveis, salvo quando estritamente necessário."
+        },
+        {
+          "title": "4. Finalidade do Tratamento",
+          "content": "Os dados são tratados para: viabilizar o funcionamento do site, atender solicitações dos usuários, enviar comunicações (quando autorizado), cumprir obrigações legais, aperfeiçoar a experiência do usuário e garantir a segurança do sistema."
+        },
+        {
+          "title": "5. Bases Legais",
+          "content": "O tratamento ocorre com fundamento no consentimento do titular, execução de contrato, cumprimento de obrigação legal ou legítimo interesse do controlador."
+        },
+        {
+          "title": "6. Compartilhamento de Dados",
+          "content": "Os dados poderão ser compartilhados com prestadores de serviços tecnológicos, plataformas de analytics/marketing e autoridades públicas, sempre observando padrões de segurança."
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Política de Cookies",
+      "whatAre": "Cookies são pequenos arquivos armazenados no seu dispositivo para garantir funcionalidades essenciais e melhorar a experiência de navegação.",
+      "types": {
+        "title": "Tipos de cookies utilizados",
+        "items": [
+          "Cookies necessários: essenciais para o funcionamento do site.",
+          "Cookies de desempenho: coletam informações estatísticas de uso.",
+          "Cookies de funcionalidade: permitem personalização da navegação.",
+          "Cookies de marketing: utilizados para publicidade, quando aplicável."
+        ]
+      },
+      "management": "O usuário pode configurar seu navegador para recusar ou excluir cookies a qualquer momento."
+    },
+    "terms": {
+      "title": "Termos de Uso",
+      "sections": [
+        {
+          "title": "Uso Permitido",
+          "content": "O usuário compromete-se a utilizar o site de forma lícita, ética e de acordo com a legislação vigente."
+        },
+        {
+          "title": "Propriedade Intelectual",
+          "content": "Todo o conteúdo (textos, imagens, marcas) é protegido por direitos de propriedade intelectual. A reprodução sem autorização é vedada."
+        },
+        {
+          "title": "Limitação de Responsabilidade",
+          "content": "Não nos responsabilizamos por danos decorrentes de falhas técnicas ou uso indevido das informações por terceiros."
+        }
+      ]
     }
   }
 }

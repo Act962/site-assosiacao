@@ -109,31 +109,10 @@ export function Header() {
                 ))}
               </PopoverContent>
             </Popover>
-            {/* <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="gap-2">
-                  <GlobeIcon className="w-4 h-4" />
-                  <span className="hidden sm:inline">{currentLang?.flag}</span>
-                  <ChevronDownIcon className="w-3 h-3" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                {languages.map((lang) => (
-                  <DropdownMenuItem
-                    key={lang.code}
-                    onClick={() => handleLanguageChange(lang.code)}
-                    // className={language === lang.code ? "bg-gray-100" : ""}
-                  >
-                    <span className="mr-2">{lang.flag}</span>
-                    {t(`SelectLang.${lang.code}`)}
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu> */}
 
             {/* CTA Button */}
-            <Link href={"/join"}>
-              <Button className="hidden sm:flex bg-linear-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-semibold shadow-lg shadow-emerald-500/25">
+            <Link href={"/join#form"}>
+              <Button className="hidden sm:flex bg-linear-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-semibold shadow-lg shadow-emerald-500/25 cursor-pointer">
                 {t("HomePage.nav.button")}
               </Button>
             </Link>
@@ -176,7 +155,10 @@ export function Header() {
                 </Link>
               ))}
               <div className="pt-4 px-4">
-                <Link href={"/join"} onClick={() => setMobileMenuOpen(false)}>
+                <Link
+                  href={"/join#form"}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
                   <Button className="w-full bg-linear-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-semibold">
                     {t("HomePage.nav.button")}
                   </Button>

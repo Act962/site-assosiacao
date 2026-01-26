@@ -4,6 +4,7 @@ import "./globals.css";
 import { Layout } from "@/components/layout";
 import { TRPCReactProvider } from "@/trpc/client";
 import { NextIntlClientProvider } from "next-intl";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,7 +48,9 @@ export default function RootLayout({
       >
         <TRPCReactProvider>
           <NextIntlClientProvider>
-            <Layout>{children}</Layout>
+            <Layout>
+              {children} <Toaster />
+            </Layout>
           </NextIntlClientProvider>
         </TRPCReactProvider>
       </body>

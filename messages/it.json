@@ -299,7 +299,8 @@
         "about": "Chi siamo",
         "culture": "Cultura e Tradizione",
         "news": "Notizie",
-        "join": "Diventa socio"
+        "join": "Diventa socio",
+        "policies": "Politiche"
       }
     },
     "contact": {
@@ -500,6 +501,74 @@
     "empty": {
       "title": "Nessuna notizia trovata",
       "description": "Presto pubblicheremo delle novità"
+    }
+  },
+  "PoliciesPage": {
+    "hero": {
+      "title": "Politiche e Termini",
+      "subtitle": "Informazioni sulla privacy, i cookie e le condizioni d'uso del nostro sito"
+    },
+    "privacy": {
+      "title": "Informativa sulla Privacy",
+      "lastUpdate": "Ultimo aggiornamento: Gennaio 2026",
+      "introduction": "Il presente documento stabilisce le regole, le condizioni e le linee guida applicabili all'utilizzo del sito dell'Associazione Anita e Giuseppe Garibaldi, nonché descrive le modalità di trattamento dei dati personali, in conformità al Regolamento Generale sulla Protezione dei Dati (UE) 2016/679 – GDPR e alla normativa brasiliana LGPD.",
+      "sections": [
+        {
+          "title": "1. Titolare del Trattamento",
+          "content": "Il titolare del trattamento dei dati personali è l'Associazione di Promozione Interculturale Italo-Brasiliana Anita e Giuseppe Garibaldi – SP, con sede in Av. São João, 313 - Centro, São Paulo/SP. E-mail: secretaria@garibaldidobrasil.org"
+        },
+        {
+          "title": "2. Definizioni",
+          "content": "Si applicano le definizioni previste dall'art. 4 del GDPR e dalla LGPD riguardanti dati personali, interessato, trattamento, titolare e responsabile del trattamento."
+        },
+        {
+          "title": "3. Dati Personali Raccolti",
+          "content": "I dati raccolti possono includere: Nome completo, e-mail, telefono, indirizzo IP, dati di navigazione e informazioni fornite tramite moduli. Non trattiamo dati sensibili se non strettamente necessario."
+        },
+        {
+          "title": "4. Finalità del Trattamento",
+          "content": "I dati sono trattati per: gestire i servizi del sito, rispondere alle richieste degli utenti, inviare comunicazioni (se autorizzati), adempiere obblighi di legge e migliorare l'experience utente."
+        },
+        {
+          "title": "5. Base Giuridica",
+          "content": "Il trattamento si basa sul consenso dell'interessato, sull'esecuzione di un contratto, sugli obblighi legali o sul legittimo interesse del titolare."
+        },
+        {
+          "title": "6. Condivisione dei Dati",
+          "content": "I dati possono essere condivisi con fornitori di servizi tecnologici, piattaforme di analisi/marketing e autorità competenti, nel rispetto delle norme di sicurezza."
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Informativa sui Cookie",
+      "whatAre": "I cookie sono piccoli file memorizzati sul dispositivo dell'utente per garantire funzionalità essenziali e migliorare l'esperienza di navigazione.",
+      "types": {
+        "title": "Tipi di cookie utilizzati",
+        "items": [
+          "Cookie necessari: essenziali per il funzionamento del sito.",
+          "Cookie di prestazione: raccolgono informazioni statistiche sull'uso.",
+          "Cookie di funzionalità: permettono la personalizzazione della navigazione.",
+          "Cookie di marketing: utilizzati per la pubblicità, se applicabile."
+        ]
+      },
+      "management": "L'utente può configurare il proprio browser per rifiutare o eliminare i cookie in qualsiasi momento."
+    },
+    "terms": {
+      "title": "Termini di Utilizzo",
+      "sections": [
+        {
+          "title": "Uso Consentito",
+          "content": "L'utente si impegna a utilizzare il sito in modo lecito, etico e in conformità con la legislazione vigente."
+        },
+        {
+          "title": "Proprietà Intellettuale",
+          "content": "Tutti i contenuti (testi, immagini, marchi) sono protetti dai diritti di proprietà intellettuale. La riproduzione senza autorizzazione è vietata."
+        },
+        {
+          "title": "Limitazione di Responsabilità",
+          "content": "Il titolare non è responsabile per danni derivanti da guasti tecnici o dall'uso improprio delle informazioni da parte di terzi."
+        }
+      ]
     }
   }
 }

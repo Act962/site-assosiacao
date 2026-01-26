@@ -16,6 +16,7 @@ export default function Footer() {
     { label: t("quickLinks.items.culture"), path: "/culture" },
     { label: t("quickLinks.items.news"), path: "/news" },
     { label: t("quickLinks.items.join"), path: "/join" },
+    { label: t("quickLinks.items.policies"), path: "/policies" },
   ];
 
   return (

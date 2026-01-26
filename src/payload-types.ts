@@ -74,6 +74,7 @@ export interface Config {
     events: Event;
     classes: Class;
     partners: Partner;
+    register: Register;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -88,6 +89,7 @@ export interface Config {
     events: EventsSelect<false> | EventsSelect<true>;
     classes: ClassesSelect<false> | ClassesSelect<true>;
     partners: PartnersSelect<false> | PartnersSelect<true>;
+    register: RegisterSelect<false> | RegisterSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -352,6 +354,23 @@ export interface Partner {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "register".
+ */
+export interface Register {
+  id: string;
+  name: string;
+  email: string;
+  phone?: string | null;
+  address?: string | null;
+  city?: string | null;
+  state?: string | null;
+  zipCode?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  deletedAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -401,6 +420,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'partners';
         value: string | Partner;
+      } | null)
+    | ({
+        relationTo: 'register';
+        value: string | Register;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -564,6 +587,22 @@ export interface PartnersSelect<T extends boolean = true> {
   logo?: T;
   link?: T;
   available?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  deletedAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "register_select".
+ */
+export interface RegisterSelect<T extends boolean = true> {
+  name?: T;
+  email?: T;
+  phone?: T;
+  address?: T;
+  city?: T;
+  state?: T;
+  zipCode?: T;
   updatedAt?: T;
   createdAt?: T;
   deletedAt?: T;

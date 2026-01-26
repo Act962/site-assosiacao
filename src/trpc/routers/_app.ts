@@ -4,6 +4,7 @@ import { categoryRouter } from "@/modules/categories/server/procedures";
 import { eventsRouter } from "@/modules/events/server/procedures";
 import { classesRouter } from "@/modules/classes/server/procedure";
 import { partnersRouter } from "@/modules/partners/server/procedures";
+import { registerRouter } from "@/modules/registers/server/procedures";
 
 export const appRouter = createTRPCRouter({
   news: newsRouter,
@@ -11,6 +12,7 @@ export const appRouter = createTRPCRouter({
   events: eventsRouter,
   classes: classesRouter,
   partners: partnersRouter,
+  register: registerRouter,
 });
 // export type definition of API
 export type AppRouter = typeof appRouter;
