@@ -22,9 +22,9 @@ export default function Footer() {
     <footer className="bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Logo and Description */}
-          <div className="">
+          <div className="sm:col-span-2">
             <img
               src={LOGO_URL}
               alt="Associação Anita e Giuseppe Garibaldi"
@@ -91,8 +91,8 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               <li className="text-sm text-gray-400 hover:text-emerald-400 transition-colors">
-                Associação de Intercâmbio Ítalo-Brasileira Anita e Giuseppe
-                Garibaldi
+                Associação de Intercâmbio Cultural Ítalo-Brasileira Anita e
+                Giuseppe Garibaldi
               </li>
               <li className="text-sm text-gray-400 hover:text-emerald-400 transition-colors">
                 <strong>Presidente:</strong> Pedro Lovato
