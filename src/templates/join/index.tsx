@@ -1,13 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Field, FieldError, FieldLabel } from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { useCreateRegister } from "@/modules/registers/hooks/use-register";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { CheckedState } from "@radix-ui/react-checkbox";
 import {
   BookOpenIcon,
   GlobeIcon,
@@ -16,31 +8,9 @@ import {
   UsersIcon,
 } from "lucide-react";
 import { motion } from "motion/react";
-import Link from "next/link";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
-import z from "zod";
-
-const formSchema = z.object({
-  name: z.string().min(1, "Nome é obrigatório"),
-  email: z.email("E-mail inválido"),
-  phone: z.string().min(1, "Telefone é obrigatório"),
-  address: z.string().min(1, "Endereço é obrigatório"),
-  city: z.string().min(1, "Cidade é obrigatória"),
-  state: z.string().min(1, "Estado é obrigatório"),
-  zipCode: z.string().min(1, "CEP é obrigatório"),
-});
-
-type FormSchema = z.infer<typeof formSchema>;
+import { FormSection } from "./sections/form-section";
 
 export function JoinPage() {
-  const createRegister = useCreateRegister();
-  const [confirmTerms, setConfirmTerms] = useState<CheckedState>(false);
-  const form = useForm({
-    resolver: zodResolver(formSchema),
-  });
-
   const benefits = [
     {
       icon: UsersIcon,
@@ -64,16 +34,6 @@ export function JoinPage() {
       description: "Conexões com empreendedores e profissionais",
     },
   ];
-
-  const onSubmit = (data: FormSchema) => {
-    createRegister.mutate(data, {
-      onSuccess: () => {
-        form.reset();
-      },
-    });
-  };
-
-  const isFormDisabled = createRegister.isPending || !confirmTerms;
 
   return (
     <div className="min-h-screen bg-white">
@@ -134,148 +94,7 @@ export function JoinPage() {
       </section>
 
       {/* Form */}
-      <section id="form" className="py-20">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                Preencha seus dados
-              </h2>
-              <p className="text-gray-600">
-                Complete o formulário abaixo para se associar
-              </p>
-            </div>
-
-            <form className="space-y-6" onSubmit={form.handleSubmit(onSubmit)}>
-              <Field>
-                <Label htmlFor="full_name">Nome *</Label>
-                <Input
-                  id="full_name"
-                  className="mt-1.5"
-                  placeholder="Digite seu nome completo"
-                  {...form.register("name")}
-                />
-                <FieldError>{form.formState.errors.name?.message}</FieldError>
-              </Field>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <Label htmlFor="email">E-mail *</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    className="mt-1.5"
-                    placeholder="seu@email.com"
-                    {...form.register("email")}
-                  />
-                  <FieldError>
-                    {form.formState.errors.email?.message}
-                  </FieldError>
-                </div>
-                <div>
-                  <Label htmlFor="phone">Telefone *</Label>
-                  <Input
-                    id="phone"
-                    className="mt-1.5"
-                    placeholder="(11) 99999-9999"
-                    {...form.register("phone")}
-                  />
-                  <FieldError>
-                    {form.formState.errors.phone?.message}
-                  </FieldError>
-                </div>
-              </div>
-
-              <div>
-                <Label htmlFor="address">Endereço *</Label>
-                <Input
-                  id="address"
-                  className="mt-1.5"
-                  placeholder="Rua, número, complemento"
-                  {...form.register("address")}
-                />
-                <FieldError>
-                  {form.formState.errors.address?.message}
-                </FieldError>
-              </div>
-
-              <div className="grid md:grid-cols-3 gap-6">
-                <div>
-                  <Label htmlFor="city">Cidade *</Label>
-                  <Input
-                    id="city"
-                    className="mt-1.5"
-                    placeholder="Cidade"
-                    {...form.register("city")}
-                  />
-                  <FieldError>{form.formState.errors.city?.message}</FieldError>
-                </div>
-                <div>
-                  <Label htmlFor="state">Estado *</Label>
-                  <Input
-                    id="state"
-                    className="mt-1.5"
-                    placeholder="UF"
-                    {...form.register("state")}
-                  />
-                  <FieldError>
-                    {form.formState.errors.state?.message}
-                  </FieldError>
-                </div>
-                <div>
-                  <Label htmlFor="zip_code">CEP *</Label>
-                  <Input
-                    id="zip_code"
-                    className="mt-1.5"
-                    placeholder="00000-000"
-                    {...form.register("zipCode")}
-                  />
-                  <FieldError>
-                    {form.formState.errors.zipCode?.message}
-                  </FieldError>
-                </div>
-              </div>
-
-              <Field orientation="horizontal">
-                <Checkbox
-                  id="terms"
-                  checked={confirmTerms}
-                  onCheckedChange={(e) => setConfirmTerms(e)}
-                />
-                <FieldLabel htmlFor="terms">
-                  Li e concordo com os
-                  <Link
-                    href="/policies#terms"
-                    target="_blank"
-                    className="font-bold hover:underline"
-                  >
-                    termos de uso
-                  </Link>
-                  e
-                  <Link
-                    href="/policies"
-                    target="_blank"
-                    className="font-bold hover:underline"
-                  >
-                    política de privacidade
-                  </Link>
-                </FieldLabel>
-              </Field>
-
-              <Button
-                type="submit"
-                className="w-full"
-                disabled={isFormDisabled}
-              >
-                Enviar
-              </Button>
-            </form>
-          </motion.div>
-        </div>
-      </section>
+      <FormSection />
     </div>
   );
 }

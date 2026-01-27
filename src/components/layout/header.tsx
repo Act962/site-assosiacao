@@ -2,12 +2,6 @@
 
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
 import { Button } from "../ui/button";
 import { ChevronDownIcon, GlobeIcon, MenuIcon, XIcon } from "lucide-react";
 import { useState } from "react";

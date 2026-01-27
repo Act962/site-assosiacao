@@ -365,6 +365,10 @@ export interface Register {
   city?: string | null;
   state?: string | null;
   zipCode?: string | null;
+  /**
+   * Origem do cadastro
+   */
+  origin?: ('association' | 'support' | 'legal') | null;
   updatedAt: string;
   createdAt: string;
   deletedAt?: string | null;
@@ -603,6 +607,7 @@ export interface RegisterSelect<T extends boolean = true> {
   city?: T;
   state?: T;
   zipCode?: T;
+  origin?: T;
   updatedAt?: T;
   createdAt?: T;
   deletedAt?: T;

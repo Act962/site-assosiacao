@@ -12,6 +12,9 @@ export const registerRouter = createTRPCRouter({
         city: z.string(),
         state: z.string(),
         zipCode: z.string(),
+        origin: z
+          .enum(["association", "support", "legal"])
+          .default("association"),
       }),
     )
     .mutation(async ({ ctx, input }) => {
@@ -25,6 +28,7 @@ export const registerRouter = createTRPCRouter({
           city: input.city,
           state: input.state,
           zipCode: input.zipCode,
+          origin: input.origin,
         },
       });
 

@@ -1,4 +1,5 @@
 import { CollectionConfig } from "payload";
+import { ORIGIN_OPTIONS } from "./constants";
 
 export const Register: CollectionConfig = {
   slug: "register",
@@ -74,6 +75,20 @@ export const Register: CollectionConfig = {
           },
         },
       ],
+    },
+    {
+      name: "origin",
+      label: "Origem",
+      type: "select",
+      options: ORIGIN_OPTIONS.map((option) => ({
+        label: option.label,
+        value: option.value,
+      })),
+      defaultValue: ORIGIN_OPTIONS[0].value,
+      admin: {
+        position: "sidebar",
+        description: "Origem do cadastro",
+      },
     },
   ],
 };
