@@ -23,12 +23,12 @@ const LOGO_URL = "/favicon.png";
 const navItems = [
   { label: "Início", path: "/", flag: "home" },
   { label: "Sobre", path: "/about", flag: "about" },
-  { label: "Cultura e Tradição", path: "/culture", flag: "culture" },
+  { label: "Cultura", path: "/culture", flag: "culture" },
   { label: "Cursos", path: "/courses", flag: "courses" },
-  { label: "Apoio", path: "/support", flag: "support" },
+  // { label: "Apoio", path: "/support", flag: "support" },
   { label: "Networking", path: "/networking", flag: "networking" },
   { label: "Parceiros", path: "/partners", flag: "partners" },
-  { label: "Área Jurídica", path: "/legal", flag: "legal" },
+  { label: "Apoio", path: "/legal", flag: "legal" },
   { label: "Notícias", path: "/news", flag: "news" },
 ];
 

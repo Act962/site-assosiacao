@@ -3,7 +3,7 @@
     "nav": {
       "home": "Home",
       "about": "Chi siamo",
-      "culture": "Cultura e Tradizione",
+      "culture": "Cultura",
       "courses": "Formazione",
       "support": "Supporto Sociale",
       "networking": "Networking",
@@ -47,7 +47,7 @@
     },
     "eventsPreview": {
       "badge": "Calendario",
-      "title": "Prossimi Eventi",
+      "title": "Eventi",
       "seeAll": "Vedi tutti"
     },
     "mission": {
@@ -461,7 +461,7 @@
           ]
         },
         "law": {
-          "title": "Diritto Italiano",
+          "title": "Logistica",
           "description": "Nozioni generali sul sistema giuridico italiano e le sue particolarità.",
           "items": [
             "Sistema legale italiano",

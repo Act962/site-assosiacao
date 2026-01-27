@@ -1,7 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRightIcon, GlobeIcon, HeartIcon, UsersIcon } from "lucide-react";
+import {
+  ArrowRightIcon,
+  GlobeIcon,
+  HeartHandshakeIcon,
+  HeartIcon,
+  UsersIcon,
+} from "lucide-react";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -76,7 +82,7 @@ export function CTASection() {
               href={"/partners"}
               className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 mt-8"
             >
-              <HeartIcon className="w-10 h-10 text-red-300 mb-4" />
+              <HeartHandshakeIcon className="w-10 h-10 text-red-300 mb-4" />
               <h3 className="text-xl font-bold text-white mb-2">
                 {t("cards.support.title")}
               </h3>

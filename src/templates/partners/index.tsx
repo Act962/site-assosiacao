@@ -10,7 +10,6 @@ import {
   UsersIcon,
 } from "lucide-react";
 import { motion } from "motion/react";
-import { useTranslations } from "next-intl";
 import { useSuspensePartners } from "@/modules/partners/hooks/use-partners";
 import Image from "next/image";
 import Link from "next/link";

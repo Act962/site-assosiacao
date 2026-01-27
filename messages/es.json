@@ -3,7 +3,7 @@
     "nav": {
       "home": "Inicio",
       "about": "Quiénes somos",
-      "culture": "Cultura y Tradición",
+      "culture": "Cultura",
       "courses": "Formación",
       "support": "Apoyo Social",
       "networking": "Networking",
@@ -47,7 +47,7 @@
     },
     "eventsPreview": {
       "badge": "Agenda",
-      "title": "Próximos Eventos",
+      "title": "Eventos",
       "seeAll": "Ver todos"
     },
     "mission": {
@@ -465,7 +465,7 @@
           ]
         },
         "law": {
-          "title": "Derecho Italiano",
+          "title": "Logística",
           "description": "Nociones generales sobre el sistema jurídico italiano y sus particularidades.",
           "items": [
             "Sistema legal italiano",

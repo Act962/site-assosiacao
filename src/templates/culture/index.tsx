@@ -21,37 +21,6 @@ export function CulturePage() {
   const t = useTranslations("culturePage");
   const { events, isLoading } = useQueryEvents(100);
 
-  //   {
-  //     id: 1,
-  //     title: "Carnevale Italiano 2025",
-  //     description:
-  //       "Tradicional festa de carnaval à italiana com música, dança e muita alegria.",
-  //     image_url: "/photo-02.jpg",
-  //     category: "festa",
-  //     event_date: "2023-01-01",
-  //     location: "Sede da Associação - Centro SP",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Festival Gastronômico Regional",
-  //     image_url: "/photo-03.jpg",
-  //     description:
-  //       "Degustação de pratos típicos das regiões Calábria, Sicília, Vêneto e Lombardia.",
-  //     category: "gastronomia",
-  //     event_date: "2023-01-02",
-  //     location: "Sede da Associação - Centro SP",
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "Cinema Italiano - 'La Dolce Vita'",
-  //     image_url: "/photo-03.jpg",
-  //     description:
-  //       "Sessão especial do clássico de Federico Fellini com debate após a exibição.",
-  //     category: "gastronomia",
-  //     event_date: "2023-01-03",
-  //     location: "Sede da Associação - Centro SP",
-  //   },
-  // ];
   const getLocale = () => {
     switch (language) {
       case "it":
@@ -102,16 +71,6 @@ export function CulturePage() {
     },
   ];
 
-  const categoryColors = {
-    festa: "bg-purple-100 text-purple-700",
-    cinema: "bg-blue-100 text-blue-700",
-    gastronomia: "bg-orange-100 text-orange-700",
-    musica: "bg-pink-100 text-pink-700",
-    palestra: "bg-emerald-100 text-emerald-700",
-    networking: "bg-amber-100 text-amber-700",
-    curso: "bg-cyan-100 text-cyan-700",
-  };
-
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
@@ -140,48 +99,6 @@ export function CulturePage() {
               {t("hero.subtitle")}
             </p>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Cultural Areas */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              {t("activities.title")}
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              {t("activities.subtitle")}
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {categories.map((cat, index) => (
-              <motion.div
-                key={cat.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300"
-              >
-                <div
-                  className={`${cat.color} w-14 h-14 rounded-xl flex items-center justify-center mb-6`}
-                >
-                  <cat.icon className="w-7 h-7 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  {cat.title}
-                </h3>
-                <p className="text-gray-600">{cat.description}</p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -274,6 +191,48 @@ export function CulturePage() {
               <p className="text-gray-600">{t("events.empty.description")}</p>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Cultural Areas */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              {t("activities.title")}
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              {t("activities.subtitle")}
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {categories.map((cat, index) => (
+              <motion.div
+                key={cat.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300"
+              >
+                <div
+                  className={`${cat.color} w-14 h-14 rounded-xl flex items-center justify-center mb-6`}
+                >
+                  <cat.icon className="w-7 h-7 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  {cat.title}
+                </h3>
+                <p className="text-gray-600">{cat.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
     </div>
