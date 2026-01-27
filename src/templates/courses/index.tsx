@@ -13,49 +13,15 @@ import {
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useQueryClasses } from "@/modules/classes/hooks/use-classes";
-import { format } from "date-fns";
+import { constructNow, format } from "date-fns";
+import { useQueryCouses } from "@/modules/courses/hooks/use-courses";
 
 export function CoursesPage() {
   const t = useTranslations("coursesPage");
   const { classes, isLoading } = useQueryClasses();
-  const courses = [
-    {
-      id: 1,
-      title: "Italiano Básico - Turma A",
-      description:
-        "Curso para iniciantes que desejam aprender italiano do zero. Ideal para quem nunca teve contato com o idioma.",
-      level: "basico",
-      color: "bg-blue-500",
-      image_url: "/photo-06.jpg",
-      bgColor: "bg-blue-50",
-      duration: "4 meses",
-      schedule: "Segunda a Sexta, 19h-21h",
-    },
-    {
-      id: 2,
-      title: "Italiano Intermediário",
-      description:
-        "Para alunos que já possuem conhecimento básico e desejam avançar no idioma.",
-      level: "intermediario",
-      color: "bg-blue-500",
-      image_url: "/photo-05.jpg",
-      bgColor: "bg-blue-50",
-      duration: "4 meses",
-      schedule: "Segunda a Sexta, 19h-21h",
-    },
-    {
-      id: 3,
-      title: "Preparatório CELI B2",
-      description:
-        "Curso intensivo de preparação para o exame de proficiência CELI nível B2.",
-      level: "avancado",
-      color: "bg-blue-500",
-      image_url: "/photo-06.jpg",
-      bgColor: "bg-blue-50",
-      duration: "3 meses",
-      schedule: "Sábados - 9h às 13h",
-    },
-  ];
+  const { courses, isLoading: isLoadingCourses } = useQueryCouses();
+
+  console.log(courses.map((p) => p.features));
 
   const courseTypes = [
     {

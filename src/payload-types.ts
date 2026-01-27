@@ -72,6 +72,7 @@ export interface Config {
     news: News;
     categories: Category;
     events: Event;
+    courses: Course;
     classes: Class;
     partners: Partner;
     register: Register;
@@ -87,6 +88,7 @@ export interface Config {
     news: NewsSelect<false> | NewsSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     events: EventsSelect<false> | EventsSelect<true>;
+    courses: CoursesSelect<false> | CoursesSelect<true>;
     classes: ClassesSelect<false> | ClassesSelect<true>;
     partners: PartnersSelect<false> | PartnersSelect<true>;
     register: RegisterSelect<false> | RegisterSelect<true>;
@@ -283,6 +285,37 @@ export interface Event {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "courses".
+ */
+export interface Course {
+  id: string;
+  /**
+   * Digite o nome do curso
+   */
+  name: string;
+  description?: string | null;
+  /**
+   * Capa do curso
+   */
+  thumbnail?: (string | null) | Media;
+  features?:
+    | {
+        /**
+         * Digite uma característica
+         */
+        feature: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Marque se o curso está disponível
+   */
+  available?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "classes".
  */
 export interface Class {
@@ -416,6 +449,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'events';
         value: string | Event;
+      } | null)
+    | ({
+        relationTo: 'courses';
+        value: string | Course;
       } | null)
     | ({
         relationTo: 'classes';
@@ -561,6 +598,24 @@ export interface EventsSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   deletedAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "courses_select".
+ */
+export interface CoursesSelect<T extends boolean = true> {
+  name?: T;
+  description?: T;
+  thumbnail?: T;
+  features?:
+    | T
+    | {
+        feature?: T;
+        id?: T;
+      };
+  available?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

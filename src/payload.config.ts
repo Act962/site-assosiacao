@@ -17,6 +17,7 @@ import { Events } from "./collections/Events/config.ts";
 import { Classes } from "./collections/Classes/config.ts";
 import { Partners } from "./collections/Partner/config.ts";
 import { Register } from "./collections/Register/config.ts";
+import { Course } from "./collections/Courses/config.ts";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -34,6 +35,7 @@ export default buildConfig({
     News,
     Categories,
     Events,
+    Course,
     Classes,
     Partners,
     Register,
