@@ -76,7 +76,7 @@ export function PoliciesPage() {
                 {t("privacy.introduction")}
               </p>
 
-              <div className="grid gap-8">
+              <div className="grid">
                 {privacySections.map((index) => (
                   <div key={index} className="space-y-3">
                     <h3 className="text-xl font-bold text-gray-900">

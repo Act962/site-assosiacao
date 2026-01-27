@@ -22,7 +22,7 @@ const navItems = [
   // { label: "Apoio", path: "/support", flag: "support" },
   { label: "Networking", path: "/networking", flag: "networking" },
   { label: "Parceiros", path: "/partners", flag: "partners" },
-  { label: "Apoio", path: "/legal", flag: "legal" },
+  { label: "Assistência", path: "/assistance", flag: "assistance" },
   { label: "Notícias", path: "/news", flag: "news" },
 ];
 

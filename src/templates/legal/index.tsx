@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { LegalSection, SupportSection } from "./sections";
+import { LegalSection } from "./sections";
 
 export function LegalPage() {
   const t = useTranslations("LegalPage");
@@ -104,7 +104,6 @@ export function LegalPage() {
       </section>
 
       <LegalSection />
-      <SupportSection />
     </div>
   );
 }
