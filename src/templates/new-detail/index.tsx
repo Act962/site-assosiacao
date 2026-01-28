@@ -10,12 +10,16 @@ import { motion } from "motion/react";
 import { useLocale } from "next-intl";
 import { es, it, ptBR } from "date-fns/locale";
 import Link from "next/link";
+import { PostShare } from "./post-share";
+import { NextURL } from "next/dist/server/web/next-url";
 
 export function NewsDetailPage({ slug }: { slug: string }) {
   const locale = useLocale();
   const { news, isLoading, error } = useQueryNew(slug);
 
   const authorImage = news?.author?.image as Media | null;
+
+  const newUrl = `${process.env.NEXT_PUBLIC_APP_URL}/news/${slug}`;
 
   const getLocale = () => {
     switch (locale) {
@@ -144,9 +148,9 @@ export function NewsDetailPage({ slug }: { slug: string }) {
         </motion.div>
       </div>
 
-      {news?.author && (
-        <>
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+        {news?.author && (
+          <>
             <div className="flex items-center gap-4">
               <div className="size-12 rounded-full overflow-hidden">
                 <img
@@ -161,9 +165,15 @@ export function NewsDetailPage({ slug }: { slug: string }) {
                 </span>
               </div>
             </div>
-          </div>
-        </>
-      )}
+          </>
+        )}
+
+        <PostShare
+          url={newUrl}
+          title={news?.title || ""}
+          description={news?.excerpt || ""}
+        />
+      </div>
     </div>
   );
 }

@@ -92,6 +92,11 @@ export function EventsPreview() {
                     <h3 className="text-lg font-bold text-gray-900 mb-3 line-clamp-2">
                       {event.name}
                     </h3>
+                    {event.description && (
+                      <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                        {event.description}
+                      </p>
+                    )}
                     <div className="space-y-2 text-sm text-gray-600">
                       <div className="flex items-center gap-2">
                         <CalendarIcon className="w-4 h-4 text-emerald-600" />
