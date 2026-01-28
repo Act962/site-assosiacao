@@ -19,6 +19,7 @@ import { Partners } from "./collections/Partner/config.ts";
 import { Register } from "./collections/Register/config.ts";
 import { Course } from "./collections/Courses/config.ts";
 import { Author } from "./collections/Author/config.ts";
+import { Creator } from "./collections/Creator/config.ts";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -34,13 +35,14 @@ export default buildConfig({
     Users,
     Media,
     News,
-    Author,
     Categories,
     Events,
     Course,
     Classes,
     Partners,
     Register,
+    Author,
+    Creator,
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",

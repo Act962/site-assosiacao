@@ -15,7 +15,7 @@ export function NewsDetailPage({ slug }: { slug: string }) {
   const locale = useLocale();
   const { news, isLoading, error } = useQueryNew(slug);
 
-  console.log(error);
+  const authorImage = news?.author?.image as Media | null;
 
   const getLocale = () => {
     switch (locale) {
@@ -144,18 +144,26 @@ export function NewsDetailPage({ slug }: { slug: string }) {
         </motion.div>
       </div>
 
-      {/* Author */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex items-center gap-4">
-        <div>
-          {/* <img src={author?.avatar || ""} alt={author?.name || ""} /> */}
-        </div>
-        <div className="flex flex-col">
-          <span className="font-semibold">{news?.author?.name}</span>
-          <span className="text-muted-foreground text-sm">
-            {news?.author?.position}
-          </span>
-        </div>
-      </div>
+      {news?.author && (
+        <>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div className="flex items-center gap-4">
+              <div className="size-12 rounded-full overflow-hidden">
+                <img
+                  src={authorImage?.url || ""}
+                  alt={authorImage?.alt || ""}
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="font-semibold">{news?.author?.name}</span>
+                <span className="text-muted-foreground text-sm">
+                  {news?.author?.position}
+                </span>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }

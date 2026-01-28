@@ -36,8 +36,6 @@ export const newsRouter = createTRPCRouter({
       }),
     )
     .query(async ({ ctx, input }) => {
-      console.log("Input", input.slug);
-
       const data = await ctx.db.find({
         collection: "news",
         where: {
@@ -49,11 +47,9 @@ export const newsRouter = createTRPCRouter({
           },
         },
         limit: 1,
-        depth: 1,
+        depth: 2,
         locale: (input.locale as "pt" | "it" | "es") || "pt",
       });
-
-      console.log("Collection", data.docs);
 
       return {
         ...data,

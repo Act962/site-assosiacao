@@ -70,13 +70,14 @@ export interface Config {
     users: User;
     media: Media;
     news: News;
-    authors: Author;
     categories: Category;
     events: Event;
     courses: Course;
     classes: Class;
     partners: Partner;
     register: Register;
+    authors: Author;
+    creators: Creator;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -87,13 +88,14 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     news: NewsSelect<false> | NewsSelect<true>;
-    authors: AuthorsSelect<false> | AuthorsSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     events: EventsSelect<false> | EventsSelect<true>;
     courses: CoursesSelect<false> | CoursesSelect<true>;
     classes: ClassesSelect<false> | ClassesSelect<true>;
     partners: PartnersSelect<false> | PartnersSelect<true>;
     register: RegisterSelect<false> | RegisterSelect<true>;
+    authors: AuthorsSelect<false> | AuthorsSelect<true>;
+    creators: CreatorsSelect<false> | CreatorsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -273,7 +275,7 @@ export interface Author {
    */
   name: string;
   position: string;
-  avatar?: (string | null) | Media;
+  image: string | Media;
   socialLinks?:
     | {
         platform?: ('twitter' | 'linkedin' | 'instagram' | 'github' | 'website') | null;
@@ -438,6 +440,32 @@ export interface Register {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "creators".
+ */
+export interface Creator {
+  id: string;
+  /**
+   * Nome do autor
+   */
+  name: string;
+  /**
+   * Cargo do autor
+   */
+  position: string;
+  image: string | Media;
+  socialLinks?:
+    | {
+        platform?: ('twitter' | 'linkedin' | 'instagram' | 'github' | 'website') | null;
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+  deletedAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -473,10 +501,6 @@ export interface PayloadLockedDocument {
         value: string | News;
       } | null)
     | ({
-        relationTo: 'authors';
-        value: string | Author;
-      } | null)
-    | ({
         relationTo: 'categories';
         value: string | Category;
       } | null)
@@ -499,6 +523,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'register';
         value: string | Register;
+      } | null)
+    | ({
+        relationTo: 'authors';
+        value: string | Author;
+      } | null)
+    | ({
+        relationTo: 'creators';
+        value: string | Creator;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -606,25 +638,6 @@ export interface NewsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "authors_select".
- */
-export interface AuthorsSelect<T extends boolean = true> {
-  name?: T;
-  position?: T;
-  avatar?: T;
-  socialLinks?:
-    | T
-    | {
-        platform?: T;
-        url?: T;
-        id?: T;
-      };
-  updatedAt?: T;
-  createdAt?: T;
-  deletedAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "categories_select".
  */
 export interface CategoriesSelect<T extends boolean = true> {
@@ -718,6 +731,44 @@ export interface RegisterSelect<T extends boolean = true> {
   state?: T;
   zipCode?: T;
   origin?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  deletedAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "authors_select".
+ */
+export interface AuthorsSelect<T extends boolean = true> {
+  name?: T;
+  position?: T;
+  image?: T;
+  socialLinks?:
+    | T
+    | {
+        platform?: T;
+        url?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  deletedAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "creators_select".
+ */
+export interface CreatorsSelect<T extends boolean = true> {
+  name?: T;
+  position?: T;
+  image?: T;
+  socialLinks?:
+    | T
+    | {
+        platform?: T;
+        url?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   deletedAt?: T;

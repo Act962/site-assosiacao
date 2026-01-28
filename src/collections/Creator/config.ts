@@ -1,11 +1,11 @@
 import { CollectionConfig } from "payload";
 
-export const Author: CollectionConfig = {
-  slug: "authors",
+export const Creator: CollectionConfig = {
+  slug: "creators",
   trash: true,
   labels: {
-    singular: "Autor",
-    plural: "Autores",
+    singular: "Criador",
+    plural: "Criadores",
   },
   admin: {
     useAsTitle: "name",
@@ -27,6 +27,10 @@ export const Author: CollectionConfig = {
       label: "Cargo",
       type: "text",
       required: true,
+      admin: {
+        placeholder: "Ex.: Professor",
+        description: "Cargo do autor",
+      },
     },
     {
       name: "image",
