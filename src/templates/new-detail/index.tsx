@@ -3,13 +3,30 @@
 import { RichText } from "@/components/payload/components/rich-text";
 import { Button } from "@/components/ui/button";
 import { useQueryNew } from "@/modules/news/hooks/use-news";
+import { Author, Media } from "@/payload-types";
 import { format } from "date-fns";
 import { ArrowLeftIcon, ClockIcon, Tag } from "lucide-react";
 import { motion } from "motion/react";
+import { useLocale } from "next-intl";
+import { es, it, ptBR } from "date-fns/locale";
 import Link from "next/link";
 
 export function NewsDetailPage({ slug }: { slug: string }) {
-  const { news, isLoading } = useQueryNew(slug);
+  const locale = useLocale();
+  const { news, isLoading, error } = useQueryNew(slug);
+
+  console.log(error);
+
+  const getLocale = () => {
+    switch (locale) {
+      case "it":
+        return it;
+      case "es":
+        return es;
+      default:
+        return ptBR;
+    }
+  };
 
   // Loading State
   if (isLoading) {
@@ -102,7 +119,11 @@ export function NewsDetailPage({ slug }: { slug: string }) {
             <span className="text-gray-500 flex items-center gap-2">
               <ClockIcon className="w-4 h-4" />
               {news?.publishedAt &&
-                format(new Date(news.publishedAt), "d 'de' MMMM 'de' yyyy")}
+                format(
+                  new Date(news.publishedAt?.toString() || ""),
+                  "d 'de' MMMM, yyyy",
+                  { locale: getLocale() },
+                )}
             </span>
           </div>
 
@@ -121,6 +142,19 @@ export function NewsDetailPage({ slug }: { slug: string }) {
           {/* Content */}
           <div>{news?.content && <RichText data={news.content} />}</div>
         </motion.div>
+      </div>
+
+      {/* Author */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex items-center gap-4">
+        <div>
+          {/* <img src={author?.avatar || ""} alt={author?.name || ""} /> */}
+        </div>
+        <div className="flex flex-col">
+          <span className="font-semibold">{news?.author?.name}</span>
+          <span className="text-muted-foreground text-sm">
+            {news?.author?.position}
+          </span>
+        </div>
       </div>
     </div>
   );

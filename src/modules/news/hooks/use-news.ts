@@ -1,6 +1,6 @@
 "use client";
 import { useTRPC } from "@/trpc/client";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
 import { useLocale } from "next-intl";
 
 export const useQueryNews = () => {
@@ -21,7 +21,7 @@ export const useQueryNews = () => {
 export const useQueryNew = (slug: string) => {
   const trpc = useTRPC();
   const locale = useLocale();
-  const { data, isLoading } = useQuery(
+  const { data, isLoading, error } = useQuery(
     trpc.news.getOne.queryOptions({
       slug,
       locale: locale as "pt" | "it" | "es",
@@ -31,5 +31,6 @@ export const useQueryNew = (slug: string) => {
   return {
     news: data?.docs[0] || null,
     isLoading,
+    error,
   };
 };

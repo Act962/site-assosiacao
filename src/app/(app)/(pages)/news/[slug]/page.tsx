@@ -39,13 +39,15 @@ export async function generateMetadata({
 
 export default async function NewsDetail({ params }: NewsDetailProps) {
   const { slug } = await params;
-  prefetchNew({ slug });
+  const decodedSlug = decodeURIComponent(slug);
+
+  prefetchNew({ slug: decodedSlug });
 
   return (
     <HydrateClient>
       <ErrorBoundary fallback={<div>Erro ao carregar notícia</div>}>
         <Suspense fallback={<div>Loading...</div>}>
-          <NewsDetailPage slug={slug} />
+          <NewsDetailPage slug={decodedSlug} />
         </Suspense>
       </ErrorBoundary>
     </HydrateClient>

@@ -70,6 +70,7 @@ export interface Config {
     users: User;
     media: Media;
     news: News;
+    authors: Author;
     categories: Category;
     events: Event;
     courses: Course;
@@ -86,6 +87,7 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     news: NewsSelect<false> | NewsSelect<true>;
+    authors: AuthorsSelect<false> | AuthorsSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     events: EventsSelect<false> | EventsSelect<true>;
     courses: CoursesSelect<false> | CoursesSelect<true>;
@@ -220,6 +222,11 @@ export interface News {
    * Selecione uma categoria de notícia
    */
   categories?: (string | null) | Category;
+  author?: (string | null) | Author;
+  /**
+   * Digite o link da notícia
+   */
+  link?: string | null;
   publishedAt?: string | null;
   status: 'Rascunho' | 'Publicado';
   updatedAt: string;
@@ -254,6 +261,29 @@ export interface Category {
   description?: string | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "authors".
+ */
+export interface Author {
+  id: string;
+  /**
+   * Nome do autor
+   */
+  name: string;
+  position: string;
+  avatar?: (string | null) | Media;
+  socialLinks?:
+    | {
+        platform?: ('twitter' | 'linkedin' | 'instagram' | 'github' | 'website') | null;
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+  deletedAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -443,6 +473,10 @@ export interface PayloadLockedDocument {
         value: string | News;
       } | null)
     | ({
+        relationTo: 'authors';
+        value: string | Author;
+      } | null)
+    | ({
         relationTo: 'categories';
         value: string | Category;
       } | null)
@@ -562,8 +596,29 @@ export interface NewsSelect<T extends boolean = true> {
   coverImage?: T;
   featured?: T;
   categories?: T;
+  author?: T;
+  link?: T;
   publishedAt?: T;
   status?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  deletedAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "authors_select".
+ */
+export interface AuthorsSelect<T extends boolean = true> {
+  name?: T;
+  position?: T;
+  avatar?: T;
+  socialLinks?:
+    | T
+    | {
+        platform?: T;
+        url?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   deletedAt?: T;

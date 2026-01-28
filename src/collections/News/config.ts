@@ -117,6 +117,21 @@ export const News: CollectionConfig = {
       },
     },
     {
+      name: "author",
+      label: "Autor",
+      type: "relationship",
+      relationTo: "authors",
+    },
+    {
+      name: "link",
+      label: "Link",
+      type: "text",
+      admin: {
+        placeholder: "https://",
+        description: "Digite o link da notícia",
+      },
+    },
+    {
       name: "publishedAt",
       label: "Data de publicação",
       type: "date",
