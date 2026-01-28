@@ -15,9 +15,10 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  const decodedSlug = decodeURIComponent(slug);
 
   const newDetail = await caller.news.getOne({
-    slug,
+    slug: decodedSlug,
     locale: "pt",
   });
 
