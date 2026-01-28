@@ -12,22 +12,24 @@ import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import Link from "next/link";
 import { useQueryState, parseAsStringLiteral } from "nuqs";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
-import { ORIGIN_OPTIONS } from "@/collections/Register/constants";
-
-const formSchema = z.object({
-  name: z.string().min(1, "Nome é obrigatório"),
-  email: z.email("E-mail inválido"),
-  phone: z.string().min(1, "Telefone é obrigatório"),
-  address: z.string().min(1, "Endereço é obrigatório"),
-  city: z.string().min(1, "Cidade é obrigatória"),
-  state: z.string().min(1, "Estado é obrigatório"),
-  zipCode: z.string().min(1, "CEP é obrigatório"),
-});
-
-type FormSchema = z.infer<typeof formSchema>;
 
 export function FormSection() {
+  const t = useTranslations("JoinPage.form");
+
+  const formSchema = z.object({
+    name: z.string().min(1, t("fields.name.error")),
+    email: z.email(t("fields.email.error")),
+    phone: z.string().min(1, t("fields.phone.error")),
+    address: z.string().min(1, t("fields.address.error")),
+    city: z.string().min(1, t("fields.city.error")),
+    state: z.string().min(1, t("fields.state.error")),
+    zipCode: z.string().min(1, t("fields.zipCode.error")),
+  });
+
+  type FormSchema = z.infer<typeof formSchema>;
+
   const [origin] = useQueryState(
     "origin",
     parseAsStringLiteral(["association", "support", "legal"]).withDefault(
@@ -36,7 +38,7 @@ export function FormSection() {
   );
   const createRegister = useCreateRegister();
   const [confirmTerms, setConfirmTerms] = useState<CheckedState>(false);
-  const form = useForm({
+  const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
   });
 
@@ -78,20 +80,18 @@ export function FormSection() {
         >
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Preencha seus dados
+              {t("title")}
             </h2>
-            <p className="text-gray-600">
-              Complete o formulário abaixo para se associar
-            </p>
+            <p className="text-gray-600">{t("description")}</p>
           </div>
 
           <form className="space-y-6" onSubmit={form.handleSubmit(onSubmit)}>
             <Field>
-              <Label htmlFor="full_name">Nome *</Label>
+              <Label htmlFor="full_name">{t("fields.name.label")}</Label>
               <Input
                 id="full_name"
                 className="mt-1.5"
-                placeholder="Digite seu nome completo"
+                placeholder={t("fields.name.placeholder")}
                 {...form.register("name")}
                 disabled={createRegister.isPending}
               />
@@ -100,23 +100,23 @@ export function FormSection() {
 
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <Label htmlFor="email">E-mail *</Label>
+                <Label htmlFor="email">{t("fields.email.label")}</Label>
                 <Input
                   id="email"
                   type="email"
                   className="mt-1.5"
-                  placeholder="seu@email.com"
+                  placeholder={t("fields.email.placeholder")}
                   disabled={createRegister.isPending}
                   {...form.register("email")}
                 />
                 <FieldError>{form.formState.errors.email?.message}</FieldError>
               </div>
               <div>
-                <Label htmlFor="phone">Telefone *</Label>
+                <Label htmlFor="phone">{t("fields.phone.label")}</Label>
                 <Input
                   id="phone"
                   className="mt-1.5"
-                  placeholder="(11) 99999-9999"
+                  placeholder={t("fields.phone.placeholder")}
                   disabled={createRegister.isPending}
                   {...form.register("phone")}
                   onChange={(e) =>
@@ -128,11 +128,11 @@ export function FormSection() {
             </div>
 
             <div>
-              <Label htmlFor="address">Endereço *</Label>
+              <Label htmlFor="address">{t("fields.address.label")}</Label>
               <Input
                 id="address"
                 className="mt-1.5"
-                placeholder="Rua, número, complemento"
+                placeholder={t("fields.address.placeholder")}
                 {...form.register("address")}
                 disabled={createRegister.isPending}
               />
@@ -141,33 +141,33 @@ export function FormSection() {
 
             <div className="grid md:grid-cols-3 gap-6">
               <div>
-                <Label htmlFor="city">Cidade *</Label>
+                <Label htmlFor="city">{t("fields.city.label")}</Label>
                 <Input
                   id="city"
                   className="mt-1.5"
-                  placeholder="Cidade"
+                  placeholder={t("fields.city.placeholder")}
                   {...form.register("city")}
                   disabled={createRegister.isPending}
                 />
                 <FieldError>{form.formState.errors.city?.message}</FieldError>
               </div>
               <div>
-                <Label htmlFor="state">Estado *</Label>
+                <Label htmlFor="state">{t("fields.state.label")}</Label>
                 <Input
                   id="state"
                   className="mt-1.5"
-                  placeholder="UF"
+                  placeholder={t("fields.state.placeholder")}
                   {...form.register("state")}
                   disabled={createRegister.isPending}
                 />
                 <FieldError>{form.formState.errors.state?.message}</FieldError>
               </div>
               <div>
-                <Label htmlFor="zip_code">CEP *</Label>
+                <Label htmlFor="zip_code">{t("fields.zipCode.label")}</Label>
                 <Input
                   id="zip_code"
                   className="mt-1.5"
-                  placeholder="00000-000"
+                  placeholder={t("fields.zipCode.placeholder")}
                   {...form.register("zipCode")}
                   disabled={createRegister.isPending}
                 />
@@ -184,28 +184,28 @@ export function FormSection() {
                 onCheckedChange={(e) => setConfirmTerms(e)}
                 disabled={createRegister.isPending}
               />
-              <FieldLabel htmlFor="terms">
-                Li e concordo com os
+              <FieldLabel htmlFor="terms" className="gap-0">
+                {t("terms.text")}
                 <Link
                   href="/policies#terms"
                   target="_blank"
-                  className="font-bold hover:underline"
+                  className="font-bold hover:underline mx-1"
                 >
-                  termos de uso
+                  {t("terms.link")}
                 </Link>
-                e
+                {t("terms.and")}
                 <Link
                   href="/policies"
                   target="_blank"
-                  className="font-bold hover:underline"
+                  className="font-bold hover:underline mx-1"
                 >
-                  política de privacidade
+                  {t("terms.privacy")}
                 </Link>
               </FieldLabel>
             </Field>
 
             <Button type="submit" className="w-full" disabled={isFormDisabled}>
-              Enviar
+              {t("submit")}
             </Button>
           </form>
         </motion.div>

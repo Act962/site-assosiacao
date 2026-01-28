@@ -9,29 +9,31 @@ import {
 } from "lucide-react";
 import { motion } from "motion/react";
 import { FormSection } from "./sections/form-section";
+import { useTranslations } from "next-intl";
 
 export function JoinPage() {
+  const t = useTranslations("JoinPage");
+
   const benefits = [
     {
       icon: UsersIcon,
-      title: "Comunidade",
-      description:
-        "Faça parte de uma rede de descendentes e admiradores da cultura italiana",
+      title: t("benefits.community.title"),
+      description: t("benefits.community.description"),
     },
     {
       icon: BookOpenIcon,
-      title: "Educação",
-      description: "Acesso a cursos de italiano e palestras exclusivas",
+      title: t("benefits.education.title"),
+      description: t("benefits.education.description"),
     },
     {
       icon: HeartIcon,
-      title: "Apoio",
-      description: "Suporte para questões consulares e integração",
+      title: t("benefits.support.title"),
+      description: t("benefits.support.description"),
     },
     {
       icon: GlobeIcon,
-      title: "Networking",
-      description: "Conexões com empreendedores e profissionais",
+      title: t("benefits.networking.title"),
+      description: t("benefits.networking.description"),
     },
   ];
 
@@ -57,12 +59,10 @@ export function JoinPage() {
           >
             <UserPlusIcon className="w-16 h-16 text-white/80 mx-auto mb-6" />
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Associe-se
+              {t("hero.title")}
             </h1>
             <p className="text-xl text-red-100 max-w-3xl mx-auto">
-              Faça parte da Associação de Intercâmbio Cultural Ítalo-Brasileira
-              Anita e Giuseppe Garibaldi e fortaleça seus laços com a cultura
-              italiana
+              {t("hero.description")}
             </p>
           </motion.div>
         </div>

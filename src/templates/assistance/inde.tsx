@@ -2,23 +2,24 @@
 import { motion } from "motion/react";
 import { ArrowRightIcon, HeartIcon, ScaleIcon } from "lucide-react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export function AssistancePage() {
+  const t = useTranslations("AssistancePage");
+
   const services = [
     {
       icon: HeartIcon,
-      title: "Apoio Social e Comunitário",
-      description:
-        "Orientação e suporte para recém-chegados, integração comunitária e apoio consular",
+      title: t("services.social.title"),
+      description: t("services.social.description"),
       path: "/support",
       color: "emerald",
       gradient: "from-emerald-500 to-teal-600",
     },
     {
       icon: ScaleIcon,
-      title: "Área Jurídica e Informativa",
-      description:
-        "Informações sobre cidadania italiana, direitos de ítalo-brasileiros e orientação jurídica",
+      title: t("services.legal.title"),
+      description: t("services.legal.description"),
       path: "/legal",
       color: "blue",
       gradient: "from-blue-500 to-indigo-600",
@@ -47,10 +48,10 @@ export function AssistancePage() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-              Como Podemos Ajudar?
+              {t("hero.title")}
             </h1>
             <p className="text-xl md:text-2xl text-emerald-100 max-w-3xl mx-auto">
-              Escolha a área de assistência que você precisa
+              {t("hero.subtitle")}
             </p>
           </motion.div>
         </div>
@@ -86,7 +87,7 @@ export function AssistancePage() {
                     <div
                       className={`flex items-center text-${service.color}-600 font-semibold text-lg group-hover:gap-4 group-hover:text-${service.color}-700 gap-2 transition-all`}
                     >
-                      Acessar
+                      {t("services.access")}
                       <ArrowRightIcon className="w-6 h-6" />
                     </div>
                   </div>
@@ -106,26 +107,25 @@ export function AssistancePage() {
             viewport={{ once: true }}
           >
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-              Precisa de Outros Serviços?
+              {t("others.title")}
             </h3>
             <p className="text-lg text-gray-600 mb-8">
-              Além da assistência social e jurídica, oferecemos cursos de
-              italiano, eventos culturais e oportunidades de networking
+              {t("others.description")}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href={"/courses"}>
                 <button className="px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold rounded-xl transition-colors">
-                  Ver Cursos
+                  {t("others.courses")}
                 </button>
               </Link>
               <Link href={"/culture"}>
                 <button className="px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold rounded-xl transition-colors">
-                  Eventos Culturais
+                  {t("others.events")}
                 </button>
               </Link>
               <Link href={"/networking"}>
                 <button className="px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold rounded-xl transition-colors">
-                  Networking
+                  {t("others.networking")}
                 </button>
               </Link>
             </div>

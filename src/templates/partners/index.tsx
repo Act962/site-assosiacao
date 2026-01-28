@@ -13,30 +13,32 @@ import { motion } from "motion/react";
 import { useSuspensePartners } from "@/modules/partners/hooks/use-partners";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export default function PartnersPage() {
+  const t = useTranslations("PartnersPage");
   const { partners } = useSuspensePartners();
 
   const benefits = [
     {
       icon: HandshakeIcon,
-      title: "Colaboração",
-      description: "Trabalho conjunto em projetos culturais",
+      title: t("benefits.items.collaboration.title"),
+      description: t("benefits.items.collaboration.description"),
     },
     {
       icon: UsersIcon,
-      title: "Networking",
-      description: "Conexões com a comunidade ítalo-brasileira",
+      title: t("benefits.items.networking.title"),
+      description: t("benefits.items.networking.description"),
     },
     {
       icon: HeartIcon,
-      title: "Impacto Social",
-      description: "Fortalecimento dos laços culturais",
+      title: t("benefits.items.impact.title"),
+      description: t("benefits.items.impact.description"),
     },
     {
       icon: GlobeIcon,
-      title: "Visibilidade",
-      description: "Exposição para a comunidade internacional",
+      title: t("benefits.items.visibility.title"),
+      description: t("benefits.items.visibility.description"),
     },
   ];
 
@@ -63,11 +65,10 @@ export default function PartnersPage() {
           >
             <HandshakeIcon className="w-16 h-16 text-white/80 mx-auto mb-6" />
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Nossos Parceiros
+              {t("hero.title")}
             </h1>
             <p className="text-xl text-emerald-100 max-w-3xl mx-auto">
-              Juntos promovendo a cultura ítalo-brasileira e fortalecendo os
-              laços entre Brasil e Itália
+              {t("hero.description")}
             </p>
           </motion.div>
         </div>
@@ -83,17 +84,16 @@ export default function PartnersPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Parceiros
+              {t("partners.title")}
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Contamos com o apoio de diversas instituições comprometidas com
-              nossa missão
+              {t("partners.subtitle")}
             </p>
           </motion.div>
 
           {partners.length === 0 ? (
             <div className="text-center text-gray-600">
-              Nenhum parceiro encontrado
+              {t("partners.empty")}
             </div>
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mx-auto place-content-center gap-y-12">
@@ -132,10 +132,10 @@ export default function PartnersPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Benefícios da Parceria
+              {t("benefits.title")}
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Seja um parceiro e faça parte dessa transformação cultural
+              {t("benefits.subtitle")}
             </p>
           </motion.div>
 
@@ -171,16 +171,16 @@ export default function PartnersPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Seja Nosso Parceiro
+              {t("cta.title")}
             </h2>
             <p className="text-xl text-emerald-100 mb-8">
-              Junte-se a nós na missão de promover a cultura ítalo-brasileira
+              {t("cta.description")}
             </p>
             <a
               href="mailto:contato@garibaldi-sp.org.br"
               className="inline-flex items-center gap-2 bg-white text-emerald-700 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-50 transition-colors"
             >
-              Entre em Contato
+              {t("cta.button")}
               <HandshakeIcon className="w-6 h-6" />
             </a>
           </motion.div>

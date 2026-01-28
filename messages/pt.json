@@ -568,5 +568,139 @@
         }
       ]
     }
+  },
+  "PartnersPage": {
+    "hero": {
+      "title": "Nossos Parceiros",
+      "description": "Juntos promovendo a cultura ítalo-brasileira e fortalecendo os laços entre Brasil e Itália"
+    },
+    "partners": {
+      "title": "Parceiros",
+      "subtitle": "Contamos com o apoio de diversas instituições comprometidas com nossa missão",
+      "empty": "Nenhum parceiro encontrado"
+    },
+    "benefits": {
+      "title": "Benefícios da Parceria",
+      "subtitle": "Seja um parceiro e faça parte dessa transformação cultural",
+      "items": {
+        "collaboration": {
+          "title": "Colaboração",
+          "description": "Trabalho conjunto em projetos culturais"
+        },
+        "networking": {
+          "title": "Networking",
+          "description": "Conexões com a comunidade ítalo-brasileira"
+        },
+        "impact": {
+          "title": "Impacto Social",
+          "description": "Fortalecimento dos laços culturais"
+        },
+        "visibility": {
+          "title": "Visibilidade",
+          "description": "Exposição para a comunidade internacional"
+        }
+      }
+    },
+    "cta": {
+      "title": "Seja Nosso Parceiro",
+      "description": "Junte-se a nós na missão de promover a cultura ítalo-brasileira",
+      "button": "Entre em Contato"
+    }
+  },
+  "AssistancePage": {
+    "hero": {
+      "title": "Como Podemos Ajudar?",
+      "subtitle": "Escolha a área de assistência que você precisa"
+    },
+    "services": {
+      "social": {
+        "title": "Apoio Social e Comunitário",
+        "description": "Orientação e suporte para recém-chegados, integração comunitária e apoio consular"
+      },
+      "legal": {
+        "title": "Área Jurídica e Informativa",
+        "description": "Informações sobre cidadania italiana, direitos de ítalo-brasileiros e orientação jurídica"
+      },
+      "access": "Acessar"
+    },
+    "others": {
+      "title": "Precisa de Outros Serviços?",
+      "description": "Além da assistência social e jurídica, oferecemos cursos de italiano, eventos culturais e oportunidades de networking",
+      "courses": "Ver Cursos",
+      "events": "Eventos Culturais",
+      "networking": "Networking"
+    }
+  },
+  "JoinPage": {
+    "hero": {
+      "title": "Associe-se",
+      "description": "Faça parte da Associação de Intercâmbio Cultural Ítalo-Brasileira Anita e Giuseppe Garibaldi e fortaleça seus laços com a cultura italiana"
+    },
+    "benefits": {
+      "community": {
+        "title": "Comunidade",
+        "description": "Faça parte de uma rede de descendentes e admiradores da cultura italiana"
+      },
+      "education": {
+        "title": "Educação",
+        "description": "Acesso a cursos de italiano e palestras exclusivas"
+      },
+      "support": {
+        "title": "Apoio",
+        "description": "Suporte para questões consulares e integração"
+      },
+      "networking": {
+        "title": "Networking",
+        "description": "Conexões com empreendedores e profissionais"
+      }
+    },
+    "form": {
+      "title": "Preencha seus dados",
+      "description": "Complete o formulário abaixo para se associar",
+      "fields": {
+        "name": {
+          "label": "Nome *",
+          "placeholder": "Digite seu nome completo",
+          "error": "Nome é obrigatório"
+        },
+        "email": {
+          "label": "E-mail *",
+          "placeholder": "seu@email.com",
+          "error": "E-mail inválido"
+        },
+        "phone": {
+          "label": "Telefone *",
+          "placeholder": "(11) 99999-9999",
+          "error": "Telefone é obrigatório"
+        },
+        "address": {
+          "label": "Endereço *",
+          "placeholder": "Rua, número, complemento",
+          "error": "Endereço é obrigatório"
+        },
+        "city": {
+          "label": "Cidade *",
+          "placeholder": "Cidade",
+          "error": "Cidade é obrigatória"
+        },
+        "state": {
+          "label": "Estado *",
+          "placeholder": "UF",
+          "error": "Estado é obrigatório"
+        },
+        "zipCode": {
+          "label": "CEP *",
+          "placeholder": "00000-000",
+          "error": "CEP é obrigatório"
+        }
+      },
+      "terms": {
+        "text": "Li e concordo com os ",
+        "link": "termos de uso",
+        "and": "e",
+        "privacy": "política de privacidade"
+      },
+      "submit": "Enviar"
+    }
   }
 }

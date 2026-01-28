@@ -570,5 +570,139 @@
         }
       ]
     }
+  },
+  "PartnersPage": {
+    "hero": {
+      "title": "I Nostri Partner",
+      "description": "Insieme promuovendo la cultura italo-brasiliana e rafforzando i legami tra Brasile e Italia"
+    },
+    "partners": {
+      "title": "Partner",
+      "subtitle": "Contiamo sul supporto di diverse istituzioni impegnate nella nostra missione",
+      "empty": "Nessun partner trovato"
+    },
+    "benefits": {
+      "title": "Benefici della Partnership",
+      "subtitle": "Diventa un partner e fai parte di questa trasformazione culturale",
+      "items": {
+        "collaboration": {
+          "title": "Collaborazione",
+          "description": "Lavoro congiunto su progetti culturali"
+        },
+        "networking": {
+          "title": "Networking",
+          "description": "Connessioni con la comunità italo-brasiliana"
+        },
+        "impact": {
+          "title": "Impatto Sociale",
+          "description": "Rafforzamento dei legami culturali"
+        },
+        "visibility": {
+          "title": "Visibilità",
+          "description": "Esposizione alla comunità internazionale"
+        }
+      }
+    },
+    "cta": {
+      "title": "Diventa Nostro Partner",
+      "description": "Unisciti a noi na missão de promover a cultura ítalo-brasileira",
+      "button": "Contattaci"
+    }
+  },
+  "AssistancePage": {
+    "hero": {
+      "title": "Come Possiamo Aiutare?",
+      "subtitle": "Scegli l'area di assistenza di cui hai bisogno"
+    },
+    "services": {
+      "social": {
+        "title": "Supporto Sociale e Comunitario",
+        "description": "Orientamento e supporto per i nuovi arrivati, integrazione comunitaria e supporto consolare"
+      },
+      "legal": {
+        "title": "Area Giuridica e Informativa",
+        "description": "Informazioni sulla cittadinanza italiana, sui diritti degli italo-brasiliani e orientamento legale"
+      },
+      "access": "Accedi"
+    },
+    "others": {
+      "title": "Hai bisogno di altri servizi?",
+      "description": "Oltre all'assistenza sociale e legale, offriamo corsi di italiano, eventi culturali e opportunità networking",
+      "courses": "Vedi Corsi",
+      "events": "Eventi Culturali",
+      "networking": "Networking"
+    }
+  },
+  "JoinPage": {
+    "hero": {
+      "title": "Diventa Socio",
+      "description": "Entra a far parte dell'Associazione di Scambio Culturale Italo-Brasiliana Anita e Giuseppe Garibaldi e rafforza i tuoi legami con la cultura italiana"
+    },
+    "benefits": {
+      "community": {
+        "title": "Comunità",
+        "description": "Entra a far parte di una rete di discendenti e ammiratori della cultura italiana"
+      },
+      "education": {
+        "title": "Formazione",
+        "description": "Accesso a corsi di italiano e conferenze esclusive"
+      },
+      "support": {
+        "title": "Supporto",
+        "description": "Supporto per questioni consolari e integrazione"
+      },
+      "networking": {
+        "title": "Networking",
+        "description": "Contatti con imprenditori e professionisti"
+      }
+    },
+    "form": {
+      "title": "Inserisci i tuoi dati",
+      "description": "Completa il modulo sottostante per diventare socio",
+      "fields": {
+        "name": {
+          "label": "Nome *",
+          "placeholder": "Inserisci il tuo nome completo",
+          "error": "Il nome è obbligatorio"
+        },
+        "email": {
+          "label": "E-mail *",
+          "placeholder": "tua@email.com",
+          "error": "E-mail non valida"
+        },
+        "phone": {
+          "label": "Telefono *",
+          "placeholder": "(11) 99999-9999",
+          "error": "Il telefono è obbligatorio"
+        },
+        "address": {
+          "label": "Indirizzo *",
+          "placeholder": "Via, numero, complemento",
+          "error": "L'indirizzo è obbligatorio"
+        },
+        "city": {
+          "label": "Città *",
+          "placeholder": "Città",
+          "error": "La città è obbligatoria"
+        },
+        "state": {
+          "label": "Stato *",
+          "placeholder": "UF",
+          "error": "Lo Stato è obbligatorio"
+        },
+        "zipCode": {
+          "label": "CAP *",
+          "placeholder": "00000-000",
+          "error": "Il CAP è obbligatorio"
+        }
+      },
+      "terms": {
+        "text": "Ho letto e accetto i ",
+        "link": "termini di utilizzo",
+        "and": " e l'",
+        "privacy": "informativa sulla privacy"
+      },
+      "submit": "Invia"
+    }
   }
 }
