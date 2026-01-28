@@ -62,7 +62,7 @@ export function HeroSection() {
               {t("description")}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 items-center sm:items-start">
               <Link href={"/join"}>
                 <Button
                   size="lg"
@@ -73,14 +73,15 @@ export function HeroSection() {
                 </Button>
               </Link>
 
-              <Button
-                size="lg"
-                variant="outline"
-                className=" border-none  font-semibold text-lg px-8 py-6 cursor-pointer"
-                asChild
-              >
-                <Link href={"/about"}>{t("readMore")}</Link>
-              </Button>
+              <Link href={"/about"}>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-none font-semibold text-lg px-8 py-6 cursor-pointer"
+                >
+                  {t("readMore")}
+                </Button>
+              </Link>
             </div>
           </motion.div>
 
