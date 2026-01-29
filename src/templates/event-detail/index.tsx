@@ -52,7 +52,7 @@ export function EventDetail({ slug }: { slug: string }) {
         >
           {/* Back Button */}
           <Link href="/culture">
-            <Button variant="ghost" className="mb-8">
+            <Button variant="ghost" className="mb-8 cursor-pointer">
               <ArrowLeftIcon className="size-4" />
               Voltar
             </Button>
@@ -141,7 +141,10 @@ export function EventDetail({ slug }: { slug: string }) {
               confirme sua presença.
             </p>
             <Link href={`/join?event=${event?.slug}&origin=event#form`}>
-              <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
+              <Button
+                size="lg"
+                className="bg-emerald-600 hover:bg-emerald-700 cursor-pointer"
+              >
                 Entre em Contato
               </Button>
             </Link>

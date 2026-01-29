@@ -91,6 +91,10 @@
         "connections": {
           "title": "Conexiones",
           "description": "Networking con emprendedores y profesionales"
+        },
+        "newsletter": {
+          "title": "Newsletter",
+          "description": "Reciba las últimas noticias y eventos de nuestra comunidad"
         }
       }
     }

@@ -32,9 +32,14 @@ export function FormSection() {
 
   const [origin] = useQueryState(
     "origin",
-    parseAsStringLiteral(["association", "support", "legal"]).withDefault(
+    parseAsStringLiteral([
       "association",
-    ),
+      "support",
+      "legal",
+      "event",
+      "newsletter",
+      "others",
+    ]).withDefault("association"),
   );
 
   const [event] = useQueryState("event");

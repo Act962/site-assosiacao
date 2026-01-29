@@ -90,6 +90,7 @@ export function CTASection() {
                 {t("cards.support.description")}
               </p>
             </Link>
+
             <Link
               href={"/"}
               className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
@@ -101,6 +102,18 @@ export function CTASection() {
               </h3>
               <p className="text-emerald-100 text-sm">
                 {t("cards.connections.description")}
+              </p>
+            </Link>
+            <Link
+              href={"/join?origin=newsletter#form"}
+              className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
+            >
+              <HeartHandshakeIcon className="w-10 h-10 text-red-300 mb-4" />
+              <h3 className="text-xl font-bold text-white mb-2">
+                {t("cards.newsletter.title")}
+              </h3>
+              <p className="text-emerald-100 text-sm">
+                {t("cards.newsletter.description")}
               </p>
             </Link>
           </motion.div>

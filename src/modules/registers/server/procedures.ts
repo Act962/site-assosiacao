@@ -13,7 +13,14 @@ export const registerRouter = createTRPCRouter({
         state: z.string(),
         zipCode: z.string(),
         origin: z
-          .enum(["association", "support", "legal"])
+          .enum([
+            "association",
+            "support",
+            "legal",
+            "event",
+            "newsletter",
+            "others",
+          ])
           .default("association"),
         event: z.string().optional(),
       }),

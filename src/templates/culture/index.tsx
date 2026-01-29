@@ -15,6 +15,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { useQueryEvents } from "@/modules/events/hooks/use-event";
 import { it, es, ptBR } from "date-fns/locale";
 import { format } from "date-fns";
+import Link from "next/link";
 
 export function CulturePage() {
   const language = useLocale();
@@ -134,51 +135,53 @@ export function CulturePage() {
                   transition={{ delay: index * 0.05 }}
                   className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300"
                 >
-                  {event.coverImage && (
-                    <div className="relative h-48 overflow-hidden">
-                      <img
-                        src={event.coverImage.url || ""}
-                        alt={event.coverImage.alt}
-                        className="w-full h-full object-cover"
-                      />
-                      {event.categories && (
-                        <span
-                          className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700`}
-                        >
-                          {event.categories.name}
-                        </span>
-                      )}
-                    </div>
-                  )}
-                  <div className="p-6">
-                    <h3 className="text-lg font-bold text-gray-900 mb-3">
-                      {event.name}
-                    </h3>
-                    {event.description && (
-                      <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                        {event.description}
-                      </p>
-                    )}
-                    <div className="space-y-2 text-sm text-gray-600">
-                      <div className="flex items-center gap-2">
-                        <CalendarIcon className="w-4 h-4 text-emerald-600" />
-                        <span>
-                          {event.eventDate &&
-                            format(
-                              new Date(event.eventDate),
-                              "d 'de' MMMM, yyyy - HH:mm",
-                              { locale: getLocale() },
-                            )}
-                        </span>
+                  <Link href={`/events/${event.slug}`}>
+                    {event.coverImage && (
+                      <div className="relative h-48 overflow-hidden">
+                        <img
+                          src={event.coverImage.url || ""}
+                          alt={event.coverImage.alt}
+                          className="w-full h-full object-cover"
+                        />
+                        {event.categories && (
+                          <span
+                            className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700`}
+                          >
+                            {event.categories.name}
+                          </span>
+                        )}
                       </div>
-                      {event.location && (
-                        <div className="flex items-center gap-2">
-                          <MapPinIcon className="w-4 h-4 text-emerald-600" />
-                          <span>{event.location}</span>
-                        </div>
+                    )}
+                    <div className="p-6">
+                      <h3 className="text-lg font-bold text-gray-900 mb-3">
+                        {event.name}
+                      </h3>
+                      {event.description && (
+                        <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                          {event.description}
+                        </p>
                       )}
+                      <div className="space-y-2 text-sm text-gray-600">
+                        <div className="flex items-center gap-2">
+                          <CalendarIcon className="w-4 h-4 text-emerald-600" />
+                          <span>
+                            {event.eventDate &&
+                              format(
+                                new Date(event.eventDate),
+                                "d 'de' MMMM, yyyy - HH:mm",
+                                { locale: getLocale() },
+                              )}
+                          </span>
+                        </div>
+                        {event.location && (
+                          <div className="flex items-center gap-2">
+                            <MapPinIcon className="w-4 h-4 text-emerald-600" />
+                            <span>{event.location}</span>
+                          </div>
+                        )}
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 </motion.div>
               ))}
             </div>

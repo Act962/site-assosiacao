@@ -92,6 +92,10 @@
         "connections": {
           "title": "Comunidade",
           "description": "Faça parte de uma rede de descendentes e admiradores da cultura italiana"
+        },
+        "newsletter": {
+          "title": "Newsletter",
+          "description": "Receba as últimas notícias e eventos da nossa comunidade"
         }
       }
     }

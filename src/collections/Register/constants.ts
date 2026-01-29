@@ -11,4 +11,16 @@ export const ORIGIN_OPTIONS = [
     label: "Jurídico",
     value: "legal",
   },
+  {
+    label: "Evento",
+    value: "event",
+  },
+  {
+    label: "Newsletter",
+    value: "newsletter",
+  },
+  {
+    label: "Outros",
+    value: "others",
+  },
 ];

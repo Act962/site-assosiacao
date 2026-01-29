@@ -452,7 +452,7 @@ export interface Register {
   /**
    * Origem do cadastro
    */
-  origin?: ('association' | 'support' | 'legal') | null;
+  origin?: ('association' | 'support' | 'legal' | 'event' | 'newsletter' | 'others') | null;
   updatedAt: string;
   createdAt: string;
   deletedAt?: string | null;
