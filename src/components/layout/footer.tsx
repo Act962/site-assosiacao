@@ -1,6 +1,13 @@
 import React from "react";
 
-import { MapPin, Mail, Phone, Facebook, Instagram } from "lucide-react";
+import {
+  MapPin,
+  Mail,
+  Phone,
+  Facebook,
+  Instagram,
+  MailIcon,
+} from "lucide-react";
 import Link from "next/link";
 import TikTokIcon from "../../assets/tiktok.svg";
 import { useTranslations } from "next-intl";
@@ -121,6 +128,12 @@ export default function Footer() {
                 <MapPin className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
                 <span className="text-gray-400 text-sm">
                   {t("contact.address")}
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <MailIcon className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
+                <span className="text-gray-400 text-sm">
+                  anitaegiuseppegaribaldi@gmail.com
                 </span>
               </li>
             </ul>
