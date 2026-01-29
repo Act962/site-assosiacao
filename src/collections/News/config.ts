@@ -11,6 +11,7 @@ import { ensureSingleFeatured } from "./hooks/featured.hook";
 export const News: CollectionConfig = {
   slug: "news",
   trash: true,
+  orderable: true,
   labels: {
     singular: "Notícia",
     plural: "Notícias",

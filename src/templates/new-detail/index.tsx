@@ -11,7 +11,6 @@ import { useLocale } from "next-intl";
 import { es, it, ptBR } from "date-fns/locale";
 import Link from "next/link";
 import { PostShare } from "./post-share";
-import { NextURL } from "next/dist/server/web/next-url";
 
 export function NewsDetailPage({ slug }: { slug: string }) {
   const locale = useLocale();
@@ -152,12 +151,15 @@ export function NewsDetailPage({ slug }: { slug: string }) {
         {news?.author && (
           <>
             <div className="flex items-center gap-4">
-              <div className="size-12 rounded-full overflow-hidden">
-                <img
-                  src={authorImage?.url || ""}
-                  alt={authorImage?.alt || ""}
-                />
-              </div>
+              {authorImage && (
+                <div className="size-12 rounded-full overflow-hidden">
+                  <img
+                    src={authorImage.url || ""}
+                    alt={authorImage.alt}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
               <div className="flex flex-col">
                 <span className="font-semibold">{news?.author?.name}</span>
                 <span className="text-muted-foreground text-sm">

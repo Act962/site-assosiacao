@@ -70,7 +70,6 @@ export interface Config {
     users: User;
     media: Media;
     news: News;
-    creators: Creator;
     categories: Category;
     events: Event;
     courses: Course;
@@ -88,7 +87,6 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     news: NewsSelect<false> | NewsSelect<true>;
-    creators: CreatorsSelect<false> | CreatorsSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     events: EventsSelect<false> | EventsSelect<true>;
     courses: CoursesSelect<false> | CoursesSelect<true>;
@@ -188,6 +186,7 @@ export interface Media {
  */
 export interface News {
   id: string;
+  _order?: string | null;
   title: string;
   /**
    * O slug é o endereço da notícia
@@ -275,33 +274,7 @@ export interface Author {
    */
   name: string;
   position: string;
-  image: string | Media;
-  socialLinks?:
-    | {
-        platform?: ('twitter' | 'linkedin' | 'instagram' | 'github' | 'website') | null;
-        url: string;
-        id?: string | null;
-      }[]
-    | null;
-  updatedAt: string;
-  createdAt: string;
-  deletedAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "creators".
- */
-export interface Creator {
-  id: string;
-  /**
-   * Nome do autor
-   */
-  name: string;
-  /**
-   * Cargo do autor
-   */
-  position: string;
-  image: string | Media;
+  image?: (string | null) | Media;
   socialLinks?:
     | {
         platform?: ('twitter' | 'linkedin' | 'instagram' | 'github' | 'website') | null;
@@ -319,12 +292,28 @@ export interface Creator {
  */
 export interface Event {
   id: string;
+  _order?: string | null;
   name: string;
   /**
    * O slug é o endereço do evento
    */
   slug: string;
   description?: string | null;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   /**
    * Local do evento
    */
@@ -453,6 +442,10 @@ export interface Register {
   email: string;
   phone?: string | null;
   address?: string | null;
+  /**
+   * Evento do cadastro
+   */
+  event?: (string | null) | Event;
   city?: string | null;
   state?: string | null;
   zipCode?: string | null;
@@ -499,10 +492,6 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'news';
         value: string | News;
-      } | null)
-    | ({
-        relationTo: 'creators';
-        value: string | Creator;
       } | null)
     | ({
         relationTo: 'categories';
@@ -621,6 +610,7 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "news_select".
  */
 export interface NewsSelect<T extends boolean = true> {
+  _order?: T;
   title?: T;
   slug?: T;
   excerpt?: T;
@@ -632,25 +622,6 @@ export interface NewsSelect<T extends boolean = true> {
   link?: T;
   publishedAt?: T;
   status?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  deletedAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "creators_select".
- */
-export interface CreatorsSelect<T extends boolean = true> {
-  name?: T;
-  position?: T;
-  image?: T;
-  socialLinks?:
-    | T
-    | {
-        platform?: T;
-        url?: T;
-        id?: T;
-      };
   updatedAt?: T;
   createdAt?: T;
   deletedAt?: T;
@@ -673,9 +644,11 @@ export interface CategoriesSelect<T extends boolean = true> {
  * via the `definition` "events_select".
  */
 export interface EventsSelect<T extends boolean = true> {
+  _order?: T;
   name?: T;
   slug?: T;
   description?: T;
+  content?: T;
   location?: T;
   categories?: T;
   coverImage?: T;
@@ -746,6 +719,7 @@ export interface RegisterSelect<T extends boolean = true> {
   email?: T;
   phone?: T;
   address?: T;
+  event?: T;
   city?: T;
   state?: T;
   zipCode?: T;

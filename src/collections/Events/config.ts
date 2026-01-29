@@ -2,10 +2,15 @@ import { CollectionConfig } from "payload";
 import { TYPE_CATEGORY } from "../Categories/constants";
 import { generateSlugHook } from "./hooks/generate-slug.hook";
 import { STATUS_OPTIONS } from "./constants";
+import {
+  FixedToolbarFeature,
+  lexicalEditor,
+} from "@payloadcms/richtext-lexical";
 
 export const Events: CollectionConfig = {
   slug: "events",
   trash: true,
+  orderable: true,
   admin: {
     useAsTitle: "name",
   },
@@ -49,6 +54,18 @@ export const Events: CollectionConfig = {
       admin: {
         placeholder: "Digite a descrição do evento",
       },
+    },
+    {
+      name: "content",
+      label: "Conteúdo",
+      type: "richText",
+      localized: true,
+      editor: lexicalEditor({
+        features: ({ defaultFeatures }) => [
+          ...defaultFeatures,
+          FixedToolbarFeature(),
+        ],
+      }),
     },
     {
       name: "location",

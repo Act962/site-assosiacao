@@ -36,6 +36,9 @@ export function FormSection() {
       "association",
     ),
   );
+
+  const [event] = useQueryState("event");
+
   const createRegister = useCreateRegister();
   const [confirmTerms, setConfirmTerms] = useState<CheckedState>(false);
   const form = useForm<FormSchema>({
@@ -44,7 +47,7 @@ export function FormSection() {
 
   const onSubmit = (data: FormSchema) => {
     createRegister.mutate(
-      { ...data, origin },
+      { ...data, origin, event: event || undefined },
       {
         onSuccess: () => {
           form.reset();

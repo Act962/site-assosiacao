@@ -35,7 +35,6 @@ export default buildConfig({
     Users,
     Media,
     News,
-    Creator,
     Categories,
     Events,
     Course,

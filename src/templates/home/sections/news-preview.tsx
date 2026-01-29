@@ -92,6 +92,13 @@ export function NewsPreview() {
                   )}
                   <div className="p-8 md:p-12 flex flex-col justify-center">
                     <div className="flex items-center gap-2 text-sm text-gray-500 mb-6">
+                      {featuredNews.categories && (
+                        <span
+                          className={`px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700`}
+                        >
+                          {featuredNews.categories.name}
+                        </span>
+                      )}
                       <ClockIcon className="w-4 h-4" />
                       <span>
                         {format(
@@ -145,24 +152,32 @@ export function NewsPreview() {
                         </div>
                       )}
                       <div className="p-6">
-                        <div className="flex items-center gap-2 text-xs text-gray-500 mb-3">
-                          <ClockIcon className="w-3 h-3" />
-                          <span>
-                            {format(
-                              new Date(item.publishedAt?.toString() || ""),
-                              "dd/MM/yyyy",
-                              { locale: getLocale() },
-                            )}
-                          </span>
+                        <div className="flex items-center gap-2 mb-3">
+                          {item.categories && (
+                            <span
+                              className={`px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-700`}
+                            >
+                              {item.categories.name}
+                            </span>
+                          )}
                         </div>
+
                         <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-emerald-700 transition-colors">
                           {item.title}
                         </h3>
                         {item.excerpt && (
-                          <p className="text-sm text-gray-600 line-clamp-3">
+                          <p className="text-sm text-gray-600 line-clamp-3 mb-4">
                             {item.excerpt}
                           </p>
                         )}
+                        <div className="flex items-center gap-1 text-xs text-gray-500">
+                          <ClockIcon className="w-3 h-3" />
+                          {format(
+                            new Date(item.publishedAt?.toString() || ""),
+                            "d 'de' MMMM, yyyy",
+                            { locale: getLocale() },
+                          )}
+                        </div>
                       </div>
                     </div>
                   </Link>

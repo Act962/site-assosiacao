@@ -15,9 +15,25 @@ export const registerRouter = createTRPCRouter({
         origin: z
           .enum(["association", "support", "legal"])
           .default("association"),
+        event: z.string().optional(),
       }),
     )
     .mutation(async ({ ctx, input }) => {
+      let event;
+
+      if (input.event) {
+        event = await ctx.db.find({
+          collection: "events",
+          where: {
+            slug: {
+              equals: input.event,
+            },
+          },
+          limit: 1,
+          depth: 1,
+        });
+      }
+
       const register = await ctx.db.create({
         collection: "register",
         data: {
@@ -29,6 +45,7 @@ export const registerRouter = createTRPCRouter({
           state: input.state,
           zipCode: input.zipCode,
           origin: input.origin,
+          event: event?.docs[0].id,
         },
       });
 

@@ -33,7 +33,6 @@ export const Author: CollectionConfig = {
       label: "Foto do autor",
       type: "upload",
       relationTo: "media",
-      required: true,
     },
     {
       name: "socialLinks",

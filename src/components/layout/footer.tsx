@@ -23,7 +23,7 @@ export default function Footer() {
     <footer className="bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-12">
           {/* Logo and Description */}
           <div className="sm:col-span-2">
             <img
@@ -112,7 +112,7 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="sm:col-span-2">
             <h3 className="text-lg font-semibold mb-6 text-white">
               {t("contact.title")}
             </h3>
@@ -124,6 +124,20 @@ export default function Footer() {
                 </span>
               </li>
             </ul>
+
+            <div className="w-full h-[150px] mt-4 space-y-4">
+              <h3 className="text-lg font-semibold mb-6 text-white">Mapa</h3>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.6753414194395!2d-46.64009198860353!3d-23.54417666087362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5851569713d3%3A0xcadbdbe7c9546e3d!2sCondom%C3%ADnio%20Edif%C3%ADcio%20Seguradoras!5e0!3m2!1spt-BR!2sbr!4v1769694849385!5m2!1spt-BR!2sbr"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  border: "0",
+                }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
           </div>
         </div>
       </div>

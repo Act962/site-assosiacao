@@ -14,3 +14,17 @@ export const useQueryEvents = (limit: number) => {
     isLoading,
   };
 };
+
+export const useQueryEvent = (slug: string) => {
+  const trpc = useTRPC();
+  const locale = useLocale();
+  const { data, isLoading, error } = useQuery(
+    trpc.events.getOne.queryOptions({ slug, locale }),
+  );
+
+  return {
+    event: data?.docs[0] || null,
+    isLoading,
+    error,
+  };
+};

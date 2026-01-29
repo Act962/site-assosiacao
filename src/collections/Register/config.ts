@@ -48,6 +48,17 @@ export const Register: CollectionConfig = {
       },
     },
     {
+      name: "event",
+      label: "Evento",
+      type: "relationship",
+      relationTo: "events",
+      admin: {
+        position: "sidebar",
+        description: "Evento do cadastro",
+        readOnly: true,
+      },
+    },
+    {
       type: "row",
       fields: [
         {
@@ -88,6 +99,7 @@ export const Register: CollectionConfig = {
       admin: {
         position: "sidebar",
         description: "Origem do cadastro",
+        readOnly: true,
       },
     },
   ],
