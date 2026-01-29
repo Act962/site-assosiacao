@@ -15,7 +15,7 @@ import Link from "next/link";
 export function CTASection() {
   const t = useTranslations("HomePage.cta");
   return (
-    <section className="py-24 bg-linear-to-br from-emerald-700 via-emerald-800 to-gray-900 relative overflow-hidden">
+    <section className="py-20 bg-linear-to-br from-emerald-700 via-emerald-800 to-gray-900 relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-red-400/10 rounded-full blur-3xl" />

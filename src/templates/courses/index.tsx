@@ -108,7 +108,7 @@ export function CoursesPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="relative py-24 bg-linear-to-br from-blue-800 to-blue-900 overflow-hidden">
+      <section className="relative py-14 bg-linear-to-br from-blue-800 to-blue-900 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div
             className="absolute inset-0"
@@ -138,7 +138,7 @@ export function CoursesPage() {
       </section>
 
       {/* Course Types */}
-      <section className="py-20">
+      <section className="py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -206,7 +206,7 @@ export function CoursesPage() {
 
       {/* Available Courses */}
       {!isLoading && classes.length > 0 && (
-        <section className="py-20 bg-gray-50">
+        <section className="py-14 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -295,7 +295,7 @@ export function CoursesPage() {
       )}
 
       {/* CTA */}
-      <section className="py-20 bg-linear-to-r from-blue-600 to-blue-700">
+      <section className="py-14 bg-linear-to-r from-blue-600 to-blue-700">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

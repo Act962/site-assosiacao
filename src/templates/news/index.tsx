@@ -52,7 +52,7 @@ export function NewsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="relative py-24 bg-linear-to-br from-gray-900 to-gray-800 overflow-hidden">
+      <section className="relative py-20 bg-linear-to-br from-gray-900 to-gray-800 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div
             className="absolute inset-0"
@@ -81,9 +81,9 @@ export function NewsPage() {
       </section>
 
       {/* Filter */}
-      <section className="py-8 border-b">
+      <section className="py-6 border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-4 overflow-x-auto pb-2">
+          <div className="flex items-center gap-4 overflow-x-auto">
             <Filter className="w-5 h-5 text-gray-400 shrink-0" />
             <Button
               variant={selectedCategory === "all" ? "default" : "ghost"}
@@ -117,7 +117,7 @@ export function NewsPage() {
       </section>
 
       {/* News Grid */}
-      <section className="py-16">
+      <section className="py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {isLoading ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

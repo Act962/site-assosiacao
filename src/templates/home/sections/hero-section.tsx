@@ -36,7 +36,7 @@ export function HeroSection() {
       <div className="absolute top-1/4 right-10 w-72 h-72 bg-emerald-400/10 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 left-10 w-96 h-96 bg-red-400/10 rounded-full blur-3xl" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-30 pt-10">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <motion.div

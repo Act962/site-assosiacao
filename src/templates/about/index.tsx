@@ -66,7 +66,7 @@ export function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-24 bg-linear-to-br from-emerald-800 to-gray-900 overflow-hidden">
+      <section className="relative py-16 bg-linear-to-br from-emerald-800 to-gray-900 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0"
@@ -96,7 +96,7 @@ export function AboutPage() {
       </section>
 
       {/* Institutional Info */}
-      <section className="py-15">
+      <section className="py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -133,7 +133,7 @@ export function AboutPage() {
       </section>
 
       {/* President Section */}
-      <section className="py-15">
+      <section className="py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -171,7 +171,7 @@ export function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-15 bg-gray-50">
+      <section className="py-14 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
             <motion.div
@@ -213,7 +213,7 @@ export function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-20">
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -249,7 +249,7 @@ export function AboutPage() {
       </section>
 
       {/* History of Garibaldi */}
-      <section className="py-15 bg-linear-to-br from-gray-900 to-emerald-900 text-white">
+      <section className="py-14 bg-linear-to-br from-gray-900 to-emerald-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

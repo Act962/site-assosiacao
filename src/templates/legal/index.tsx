@@ -75,7 +75,7 @@ export function LegalPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="relative py-24 bg-linear-to-br from-red-800 to-red-900 overflow-hidden">
+      <section className="relative py-20 bg-linear-to-br from-red-800 to-red-900 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div
             className="absolute inset-0"

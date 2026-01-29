@@ -29,7 +29,7 @@ export function AssistancePage() {
   return (
     <div className="min-h-screen bg-linear-to-br from-gray-50 to-gray-100">
       {/* Hero */}
-      <section className="relative py-32 bg-linear-to-br from-emerald-700 via-emerald-800 to-blue-900 overflow-hidden">
+      <section className="relative py-20 bg-linear-to-br from-emerald-700 via-emerald-800 to-blue-900 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0"
@@ -58,7 +58,7 @@ export function AssistancePage() {
       </section>
 
       {/* Services */}
-      <section className="py-20">
+      <section className="py-14">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
             {services.map((service, index) => (
@@ -99,7 +99,7 @@ export function AssistancePage() {
       </section>
 
       {/* Additional Info */}
-      <section className="py-20 bg-white">
+      <section className="py-14 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

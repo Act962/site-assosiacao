@@ -75,7 +75,7 @@ export function CulturePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="relative py-24 bg-linear-to-br from-purple-800 to-purple-900 overflow-hidden">
+      <section className="relative py-20 bg-linear-to-br from-purple-800 to-purple-900 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div
             className="absolute inset-0"
@@ -104,7 +104,7 @@ export function CulturePage() {
       </section>
 
       {/* Events */}
-      <section className="py-20 bg-gray-50" id="events">
+      <section className="py-14 bg-gray-50" id="events">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -186,7 +186,7 @@ export function CulturePage() {
               ))}
             </div>
           ) : (
-            <div className="text-center py-16 bg-white rounded-2xl">
+            <div className="text-center py-14 bg-white rounded-2xl">
               <CalendarIcon className="w-16 h-16 text-gray-300 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 {t("events.empty.title")}
@@ -198,7 +198,7 @@ export function CulturePage() {
       </section>
 
       {/* Cultural Areas */}
-      <section className="py-20">
+      <section className="py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
