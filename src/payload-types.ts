@@ -326,6 +326,10 @@ export interface Event {
   eventDate?: string | null;
   eventEndDate?: string | null;
   status: 'Rascunho' | 'Publicado';
+  /**
+   * Link do video do evento
+   */
+  videoLink?: string | null;
   updatedAt: string;
   createdAt: string;
   deletedAt?: string | null;
@@ -655,6 +659,7 @@ export interface EventsSelect<T extends boolean = true> {
   eventDate?: T;
   eventEndDate?: T;
   status?: T;
+  videoLink?: T;
   updatedAt?: T;
   createdAt?: T;
   deletedAt?: T;

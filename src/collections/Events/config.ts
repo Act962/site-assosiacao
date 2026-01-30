@@ -144,5 +144,15 @@ export const Events: CollectionConfig = {
         position: "sidebar",
       },
     },
+    {
+      name: "videoLink",
+      label: "Link do video",
+      type: "text",
+      admin: {
+        placeholder: "Ex.: https://www.youtube.com/watch?v=pbOXOY78dNA",
+        description: "Link do video do evento",
+        position: "sidebar",
+      },
+    },
   ],
 };

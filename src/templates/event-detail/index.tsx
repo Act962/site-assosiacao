@@ -2,6 +2,7 @@
 
 import { RichText } from "@/components/payload/components/rich-text";
 import { Button } from "@/components/ui/button";
+import { getYouTubeEmbedUrl } from "@/lib/video";
 import { useQueryEvent } from "@/modules/events/hooks/use-event";
 import { format } from "date-fns";
 import { es, it, ptBR } from "date-fns/locale";
@@ -30,17 +31,35 @@ export function EventDetail({ slug }: { slug: string }) {
     }
   };
 
+  const embedUrl = event?.videoLink
+    ? getYouTubeEmbedUrl(event.videoLink)
+    : null;
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header Image */}
       {event?.coverImage && (
         <div className="relative h-[50vh] overflow-hidden">
-          <img
-            src={event.coverImage.url || ""}
-            alt={event.coverImage.alt}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
+          {embedUrl ? (
+            <iframe
+              style={{ width: "100%", height: "100%" }}
+              src={embedUrl}
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              loading="lazy"
+              allowFullScreen
+            ></iframe>
+          ) : (
+            <>
+              <img
+                src={event.coverImage.url || ""}
+                alt={event.coverImage.alt}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
+            </>
+          )}
         </div>
       )}
 
