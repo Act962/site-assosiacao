@@ -115,6 +115,9 @@ export default function Footer() {
                 <strong>Jornalista Responsável:</strong> Glauco Piai - MTB
                 39.836/SP
               </li>
+              <li className="text-sm text-gray-400 hover:text-emerald-400 transition-colors">
+                <strong>Colaborador:</strong> Edilson Bello
+              </li>
             </ul>
           </div>
 
