@@ -6,6 +6,7 @@ import {
   GlobeIcon,
   HeartHandshakeIcon,
   HeartIcon,
+  NewspaperIcon,
   UsersIcon,
 } from "lucide-react";
 import { motion } from "motion/react";
@@ -108,7 +109,7 @@ export function CTASection() {
               href={"/join?origin=newsletter#form"}
               className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
             >
-              <HeartHandshakeIcon className="w-10 h-10 text-red-300 mb-4" />
+              <NewspaperIcon className="w-10 h-10 text-red-300 mb-4" />
               <h3 className="text-xl font-bold text-white mb-2">
                 {t("cards.newsletter.title")}
               </h3>
