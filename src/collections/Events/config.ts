@@ -11,12 +11,12 @@ export const Events: CollectionConfig = {
   slug: "events",
   trash: true,
   orderable: true,
-  admin: {
-    useAsTitle: "name",
-  },
   labels: {
     singular: "Evento",
     plural: "Eventos",
+  },
+  admin: {
+    useAsTitle: "name",
   },
   fields: [
     {
@@ -37,8 +37,8 @@ export const Events: CollectionConfig = {
       unique: true,
       index: true,
       hooks: {
-        beforeChange: [generateSlugHook],
         beforeValidate: [generateSlugHook],
+        beforeChange: [generateSlugHook],
       },
       admin: {
         placeholder: "Ex.: titulo-do-evento",
