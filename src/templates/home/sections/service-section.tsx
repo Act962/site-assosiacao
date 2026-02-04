@@ -20,45 +20,40 @@ export function ServiceSection() {
   const services = [
     {
       icon: PaletteIcon,
-      title: "Cultura, Tradição e Identidade",
-      description:
-        "Festas típicas, cinema italiano, gastronomia, música e grupos regionais.",
+      title: t("items.culture.title"),
+      description: t("items.culture.description"),
       path: "/culture",
       gradient: "from-purple-500 to-pink-500",
       bgGradient: "from-purple-50 to-pink-50",
     },
     {
       icon: GraduationCapIcon,
-      title: "Cursos e Educação",
-      description:
-        "Cursos de italiano do básico ao avançado, preparação para CELI e CILS.",
+      title: t("items.education.title"),
+      description: t("items.education.description"),
       path: "/courses",
       gradient: "from-blue-500 to-cyan-500",
       bgGradient: "from-blue-50 to-cyan-50",
     },
     {
       icon: HeartHandshakeIcon,
-      title: "Apoio Social e Comunitário",
-      description:
-        "Apoio a italianos recém-chegados e orientação sobre serviços consulares.",
+      title: t("items.support.title"),
+      description: t("items.support.description"),
       path: "/support",
       gradient: "from-emerald-500 to-teal-500",
       bgGradient: "from-emerald-50 to-teal-50",
     },
     {
       icon: BriefcaseIcon,
-      title: "Networking & Negócios",
-      description:
-        "Networking para empreendedores e conexão entre Brasil e Itália.",
+      title: t("items.networking.title"),
+      description: t("items.networking.description"),
       path: "/networking",
       gradient: "from-orange-500 to-amber-500",
       bgGradient: "from-orange-50 to-amber-50",
     },
     {
       icon: ScaleIcon,
-      title: "Área Jurídica e Informativa",
-      description:
-        "Orientações sobre cidadania italiana, imigração e direito de família.",
+      title: t("items.legal.title"),
+      description: t("items.legal.description"),
       path: "/legal",
       gradient: "from-red-500 to-rose-500",
       bgGradient: "from-red-50 to-rose-50",

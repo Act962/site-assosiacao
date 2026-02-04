@@ -72,7 +72,29 @@
       "badge": "I Nostri Servizi",
       "title": "Cosa offriamo",
       "description": "L’Associazione realizza iniziative culturali, formative e sociali finalizzate al rafforzamento della comunità italo-brasiliana, alla promozione dello scambio culturale e alla diffusione dei valori di cittadinanza attiva.",
-      "readMore": "Scopri di più"
+      "readMore": "Scopri di più",
+      "items": {
+        "culture": {
+          "title": "Cultura, Tradizione e Identità",
+          "description": "Feste tipiche, cinema italiano, gastronomia, musica e gruppi regionali."
+        },
+        "education": {
+          "title": "Corsi ed Educazione",
+          "description": "Corsi di italiano dal livello base all'avanzato, preparazione per CELI e CILS."
+        },
+        "support": {
+          "title": "Supporto Sociale e Comunitario",
+          "description": "Supporto ai nuovi arrivati italiani e orientamento sui servizi consolari."
+        },
+        "networking": {
+          "title": "Networking e Affari",
+          "description": "Networking per imprenditori e collegamento tra Brasile e Italia."
+        },
+        "legal": {
+          "title": "Area Legale e Informativa",
+          "description": "Orientamento sulla cittadinanza italiana, immigrazione e diritto di famiglia."
+        }
+      }
     },
     "cta": {
       "title": "Entra a far parte della nostra comunità",

@@ -72,7 +72,29 @@
       "badge": "Nossos Serviços",
       "title": "O que oferecemos",
       "description": "A Associação realiza iniciativas culturais, formativas e sociais voltadas ao fortalecimento da comunidade italo-brasileira, à promoção do intercâmbio cultural e à difusão dos valores da cidadania ativa.",
-      "readMore": "Saiba Mais"
+      "readMore": "Saiba Mais",
+      "items": {
+        "culture": {
+          "title": "Cultura, Tradição e Identidade",
+          "description": "Festas típicas, cinema italiano, gastronomia, música e grupos regionais."
+        },
+        "education": {
+          "title": "Cursos e Educação",
+          "description": "Cursos de italiano do básico ao avançado, preparação para CELI e CILS."
+        },
+        "support": {
+          "title": "Apoio Social e Comunitário",
+          "description": "Apoio a italianos recém-chegados e orientação sobre serviços consulares."
+        },
+        "networking": {
+          "title": "Networking & Negócios",
+          "description": "Networking para empreendedores e conexão entre Brasil e Itália."
+        },
+        "legal": {
+          "title": "Área Jurídica e Informativa",
+          "description": "Orientações sobre cidadania italiana, imigração e direito de família."
+        }
+      }
     },
     "cta": {
       "title": "Faça parte da nossa comunidade",
