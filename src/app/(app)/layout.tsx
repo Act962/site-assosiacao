@@ -50,10 +50,8 @@ export default function RootLayout({
         <TRPCReactProvider>
           <NextIntlClientProvider>
             <NuqsAdapter>
-              <Layout>
-                {children}
-                <Toaster />
-              </Layout>
+              {children}
+              <Toaster />
             </NuqsAdapter>
           </NextIntlClientProvider>
         </TRPCReactProvider>
