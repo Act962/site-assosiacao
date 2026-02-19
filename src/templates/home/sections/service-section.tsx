@@ -2,12 +2,9 @@
 
 import {
   ArrowRightIcon,
-  BookOpenIcon,
   BriefcaseIcon,
-  CalendarIcon,
   GraduationCapIcon,
-  HandshakeIcon,
-  HeartHandshakeIcon,
+  UsersIcon,
   PaletteIcon,
   ScaleIcon,
 } from "lucide-react";
@@ -35,7 +32,7 @@ export function ServiceSection() {
       bgGradient: "from-blue-50 to-cyan-50",
     },
     {
-      icon: HeartHandshakeIcon,
+      icon: UsersIcon,
       title: t("items.support.title"),
       description: t("items.support.description"),
       path: "/support",
